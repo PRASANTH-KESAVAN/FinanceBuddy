@@ -1,0 +1,1483 @@
+text,intent
+Can buoy One use Pet as a category?,category_check
+Show my expenses from last year,expense_get_by_date
+What’s my budget for transportation?,budget_get
+Show my biggest investiture this yr,investment_get_max
+Show my big investment this yr,investment_get_max
+Doe Bonds matter as an investment category?,investment_category_check
+What are my income and preservation?,get_income_savings
+Lavatory I upload a new visibility picture?,profile_update_image
+What figure be linked to my account?,profile_get_info
+How much did I spend last week?,get_weekly_expenses
+What ’ s my profile photo?,get_profile_pic
+Tell pine tree state my weekly disbursal breakdown,get_weekly_expenses
+Can you check my electric placard referable day of the month?,get_electricity_due
+Tell me my utility budget,budget_get
+What ’ s my full account total this month?,bill_get_total
+Can you set a ₹ two hundred budget for personal concern?,budget_add
+What ’ s the charge cycle for my piddle bill?,bill_get_cycle
+Show my future bill payments,get_upcoming_bills
+Give notice you present my electricity ascribable date?,bill_get_electricity_due
+Appearance my spending classification,get_expense_categories
+Display my average grocery store expenses,expense_get_average_by_category
+What ’ s my reciprocal investment company investments?,investment_get_by_category
+Can you show my profile savings?,profile_get_savings
+Lean my upcoming electricity bills,bill_get_upcoming
+Appearance my profile ’ s income and economy,profile_get_income_savings
+Can you show my disbursement average?,expense_get_average
+What ’ s my income and how much do I save?,get_income_savings
+Show my profile embodiment please,profile_get_image
+Derriere you present my exchange traded fund investments?,investment_get_by_category
+What ’ s my monthly outlay course?,expense_get_trend
+Stool Atomic number 53 make a new disbursement category?,category_add
+Can you create a Dividends income category?,income_category_add
+Show my amateur utilities bill,bill_get_unpaid
+Sack you show my subscription bill ’ south cycle?,bill_get_cycle
+Appearance my freelance net for last month,income_get_by_category_date
+Doe Trade good counting as an investment category?,investment_category_check
+Show me all my investiture types,investment_category_get_list
+Throne you number my top expense?,expense_get_max
+Can One prepare a fresh expense category?,category_add
+Set my rip budget to ₹ 2500,budget_update
+Show my disbursal swerve for this year,expense_get_trend
+Tooshie you depict my pending bills?,bill_get_unpaid
+Show my expense from deuce weeks ago,expense_get_by_date
+Change my history photo please,profile_update_image
+Tell pine tree state my education disbursal,expense_get_by_category
+Inclination my expenses from last week,get_weekly_expenses
+How much get along I earn per my profile?,profile_get_income
+What be the sources of my income?,get_income_sources
+What ’ s the terminated investment funds category tilt?,investment_category_get_list
+Show my income and savings summary,get_income_savings
+Display my spending from last week,get_weekly_expenses
+Show my mean dividends income,income_get_average_by_category
+Show my recreational utilities notice,bill_get_unpaid
+Create a ₹1000 budget for utilities,budget_add
+Is Side Hustle a valid income category?,income_category_check
+State pine tree state my largest investment amount,investment_get_max
+What ’ s my grants income this calendar month?,income_get_by_category_date
+Fix a new savings amount for my profile,profile_update_savings
+Rear you list my top income?,income_get_max
+Set upward a ₹ m rent bank bill due monthly,bill_add
+Show my most profitable investment family,investment_get_max_profit
+Privy you exhibit my exchange traded fund investments?,investment_get_by_category
+Hardening my internet bill as paid,bill_update_status
+List my budget created this calendar month,budget_get_by_date
+Appearance my user savings,profile_get_savings
+Display my visibility prototype,profile_get_image
+Can you make a Collectibles investiture category?,investment_category_add
+Tell pine tree state my investment classification tilt,investment_category_get_list
+Tell me astir my entire expenses,get_total_expenses
+What ’ s my most expensive category?,expense_get_max
+Can you exhibit my expenditure trends?,expense_get_trend
+Tell me my great outlay amount,expense_get_max
+List my bank note amount for this month,bill_get_total
+Tilt my expenses for this week,expense_get_by_date
+What ’ s my eminent income this month?,income_get_max
+What ’ s my speculation capital lucre?,investment_get_profit
+Tin you heel my placard totals?,bill_get_total
+Point me every spending class,category_get_list
+My total spending this month?,get_total_expenses
+Record ₹ 4000 for real estate of the realm,investment_add
+Narrate me my largest spending measure,expense_get_max
+Can you list my investment funds aggregate?,investment_get_total
+Can buoy you show my ETF earnings?,investment_get_profit
+List my upcoming electricity bank note,bill_get_upcoming
+Attention deficit hyperactivity disorder ₹ two hundred for food,add_expense
+Produce a Cashback income category,income_category_add
+Tell maine when my powerfulness bill is imputable,bill_get_electricity_due
+Tell me my profile ’ s money counterbalance,profile_get_income_savings
+Can I use Derivatives as an investment category?,investment_category_check
+Show the due date for my electricity federal reserve note,get_electricity_due
+Display my approaching bill list,get_upcoming_bills
+Show my expense category item,get_expense_categories
+Inclination my expense for this Monday,expense_get_by_date
+What ’ s my investiture course this year?,investment_get_trend
+Is Annuities a valid investment category?,investment_category_check
+What ’ s the income I create this month?,get_total_income
+How ’ s my horoscope?,unknown
+What ’ s my full outlay?,get_total_spent
+Practice Iodine have a utilities budget?,budget_check_exists
+Show my rent disbursal trends,expense_get_trend_by_category
+What ’ s my speculation capital letter loss?,investment_get_loss
+Can you represent bite to a category?,category_map
+Record ₹ 1000 for childcare,expense_add
+How much personify saved in my account?,profile_get_savings
+Tell pine tree state my bond investing trends,investment_get_trend_by_category
+When be my utilities bill ascribable?,bill_get_electricity_due
+Embody Grants an income class?,income_category_check
+Update my user embodiment,profile_update_image
+Show my outlay trend for food,expense_get_trend_by_category
+Add a ₹ 2000 budget for split,budget_add
+What be my upcoming broadsheet?,get_upcoming_bills
+Tell me my precious metals investment returns,investment_get_performance
+What ’ s my investment funds profit?,get_profit_loss
+Narrate me my investing income this twelvemonth,income_get_by_category_date
+What ’ s my total billhook amount of money this month?,bill_get_total
+What did One earn from side fuss?,income_get_by_category
+Display my utter budget summary,budget_get_all
+Separate me the billing cycle for my rent bill,bill_get_cycle
+Set up a category for gifts,category_add
+Tell pine tree state my real land investing returns,investment_get_performance
+Tell pine tree state my earnings from net Friday,income_get_by_date
+Can you show my expenditure course?,expense_get_trend
+What income categories are in my account?,income_category_get_list
+Set upwardly a category for holiday,category_add
+What typecast of expense do I have?,get_expense_categories
+Terminate you designate my dividends income this month?,income_get_by_category_date
+Which category for car loanword?,category_map
+Show my total outlay for May,expense_get_total
+What ’ s the thoroughgoing income category list?,income_category_get_list
+Differentiate me my education budget,budget_get
+Show my investment funds answer,get_profit_loss
+Tell me my profits pattern,income_get_trend
+Can you picture my receipts trend?,income_get_trend
+What ’ due south my total investment amount?,investment_get_total
+Show me every spending category,category_get_list
+What ’ s in my investment account?,get_investments
+Tell maine the charge cycle for my rent bill,bill_get_cycle
+Electricity bill due date please,get_electricity_due
+What categories exist in my account?,category_get_list
+Can you show my income from last month?,income_get_by_date
+What ’ s my monthly spending style?,expense_get_trend
+What eyeshade haven ’ t I paid?,bill_get_unpaid
+Can you picture my budget for coffee?,budget_get
+Narrate me my investments for this calendar month,investment_get_by_date
+Did I create a dining come out budget?,budget_check_exists
+What ’ s my login epithet?,profile_get_info
+What ’ s my speculation chapiter loss?,investment_get_loss
+Create a pet expenses category,category_add
+Show my remaining food market budget,budget_check_remaining
+Ass you show my total outlay?,expense_get_total
+Tell me my subscriptions spending last year,expense_get_by_category_date
+Check if I ready a healthcare budget,budget_check_exists
+My chronicle name?,get_name
+Change my user gens to something new,profile_update_name
+What ’ s my monthly income memorialise?,profile_get_income
+Is a rent budget created?,budget_check_exists
+Check if I set an entertainment budget,budget_check_exists
+Tell me my total expense,expense_get_total
+Secernate me my bonuses income last place year,income_get_by_category_date
+What ’ s my investment income movement?,income_get_trend_by_category
+Can you show my subscription pecker ’ siemens cycle?,bill_get_cycle
+What ’ s my account statement ’ s income?,profile_get_income
+Dog tired 1000 on shopping,add_expense
+What’s my total expenditure?,get_total_spent
+Appearance my grocery expenses for concluding calendar month,expense_get_by_category_date
+Food and potable expense please,get_food_expense
+Change my visibility ’ s savings total,profile_update_savings
+What ’ s my total unpaid vizor amount?,bill_get_total
+Show my monthly income sum up,income_get_total
+Map tuition to a family,category_map
+What ’ s my entertainment spending?,expense_get_by_category
+Tell me my real estate investment losses,investment_get_loss
+Show my user name please,profile_get_info
+What investment did Atomic number 53 make this calendar month?,investment_get_by_date
+What ’ s the due escort for electrical energy?,get_electricity_due
+Mapping awarding to an income category,income_category_map
+Add ₹200 for food,add_expense
+What ’ s the charge cycle for my electricity bill?,bill_get_cycle
+Is Side Fuss a valid income class?,income_category_check
+Listing my investments for this week,investment_get_by_date
+What ’ s my investment income trend?,income_get_trend_by_category
+Tell me my wanted metals loss,investment_get_loss
+Add a ₹ 300 budget for groceries,budget_add
+Check if Hobbyhorse be a category,category_check
+Show bills non paid as yet,get_unpaid_bills
+Tell maine my total budget across all category,budget_get_total
+Show the cycle for my gas bill,bill_get_cycle
+What expenses serve Ace get yesterday?,expense_get_by_date
+Appearance my childcare budget,budget_get
+Tooshie you change my profile epithet?,profile_update_name
+Tell pine tree state my delinquent bills,bill_get_unpaid
+Tell maine a fib,unknown
+Check if Hobbies be a family,category_check
+Total monthly spending details,get_total_expenses
+Track ₹300 for groceries,expense_add
+Hebdomadal expense summary,get_weekly_expenses
+Add ₹ 2000 to mutual stock,investment_add
+Separate me my education department spending,expense_get_by_category
+Appearance my electric broadside due date,bill_get_electricity_due
+Can buoy you show up my revenue course?,income_get_trend
+What ’ south on telecasting?,unknown
+Tell me my outgo sum,get_total_spent
+Can you show my income groups?,income_category_get_list
+Add $50 for food,add_expense
+What income did 1 have yesterday?,income_get_by_date
+List my investments for this calendar week,investment_get_by_date
+Appearance my disbursement from last week,expense_get_by_date
+What ’ s my entire budget across categories?,budget_get_all
+Appearance my income from last week,income_get_by_date
+What investment did I make this calendar month?,investment_get_by_date
+What ’ s my account ’ siemens delivery residual?,profile_get_savings
+Can you show my rent expenses this month?,expense_get_by_category_date
+Can you invest ₹ 6000 in hedge fund?,investment_add
+Tell pine tree state about my investment plus,get_investments
+Create a Cashback income class,income_category_add
+Can I upload a new profile pic?,profile_update_image
+List my current investment,get_investments
+What’s my spending pattern?,expense_get_trend
+Show my dining expense,get_food_expense
+Can you show my nonrecreational throwaway history?,bill_get_paid
+Is Stipends an income category?,income_category_check
+What ’ s the class for health care?,category_map
+What bills haven ’ t One paid?,bill_get_unpaid
+Show my outstanding account,get_unpaid_bills
+What’s left in my dining out budget?,budget_check_remaining
+Tail you tell pine tree state all my budget amounts?,budget_get_all
+Can you show my reciprocal fund investiture trends?,investment_get_trend_by_category
+Tilt my disbursal groups,get_expense_categories
+Show my forthcoming bill payment,bill_get_upcoming
+Total a Salary income category,income_category_add
+List all my disbursal class,category_get_list
+What category make up a gym fee?,category_map
+How’s my investment performance?,get_profit_loss
+Differentiate me my income sum,get_total_income
+How much make up my income in my profile?,profile_get_income
+Lav you create a Royal line income category?,income_category_add
+Spent ₹ ccc on utilities,add_expense
+What ’ s the biff for my profile?,profile_get_slug
+What bills cost referable this calendar month?,bill_get_upcoming
+Show my mean freelance income,income_get_average_by_category
+Does Freelancer count as an income category?,income_category_check
+Add a ₹ 1000 income for confab,income_add
+What ’ s my nutrient spending this week?,expense_get_by_category_date
+Tell me my investment sum up,get_investments
+How much was spent on dining?,get_food_expense
+Tell maine my hebdomadary expense breakdown,get_weekly_expenses
+Tell me my account’s slug,profile_get_slug
+Attention deficit disorder an Annuities investiture category,investment_category_add
+Display my bond investment losses,investment_get_loss
+Can you set a ₹600 budget for transportation?,budget_add
+What ’ s my mutual investment company functioning?,investment_get_performance
+What ’ s my investment movement this year?,investment_get_trend
+Order me all my category budget,budget_get_all
+What ' s upward?,unknown
+Tell me my self employed income pattern,income_get_trend_by_category
+Display my average dividends income,income_get_average_by_category
+Display my total spending for English hawthorn,expense_get_total
+What are my investing categories?,investment_category_get_list
+What ’ s my photograph?,get_profile_pic
+Change my profile ’ s saving amount,profile_update_savings
+Represent there a subscription budget?,budget_check_exists
+Appearance my full grown expense this year,expense_get_max
+What ’ s my nearly expensive category?,expense_get_max
+What practise Iodine expend last week?,get_weekly_expenses
+Tell me my name,get_name
+Show my nigh profitable investiture category,investment_get_max_profit
+Show my expenses from the preceding workweek,get_weekly_expenses
+What category practise internet bill descend under?,category_map
+Is Travelling a valid disbursal category?,category_check
+What pecker did I pay this calendar month?,bill_get_paid
+Severalise me my full monthly expenses,get_total_expenses
+Tell me my spending pattern,expense_get_trend
+Show my budget set this workweek,budget_get_by_date
+What ’ s my medium spending per month?,expense_get_average
+Recount me if my subscription bill be paid,bill_check_status
+Check if Collectibles is an investment category?,investment_category_check
+List my expenses for this Monday,expense_get_by_date
+Can you represent snacks to a category?,category_map
+Tell me my existent demesne investments,investment_get_by_category
+Can you show my hedge fund investment performance?,investment_get_performance
+What ’ s my high income this calendar month?,income_get_max
+Appearance my commodities investment gains,investment_get_profit
+Order me my largest investment sum,investment_get_max
+Prove me my gains or loss,get_profit_loss
+Appearance my average expenses this year,expense_get_average
+Can you evince my monthly income?,get_total_income
+Log ₹1000 for transportation,expense_add
+Which category for slope hustle?,income_category_map
+What ’ s my loss from line of descent?,investment_get_loss
+Alteration my profile ’ s deliverance sum,profile_update_savings
+What ’ s my mutual fund loss?,investment_get_loss
+Show all my disbursal classifications,category_get_list
+Show my account ’ s income and deliverance,profile_get_income_savings
+Can you resume my income and savings?,profile_get_income_savings
+List my expense groups,get_expense_categories
+Record an expense of ₹ 600 on rent,add_expense
+Rump I see my photo?,get_profile_pic
+What investing family is ETFs?,investment_category_map
+Update my earnings in my score,profile_update_income
+My imputable bills?,get_upcoming_bills
+Show my trammel investing losses,investment_get_loss
+What ’ s my account holder name?,get_name
+Which payments are referable next?,get_upcoming_bills
+Posterior you show my profile preservation?,profile_get_savings
+Tell apart pine tree state my spending pattern,expense_get_trend
+Nutrient and drink expense please,get_food_expense
+Show my most profitable investiture category,investment_get_max_profit
+Show my income trend for this year,income_get_trend
+Can you show my pending bills?,bill_get_unpaid
+Can you show my gain and going?,get_profit_loss
+Can you heel my invoice total?,bill_get_total
+Show banknote due this workweek,bill_get_upcoming
+Separate me my grocery spending pattern,expense_get_trend_by_category
+Make a Freelance income class,income_category_add
+Alteration my user name to something new,profile_update_name
+My expense types delight,get_expense_categories
+What ’ s my high income this month?,income_get_max
+Can you show my entire budget for this month?,budget_get_total
+Display my next poster payments,get_upcoming_bills
+What ’ s the class for investment funds income?,income_category_map
+Can you show my entertainment spending trends?,expense_get_trend_by_category
+Phonograph record 300 rupees for cyberspace,add_expense
+Showing my photo,get_profile_pic
+Modification my report photo please,profile_update_image
+Show my electrical energy bill particular,bill_get_electricity_due
+Record me what my avatar face like,get_profile_pic
+Show my average expense this twelvemonth,expense_get_average
+Lean my pay up bills this week,bill_get_paid
+What ’ s my average food spending?,expense_get_average_by_category
+How ’ s the store marketplace?,unknown
+Tell pine tree state my largest spending amount,expense_get_max
+Can you severalize me my income amount?,profile_get_income
+Show my spending tendency for food,expense_get_trend_by_category
+What ’ s my overall budget sum of money?,budget_get_total
+Tell me my profile’s money balance,profile_get_income_savings
+What follow my public figure?,get_name
+How much did I spend overall?,get_total_expenses
+Can you show my total budget for this month?,budget_get_total
+Show my income movement for salary,income_get_trend_by_category
+What ’ s my dine extinct spending this month?,expense_get_by_category_date
+Show my norm expenses this class,expense_get_average
+Tell me my utilities spending,expense_get_by_category
+Tell pine tree state my spending normal,expense_get_trend
+What bills are due soon?,get_upcoming_bills
+Tell me astir bills coming upwardly,bill_get_upcoming
+Is my cable card paid until now?,bill_check_status
+What ’ s my near expensive category?,expense_get_max
+What income category is dividends?,income_category_map
+State me the types of income I track,income_category_get_list
+What budget did 1 set this class?,budget_get_by_date
+What represent all my budgets?,budget_get_all
+Assure maine my investment income this class,income_get_by_category_date
+What’s the category for utilities?,category_map
+Which category for forex?,investment_category_map
+Can you show my entire investment funds economic value?,investment_get_total
+Can I see my photograph?,get_profile_pic
+Buns you show my revenue style?,income_get_trend
+Is Angel Investing an investment category?,investment_category_check
+How much money did I make this month?,get_total_income
+Is my internet bill paid?,bill_check_status
+Be Grants an income category?,income_category_check
+Appearance my average dividends income,income_get_average_by_category
+Appearance my expenses from last year,expense_get_by_date
+Change my story photo please,profile_update_image
+What class is clothing?,category_map
+Show my average rent disbursement,expense_get_average_by_category
+Is Travel a valid expense category?,category_check
+Tell maine my bonuses income,income_get_by_category
+What investment categories can I use?,investment_category_get_list
+Displace you show my personal upkeep expenses last week?,expense_get_by_category_date
+What ’ s my login public figure?,profile_get_info
+Point pine tree state my account pic,profile_get_image
+What ’ randomness my full spending this month?,expense_get_total
+Add ₹ 4500 for prize,income_add
+Log ₹ 350 for gift,expense_add
+What’s the category for pensions?,income_category_map
+Can you shew my personal care disbursement last place week?,expense_get_by_category_date
+List my investment type,get_investments
+Say pine tree state my earnings pattern,income_get_trend
+My spending categories?,get_expense_categories
+Can you list my top expense?,expense_get_max
+Where does my income come from?,get_income_sources
+Tot up a Venture Das kapital investment category,investment_category_add
+Tell me my education spending,expense_get_by_category
+Which class for a restaurant card?,category_map
+Add a ₹300 budget for dining out,budget_add
+Show my adhesion investing profits,investment_get_profit
+Can you list every investment category I can use?,investment_category_get_list
+Listing my tracked expense type,category_get_list
+Can you heel my top income?,income_get_max
+List my expense types please,category_get_list
+What ' s my profit oregon loss?,get_profit_loss
+Severalise me my investing income,income_get_by_category
+Can you show my bill epithet?,profile_get_info
+Can you establish my profile photograph?,get_profile_pic
+Tell maine if my phone bill constitute clear,bill_check_status
+Where ’ s my income coming from?,get_income_sources
+What ’ s my speculation capital profit?,investment_get_profit
+Add a ₹ 250 accelerator bill due bismuth - weekly,bill_add
+What’s my mutual fund loss?,investment_get_loss
+What ’ s my in high spirits expense this month?,expense_get_max
+Appearance my bond investiture profits,investment_get_profit
+Can you point my split budget equalizer?,budget_check_remaining
+What investiture family is speculation capital?,investment_category_map
+Differentiate me about my investment plus,get_investments
+Go over my insurance handbill status,bill_check_status
+Can you adjust my subscriptions budget to ₹ 600?,budget_update
+Contain my insurance bill status,bill_check_status
+Show the position of my water banker's bill,bill_check_status
+How much embody salvage in my account?,profile_get_savings
+What bills embody coming up?,get_upcoming_bills
+I need facilitate,unknown
+What ’ s my profile ’ s full name?,profile_get_info
+Recite me my largest investment funds amount,investment_get_max
+Tell me my expenditure final month,expense_get_by_date
+Show me every disbursement class,category_get_list
+Tell me my real estate investment returns,investment_get_performance
+Can I use Peer-to-Peer Lending as an investment category?,investment_category_check
+How much comprise my total expenditure?,get_total_expenses
+List my unpaid bills,get_unpaid_bills
+List all category for income,income_category_get_list
+What ' s my username?,get_name
+Appearance my explanation slug please,profile_get_slug
+What ’ s pending for requital?,get_unpaid_bills
+Can you exhibit my income average?,income_get_average
+Show my total investments for this year,investment_get_total
+How much of my food budget is leave alone?,budget_check_remaining
+My investing profit beaver state loss?,get_profit_loss
+Secernate maine my profile ’ s money balance,profile_get_income_savings
+What bills do One pay this calendar month?,bill_get_paid
+What bills haven’t I paid?,get_unpaid_bills
+What ’ s my venture capital investments?,investment_get_by_category
+Assure me my bonuses income,income_get_by_category
+Distinguish me my investment funds income,income_get_by_category
+Show my spending categories,get_expense_categories
+Can you register my hedge fund investment?,investment_get_by_category
+Show my electric bill ascribable appointment,get_electricity_due
+Tell me my earnings and savings breakdown,get_income_savings
+What’s my full budget list?,budget_get_all
+Hind end you summate a new class?,category_add
+What ’ s my monthly outgo tendency?,expense_get_trend
+Tell pine tree state my precious alloy investments,investment_get_by_category
+Add ₹ 200 for personal care,expense_add
+Order maine my highest profit investment,investment_get_max_profit
+Lavatory you register my electricity due date?,bill_get_electricity_due
+Show my complete outlay this month,get_total_expenses
+Tell me my investments sum up,investment_get_total
+Can you demo my rental income trends?,income_get_trend_by_category
+Give the axe you list my investment total?,investment_get_total
+What’s my savings balance in my profile?,profile_get_savings
+Appearance my substance abuser savings,profile_get_savings
+What ’ s my monthly income trend?,income_get_trend
+Exhibit my profile image,get_profile_pic
+Can you list every investment funds family I can apply?,investment_category_get_list
+What’s my mutual fund performance?,investment_get_performance
+Appearance my complete spending this calendar month,get_total_expenses
+Display my investment performance,get_profit_loss
+Set upwards a ₹ 800 car loan bill imputable monthly,bill_add
+Lavatory you show my hedging fund investments?,investment_get_by_category
+Show the streams of my earnings,get_income_sources
+Tell maine my fillip income,income_get_by_category
+Is my internet bill devote?,bill_check_status
+Can you show my average rental income?,income_get_average_by_category
+Rump you create a Royalty income class?,income_category_add
+I need help,unknown
+Add ₹ 500 for groceries,expense_add
+What ' s my entire income this month?,get_total_income
+Change my grocery store budget to ₹ 400,budget_update
+Display my explanation pictorial matter,get_profile_pic
+What budget come I countersink this year?,budget_get_by_date
+Can you number my investment funds sum?,investment_get_total
+Who am I?,get_name
+Tell pine tree state when my electric bank bill is ascribable,get_electricity_due
+Can One upload a modern visibility pic?,profile_update_image
+What ’ s my average food outgo?,expense_get_average_by_category
+What ’ s my electricity defrayal day of the month?,get_electricity_due
+Check if Subscriptions is a category,category_check
+Tell me my total budget across all class,budget_get_total
+Change my account photo please,profile_update_image
+Show my pending bills,get_unpaid_bills
+What are my expense character class?,get_expense_categories
+What ’ s my median food for thought spending?,expense_get_average_by_category
+Show my big investment this class,investment_get_max
+What ’ sulphur my amusement budget?,budget_get
+Tell me about my profile ’ siemens savings,profile_get_savings
+Read pine tree state my name,get_name
+Can you show my paid bill account?,bill_get_paid
+Narrate me my earnings for this twelvemonth,income_get_by_date
+Can you present my split budget balance?,budget_check_remaining
+Tell pine tree state my real estate investments,investment_get_by_category
+Record ₹ 3000 for first derivative,investment_add
+Make a category for locomotion,category_add
+Can you shew my amusement spending movement?,expense_get_trend_by_category
+List my striking payment,get_unpaid_bills
+Hold in if my rent note is paid,bill_check_status
+Show my food market expense for last place month,expense_get_by_category_date
+Adhd an expense of ₹ 150 for dine out,add_expense
+What ’ s my mutual monetary fund investiture?,investment_get_by_category
+List my investment categories please,investment_category_get_list
+Tell me my spending category type,category_get_list
+Tell pine tree state my profits and loss details,get_profit_loss
+Can you show my personal precaution budget left?,budget_check_remaining
+What ’ s my receipts this month?,income_get_total
+Add a ₹ 300 budget for market,budget_add
+Enjoin me my subscriptions budget balance,budget_check_remaining
+List my budgets created this month,budget_get_by_date
+Can you read my total investment note value?,investment_get_total
+What ’ s my ordinary income per month?,income_get_average
+What ’ s my budget for personal upkeep?,budget_get
+Display all my income classifications,income_category_get_list
+Bum you name my income total?,income_get_total
+Display all my investment classification,investment_category_get_list
+Doe Business numeration as an income family?,income_category_check
+Add a ₹1000 income for consulting,income_add
+Can you list my top investing?,investment_get_max
+My due bills?,get_upcoming_bills
+List my expenses for this Mon,expense_get_by_date
+What ’ s my listing of income categories?,income_category_get_list
+Tell pine tree state my cherished alloy investment returns,investment_get_performance
+Electrical energy bill referable date please,get_electricity_due
+What income category are in my accounting?,income_category_get_list
+Tell me my total expense sum up,get_total_expenses
+What’s my total budget across categories?,budget_get_all
+Can you total ₹ 3500 for royalties?,income_add
+Leaning my budgets for all class,budget_get_all
+Can you show my revenue trends?,income_get_trend
+Show my total spending for May,expense_get_total
+Which category for a phone peak?,category_map
+Tell pine tree state my tangible estate investments,investment_get_by_category
+Spent ₹ 2000 on pension,income_add
+List my spending for the terminal week,get_weekly_expenses
+Have me see my invoice image,profile_get_image
+Can you update my rescue in my visibility?,profile_update_savings
+What ’ s my salary income this week?,income_get_by_category_date
+What ’ s my entire bill sum this month?,bill_get_total
+Add together a Cryptocurrency investment category,investment_category_add
+Tell pine tree state my total budget across all categories,budget_get_total
+Let me see my picture,get_profile_pic
+Tell me my investing restoration,get_profit_loss
+Can you convert my visibility epithet?,profile_update_name
+What ’ s my budget for public service corporation this calendar month?,budget_get
+Display my category leaning,category_get_list
+Can you show my rent budget balance?,budget_check_remaining
+Update my savings in my news report,profile_update_savings
+What ’ s the complete class leaning?,category_get_list
+Show my entire bills imputable this month,bill_get_total
+List all my investment categories,investment_category_get_list
+What ' s my electrical energy posting?,get_electricity_due
+Show my expense slew for this year,expense_get_trend
+Give notice you demo my dividend income?,income_get_by_category
+List my pecker amounts for this calendar month,bill_get_total
+What bills be ascribable this calendar month?,bill_get_upcoming
+Display my passive income,income_get_by_category
+Tush you tell me my income sum?,profile_get_income
+Display my investments from last week,investment_get_by_date
+Embody Rental Income a valid family?,income_category_check
+Display my investments from lowest week,investment_get_by_date
+What ’ s my income and how much arrange I save?,get_income_savings
+Update my dining out budget to ₹ 400,budget_update
+Can you exhibit my net profit and savings?,profile_get_income_savings
+Show my average grocery expense,expense_get_average_by_category
+Can you show my top gain investments?,investment_get_max_profit
+Can you show my din forbidden budget?,budget_get
+Privy I expend Investments as an income category?,income_category_check
+Leaning my unpaid rent bills,bill_get_unpaid
+Show handbill due this workweek,bill_get_upcoming
+Appearance my exchange traded fund investment trends,investment_get_trend_by_category
+What bills did I pay this month?,bill_get_paid
+What’s the complete category list?,category_get_list
+What ’ s my utilities spend tendency?,expense_get_trend_by_category
+Nates you list my top income?,income_get_max
+Leaning my paid bills this workweek,bill_get_paid
+Show my median grocery expenses,expense_get_average_by_category
+Can you show my total revenue?,income_get_total
+Show my forthcoming bill payments,bill_get_upcoming
+Tell me a story,unknown
+Stage set my flatulence bill as paid,bill_update_status
+Demonstrate pine tree state all my expenses this month,get_total_spent
+Give the axe you list my spending total?,expense_get_total
+What ’ s my transport budget left?,budget_check_remaining
+Tail you show my visibility rescue?,profile_get_savings
+Hindquarters you list every category I can habituate?,category_get_list
+Appearance my exploiter savings,profile_get_savings
+Show my investing portfolio,get_investments
+Severalise maine my bills due this calendar month,get_upcoming_bills
+Can you summarise my income and savings?,profile_get_income_savings
+Create a ₹ three hundred internet eyeshade due on May 15,bill_add
+Tell maine my highest lucre investment,investment_get_max_profit
+What ’ s my neckcloth investment performance?,investment_get_performance
+Say me my remaining entertainment budget,budget_check_remaining
+Add together a Refunds income category,income_category_add
+List my unpaid bills delight,bill_get_unpaid
+What categories are in my account?,category_get_list
+What investments did Ane puddle this month?,investment_get_by_date
+Presentation my exploiter photo,get_profile_pic
+Can you show my common fund investment trends?,investment_get_trend_by_category
+How much did Atomic number 53 drop net week?,get_weekly_expenses
+Show my total income,get_total_income
+Say me my spending union,expense_get_total
+Show my mediocre market expenses,expense_get_average_by_category
+Display my average income this year,income_get_average
+Make a ₹ 400 budget for vesture,budget_add
+What do 1 spend on nutrient this month?,expense_get_by_category
+What did I expend on food this calendar month?,expense_get_by_category
+Crapper you show my dining out expenses?,expense_get_by_category
+Set up a ₹ 1000 rent vizor due monthly,bill_add
+Did One create a dine out budget?,budget_check_exists
+Show pine tree state nib I haven ’ triiodothyronine paid,get_unpaid_bills
+My galvanic bill due?,get_electricity_due
+What category is food for thought?,category_map
+When ’ s my electrical energy bill imputable?,bill_get_electricity_due
+Tell maine my precious metals investment,investment_get_by_category
+Update my rent government note to yield,bill_update_status
+Tell me my earnings and nest egg aggregate,profile_get_income_savings
+What ’ s my mutual investment trust investing?,investment_get_by_category
+What ’ s my profile ’ sulphur photo?,profile_get_image
+Can you exhibit my revenue trend?,income_get_trend
+Show my grocery expenses,get_food_expense
+Add a ₹ 800 budget for debt payments,budget_add
+Logarithm ₹ 350 for gifts,expense_add
+Position a newfangled income for my profile,profile_update_income
+Show my foodstuff expense for last month,expense_get_by_category_date
+Make a Buck private Equity investment category,investment_category_add
+My total earnings this month?,get_total_income
+Distinguish me if my subscription bill be pay,bill_check_status
+What ’ s my average intellectual nourishment outlay?,expense_get_average_by_category
+Secernate me my average monthly income,income_get_average
+Can you log ₹ 3500 for refund?,income_add
+What’s the category for derivatives?,investment_category_map
+Invest ₹ 2500 in private equity,investment_add
+Backside you tell me my income types?,income_category_get_list
+What budget answer I set this class?,budget_get_by_date
+My spending last week?,get_weekly_expenses
+Tell me my disbursal traffic pattern,expense_get_trend
+Fire you show my income norm?,income_get_average
+Update my pee bill to pay,bill_update_status
+List my investment aggregate,investment_get_total
+Display my outstanding bill listing,bill_get_unpaid
+Tell me my median utilities spending,expense_get_average_by_category
+Can you show my total consumption?,expense_get_total
+Show my average split expense,expense_get_average_by_category
+Can you behave math?,unknown
+Can you see my galvanic bill ascribable?,bill_get_electricity_due
+What ’ s the category for trade good?,investment_category_map
+Inclination my budgets for all category,budget_get_all
+How much profit beaver state loss did Iodine make?,get_profit_loss
+Is my internet account paid?,bill_check_status
+What ’ s my investment funds trend this year?,investment_get_trend
+Show my norm expense this year,expense_get_average
+Appearance my commodities investment performance,investment_get_performance
+When ’ s my electricity defrayal?,get_electricity_due
+Create a ₹ three hundred internet notice due on English hawthorn 15,bill_add
+Add ₹ 4000 to commodities,investment_add
+What ’ s left in my utility budget?,budget_check_remaining
+Can you prove my income from last place calendar month?,income_get_by_date
+Show my most profitable investing category,investment_get_max_profit
+What ’ s my investment income course?,income_get_trend_by_category
+Can you rig my cable bill as yield?,bill_update_status
+Add ₹ 5000 to venture chapiter,investment_add
+What ’ s my profile characterisation look like?,profile_get_image
+Rump you show my investing this yr?,investment_get_by_date
+What categories are available for expense?,category_get_list
+Display my income from last year,income_get_by_date
+Show my biggest disbursement this year,expense_get_max
+Show my user delivery,profile_get_savings
+Tell me my utilities spending this year,expense_get_by_category_date
+What’s my average spending per month?,expense_get_average
+Ass you list budget create last week?,budget_get_by_date
+What ’ s my average food disbursal?,expense_get_average_by_category
+What ’ s my cryptocurrency investment net income?,investment_get_profit
+Log four hundred rupees for subscriptions,add_expense
+What ’ s my venture capital carrying out?,investment_get_performance
+Add a family for hobbies,category_add
+What image follow on my visibility?,profile_get_image
+Tell me my real the three estates investment loss,investment_get_loss
+Doe Business count as an income family?,income_category_check
+Can you recount maine every investment category?,investment_category_get_list
+Show my investment accounts,get_investments
+Tin can you show my disbursal radical?,get_expense_categories
+Appearance my outgo trends for food,expense_get_trend_by_category
+What ’ s my investment style this twelvemonth?,investment_get_trend
+Can you demo my income average?,income_get_average
+List my paid bills this hebdomad,bill_get_paid
+Stage set up a ₹ one thousand rent bill due monthly,bill_add
+Can you show my ETF investment funds performance?,investment_get_performance
+Does Personal Care count as a category?,category_check
+List my amateur bills delight,bill_get_unpaid
+Change my grocery budget to ₹ cd,budget_update
+Spent ₹700 for subscriptions,expense_add
+Show my total disbursement,get_total_spent
+Tell maine my paid bill for this month,bill_get_paid
+Can you shew my expenditure trend?,expense_get_trend
+Appearance my average income this year,income_get_average
+What did Ace expend on transportation final month?,expense_get_by_category_date
+Show my spending trends for intellectual nourishment,expense_get_trend_by_category
+What ’ s my full investment funds amount?,investment_get_total
+Tell me my average utilities outgo,expense_get_average_by_category
+What ’ s the public figure affiliate with my user?,profile_get_info
+Make a ₹ 1000 budget for utility,budget_add
+What ’ s my pay bill total?,bill_get_paid
+Update my piddle vizor to paid,bill_update_status
+Hind end you list budgets created final week?,budget_get_by_date
+Can you list my beak totals?,bill_get_total
+Tell maine my freelance income figure,income_get_trend_by_category
+Put up you list my total spending?,get_total_spent
+Add ₹2000 to mutual funds,investment_add
+Check if One localise an entertainment budget,budget_check_exists
+My weekly disbursal delight,get_weekly_expenses
+What ’ s my income for this month?,get_total_income
+Show my budget set this hebdomad,budget_get_by_date
+My unpaid bill summary?,get_unpaid_bills
+Can you evidence my royalties income net calendar week?,income_get_by_category_date
+Can you depict my top profit investment?,investment_get_max_profit
+Can you show my electricity due particular date?,bill_get_electricity_due
+Can you list every budget 1 set?,budget_get_all
+Add a ₹ 200 phone bill due in x day,bill_add
+Record ₹500 spent on dining,expense_add
+Display my account ’ s income and savings,profile_get_income_savings
+What ’ s left in my dining out budget?,budget_check_remaining
+What be all my budgets?,budget_get_all
+Can you prove my rent budget balance?,budget_check_remaining
+Leaning my income sources,get_income_sources
+What ’ s my full budget list?,budget_get_all
+My account name?,get_name
+Show my mean rent expenses,expense_get_average_by_category
+Show my expenses from the past 7 days,get_weekly_expenses
+Add ₹ 5000 for salary,income_add
+What ’ s my expenditure this calendar month?,expense_get_total
+What ’ s the meter?,unknown
+What ’ s my nearly profitable investment funds?,investment_get_max_profit
+Can you evince my outlay norm?,expense_get_average
+Create a Passive Income category,income_category_add
+What ’ s my nigh expensive category?,expense_get_max
+Shew the name on my substance abuser profile,profile_get_info
+Create a ₹ 700 insurance note due quarterly,bill_add
+Record ₹ 3000 for derivatives,investment_add
+What ' s my entire outgo this calendar month?,get_total_spent
+Display my all over spending this month,get_total_expenses
+Show my report ’ s income and savings,profile_get_income_savings
+How much is my income positive saving?,profile_get_income_savings
+Set a new name for my visibility,profile_update_name
+Show me my gains or losses,get_profit_loss
+What’s the category for cashback?,income_category_map
+Show the cycle for my gasolene bill,bill_get_cycle
+Modification my health care budget to ₹ 800,budget_update
+Can you add ₹ 3500 for royal house?,income_add
+What investments do Iodin receive?,get_investments
+Map doctor visit to a category,category_map
+Show my bad income this yr,income_get_max
+Tell me how I make my money,get_income_sources
+Appearance my user gens please,profile_get_info
+Can you lean my top investments?,investment_get_max
+What’s my average income per month?,income_get_average
+Tell maine my pay sum,income_get_total
+What are my investment groups?,investment_category_get_list
+Show my james bond investiture profits,investment_get_profit
+What’s my expense total for this month?,get_total_expenses
+Tell me astir my income source,get_income_sources
+Which category for freelance body of work?,income_category_map
+Tell apart pine tree state my subscriptions spending last twelvemonth,expense_get_by_category_date
+Show the name on my substance abuser visibility,profile_get_info
+What’s my monthly income recorded?,profile_get_income
+Spent ₹ 700 on health care,add_expense
+What ’ s my well nigh lucrative income class?,income_get_max
+Evidence me my freelance income rule,income_get_trend_by_category
+Severalise me my average investment income,income_get_average_by_category
+Which category for bonds?,investment_category_map
+Toilet you set a budget for travel?,budget_add
+Say me my expenses for utmost calendar week,get_weekly_expenses
+Video display my photo,get_profile_pic
+Fire you present my entertainment spending trends?,expense_get_trend_by_category
+Set a new income for my profile,profile_update_income
+Is Charity an expense category?,category_check
+Commode you create a Commissions income class?,income_category_add
+Localize a raw name for my profile,profile_update_name
+Can Ane make a newfangled expense family?,category_add
+Show my income from last yr,income_get_by_date
+Show my electricity nib details,bill_get_electricity_due
+Spent ₹4000 on cashback,income_add
+My upcoming bills please,get_upcoming_bills
+Can you number my top investments?,investment_get_max
+Can you list budget created last calendar week?,budget_get_by_date
+Show me every income category,income_category_get_list
+What ’ s my food budget this month?,get_food_expense
+Electricity bill due?,get_electricity_due
+Invest ₹ 3500 in cryptocurrency,investment_add
+Mbd ₹ 3000 for pastime,income_add
+Exercise Unity have a utilities budget?,budget_check_exists
+What ’ reciprocal ohm my total expenditure?,get_total_spent
+How much do I garner and save?,get_income_savings
+My total outgo please,get_total_spent
+How much money did I defecate this calendar month?,get_total_income
+Record ₹ 700 for healthcare sojourn,expense_add
+Exercise Unity make a utilities budget?,budget_check_exists
+Can you show my gains and losses?,get_profit_loss
+Read me my expense classification,get_expense_categories
+Force out you update my profile picture?,profile_update_image
+Tell pine tree state my investing last month,investment_get_by_date
+My disbursal this calendar month?,get_total_spent
+What exist my ancestry investments?,investment_get_by_category
+Add a category for hobbies,category_add
+Distinguish me my average investment income,income_get_average_by_category
+What ’ s my lucre in my account?,profile_get_income
+Tell me about my income this month,get_total_income
+Where’s my income coming from?,get_income_sources
+Which class for royalty?,income_category_map
+What’s the category for healthcare?,category_map
+Can you show my substance abuser photograph?,profile_get_image
+Tell me about bills I paid recently,bill_get_paid
+What ’ s my cryptocurrency investiture net income?,investment_get_profit
+Show my biggest income this twelvemonth,income_get_max
+Can you add a ₹400 cable bill due weekly?,bill_add
+Show my electrical energy bill referable date,get_electricity_due
+What ’ s the majuscule of French republic?,unknown
+Show my bank bill summary for this month,bill_get_total
+What ’ s my mellow investment this calendar month?,investment_get_max
+State me my profile ’ s slug time value,profile_get_slug
+Can you tell pine tree state all my budget amounts?,budget_get_all
+Can you adapt my subscriptions budget to ₹ 600?,budget_update
+Tail you show my income from last month?,income_get_by_date
+Enjoin me my freelance income pattern,income_get_trend_by_category
+What ’ s my bill entire for May?,bill_get_total
+Tot a ₹ 250 gas pedal bill due bi - weekly,bill_add
+Show my chronicle ’ s income and savings,profile_get_income_savings
+Distinguish me my largest income amount,income_get_max
+What ’ s my salary income this month?,income_get_by_category
+My electricity bill referable appointment,get_electricity_due
+Alteration my profile ’ s savings amount,profile_update_savings
+Enjoin me my galvanizing notice due date,bill_get_electricity_due
+What’s my grocery spending this month?,get_food_expense
+What ’ s my common monetary fund loss?,investment_get_loss
+Lot up a Bonuses income category,income_category_add
+Distinguish me my account ’ second slug,profile_get_slug
+What ’ s my venture capital profit?,investment_get_profit
+My earnings and preservation?,get_income_savings
+Bathroom you add ₹ k for dividend?,income_add
+Add a ₹ 200 phone bill referable in 10 days,bill_add
+Appearance my biggest investing this year,investment_get_max
+Mark my electricity bill as paid,bill_update_status
+Fundament you update my income in my profile?,profile_update_income
+Add a ₹ 2000 budget for snag,budget_add
+Severalize pine tree state my spending from last Friday,expense_get_by_date
+What ’ s my earnings from bloodline?,investment_get_profit
+What income family is interest?,income_category_map
+What’s my cryptocurrency investment returns?,investment_get_performance
+Display my pending card,get_unpaid_bills
+What ’ s my investment course this year?,investment_get_trend
+Show my expense category options,category_get_list
+What ’ s the status of my electricity bill?,bill_check_status
+Name my current investments,get_investments
+Show me the full list of categories,category_get_list
+Show my average disbursement this twelvemonth,expense_get_average
+Tell maine the nub of my bills,bill_get_total
+Give the sack you show my paid public service corporation broadside?,bill_get_paid
+What be my name?,get_name
+What ’ s my full budget tilt?,budget_get_all
+How do I wangle alimentary paste?,unknown
+Show my total investiture summary,investment_get_total
+Can you tell pine tree state my epithet?,get_name
+Fire you total ₹ 600 for healthcare?,expense_add
+What ’ s my replete public figure?,get_name
+World health organization ’ s the user of this account?,get_name
+Which family does groceries accrue under?,category_map
+Show my outstanding bill list,bill_get_unpaid
+What income category is grant?,income_category_map
+What ’ s the category for real estate investments?,investment_category_map
+Show my norm disbursal this year,expense_get_average
+Map maintenance to an income category,income_category_map
+Can Single utilise Peer - to - Peer Lending as an investment family?,investment_category_check
+Change my profile’s income amount,profile_update_income
+Put a new image for my profile,profile_update_image
+My bills due soon?,get_upcoming_bills
+Tell me my income amount,get_total_income
+What measure be due this month?,bill_get_upcoming
+Show my profile ’ atomic number 16 unequalled slug,profile_get_slug
+Display my investment trends for stock,investment_get_trend_by_category
+Set up a ₹400 budget for entertainment,budget_add
+What ’ s my full name?,get_name
+Tell me astir my intellectual nourishment costs,get_food_expense
+What ’ s left in my din out budget?,budget_check_remaining
+What did I pull in from side hustle last calendar month?,income_get_by_category_date
+What ’ s the family for investment income?,income_category_map
+Order me my insurance bill ’ s billing cycle,bill_get_cycle
+List my gains and losses,get_profit_loss
+Set a novel figure for my visibility,profile_update_name
+What ’ s the complete investiture category tilt?,investment_category_get_list
+Record ₹ 3000 for investments,income_add
+Summate a category for home repairs,category_add
+Energy department Cashback reckoning as an income category?,income_category_check
+Display my visibility avatar please,profile_get_image
+Show my commodities investment,investment_get_by_category
+What ’ sulphur my entire income this month?,income_get_total
+What ’ s today ’ s tidings?,unknown
+Show me my user picture,profile_get_image
+Toilet you show my mutual fund investiture trends?,investment_get_trend_by_category
+Can you show up my total investment funds value?,investment_get_total
+List where my income exist from,get_income_sources
+Can you insure if Books be a category?,category_check
+Update my account public figure please,profile_update_name
+My investment losses please,get_profit_loss
+Update my food budget to ₹600,budget_update
+Tell me my total budget across all categories,budget_get_total
+Can you picture my average entertainment disbursal?,expense_get_average_by_category
+Tin you show my mutual fund investing vogue?,investment_get_trend_by_category
+List all my income source family,income_category_get_list
+Can I delete my profile ’ s name?,profile_update_name
+What’s my total expense amount?,get_total_expenses
+Give notice you show my earnings and savings?,profile_get_income_savings
+What ' s my food outgo this calendar month?,get_food_expense
+Be Common Fund a valid category?,investment_category_check
+Can you create an Pursuit income category?,income_category_add
+Which category for hedge finances?,investment_category_map
+Is my internet bill give?,bill_check_status
+Marking my indemnity bill as paid,bill_update_status
+Tell me my profile ’ atomic number 16 slug economic value,profile_get_slug
+When make up my utilities banker's bill ascribable?,bill_get_electricity_due
+Show my pay bill summary,bill_get_paid
+Separate me my earnings from last Fri,income_get_by_date
+Which class for a phone card?,category_map
+Can you show my earnings and rescue?,profile_get_income_savings
+Distinguish me about my visibility ’ s income,profile_get_income
+Crack if Hedge Fund is an investment category?,investment_category_check
+Profile pic please,get_profile_pic
+Tell me my insurance broadside ’ s billing cycles/second,bill_get_cycle
+What ’ s my investing trend this yr?,investment_get_trend
+Set my personal care budget to ₹ three hundred,budget_update
+Is Debt Payments a category?,category_check
+What investment category is angel investing?,investment_category_map
+Demonstrate pine tree state every budget I have,budget_get_all
+Show my banknote summary for this calendar month,bill_get_total
+Display my ETF investiture trends,investment_get_trend_by_category
+Which category for individual fairness?,investment_category_map
+Set up a Pensions income class,income_category_add
+Can you recount maine every income category?,income_category_get_list
+Toilet you render my ETF profits?,investment_get_profit
+Alteration my user name to something novel,profile_update_name
+Can you read my average rental income?,income_get_average_by_category
+What’s my budget for food?,budget_get
+Set upward a ₹ 1000 rip bill referable monthly,bill_add
+Invest ₹5000 in stocks,investment_add
+What’s my utilities spending trend?,expense_get_trend_by_category
+Appearance my grocery expenses for utmost month,expense_get_by_category_date
+Log a ₹750 utility bill,bill_add
+Appearance my total spending sum up,get_total_expenses
+Tin can you show my rip expenses?,expense_get_by_category
+Show my healthcare expenses this workweek,expense_get_by_category_date
+Update my news report name please,profile_update_name
+Show my mediocre grocery expenses,expense_get_average_by_category
+Which bills are stock still ascribable?,bill_get_unpaid
+Show me every investing family,investment_category_get_list
+Derriere you point my total bill payment?,bill_get_total
+Embody Maintenance a valid income category?,income_category_check
+What ’ s the class for derivative?,investment_category_map
+What ’ s my next posting payment?,bill_get_upcoming
+Can you show my exchange traded fund net income?,investment_get_profit
+What ’ s my fair spending per month?,expense_get_average
+Tell me my average monthly income,income_get_average
+Display my rent expense trends,expense_get_trend_by_category
+Tell me my foodstuff spending pattern,expense_get_trend_by_category
+Testify maine the full list of investiture categories,investment_category_get_list
+What’s my income and savings status?,get_income_savings
+What ’ s the perfect category list?,category_get_list
+What ’ s in my investing account?,get_investments
+Can you list my outlay totality?,expense_get_total
+What ’ s left hand in my utility budget?,budget_check_remaining
+Create a Cashback income family,income_category_add
+Tell maine my profile ’ randomness slug time value,profile_get_slug
+Show my intermediate grocery disbursement,expense_get_average_by_category
+What ’ s my clothing budget?,budget_get
+Add an Alimony income family,income_category_add
+What name cost linked to my account?,profile_get_info
+What ’ s my paid placard amount?,bill_get_paid
+Exercise I have a personal upkeep budget?,budget_check_exists
+My individuality please,get_name
+Appearance my income trends for this yr,income_get_trend
+Show pine tree state my expense case list,category_get_list
+Phonograph record ₹ 200 for taxicab,add_expense
+Show my full investments for this class,investment_get_total
+Can you show my income this month?,income_get_by_date
+Display my paid bills for May,bill_get_paid
+Show my disbursement slue for this year,expense_get_trend
+When is my utilities bill ascribable?,bill_get_electricity_due
+Tail end you display my visibility slug?,profile_get_slug
+What ’ sec my amusement budget?,budget_get
+List my investment funds eccentric,get_investments
+Can you show my reciprocal fund investment funds trends?,investment_get_trend_by_category
+Keister you make an ETFs investiture category?,investment_category_add
+My identity please,get_name
+Show my grocery expense,expense_get_by_category
+Assure me my budget from net month,budget_get_by_date
+What ’ s my investment funds portfolio worth?,investment_get_total
+Show the position of my water supply bill,bill_check_status
+Display my income from last week,income_get_by_date
+List my spending category types,get_expense_categories
+Display my investment from last year,investment_get_by_date
+My investment compact?,get_investments
+What’s the category for taxi?,category_map
+Toilet you update my utilities budget to ₹ 1200?,budget_update
+Severalise me when my power bill is ascribable,get_electricity_due
+Tell me my spending total,get_total_spent
+Set a new epitome for my profile,profile_update_image
+Show my biggest income this class,income_get_max
+Add a ₹ 500 electricity vizor ascribable future week,bill_add
+Update my economic rent notice to paid,bill_update_status
+What’s my bill total for May?,bill_get_total
+Can you present my budget for deep brown?,budget_get
+Family for my expenses,get_expense_categories
+What ’ s my mellow investiture this month?,investment_get_max
+What ’ randomness my amusement spending?,expense_get_by_category
+Can you show my hedge fund investing carrying out?,investment_get_performance
+Tell me my investments for this calendar month,investment_get_by_date
+List my bills due soon,bill_get_upcoming
+Show my biggest expense this twelvemonth,expense_get_max
+What’s my most profitable investment?,investment_get_max_profit
+Show all my disbursement classification,category_get_list
+Secernate me my disbursement pattern,expense_get_trend
+Tell maine my material landed estate investment gains,investment_get_profit
+Can you show my income character choice?,income_category_get_list
+What ’ due south my total expenditure this calendar month?,get_total_expenses
+Add ₹5000 to venture capital,investment_add
+Record the round for my internet beak,bill_get_cycle
+Which bills are nevertheless due?,get_unpaid_bills
+My avatar please,get_profile_pic
+Display my electrical energy bill details,bill_get_electricity_due
+Show my market expense,expense_get_by_category
+Does Crowdfunding count as an investment category?,investment_category_check
+Add ₹ cc for personal tending,expense_add
+World health organization equal I logged in as?,profile_get_info
+Can you indicate my hedgerow fund losses?,investment_get_loss
+What ’ s the category for schoolhouse fee?,category_map
+Change my user public figure to something new,profile_update_name
+Can you tell pine tree state every investment family?,investment_category_get_list
+Check if Commissions is an income category?,income_category_check
+Give notice you shift my profile gens?,profile_update_name
+What flier haven ’ t 1 paid?,bill_get_unpaid
+My expense types please,get_expense_categories
+Modification my visibility ’ s income total,profile_update_income
+Lav you tot up a charity class?,category_add
+Tell me how I earn my money,get_income_sources
+Add a ₹ 250 gas peak due atomic number 83 - weekly,bill_add
+Tell pine tree state my nonrecreational bill for this month,bill_get_paid
+Tell apart maine about AI,unknown
+Can you express my next visor due?,bill_get_upcoming
+Bestow a ₹ ccc budget for dining out,budget_add
+Can you show my substance abuser pic?,profile_get_image
+Change my profile’s savings amount,profile_update_savings
+Bear witness me every investment class,investment_category_get_list
+Appearance my investment loss,get_profit_loss
+What budget did I set this class?,budget_get_by_date
+Can you prove my income average?,income_get_average
+What ’ s my monthly expenditure measure?,expense_get_total
+Display my independent earnings,income_get_by_category
+John you update my savings in my profile?,profile_update_savings
+Secernate me my nonrecreational bill for this month,bill_get_paid
+Appearance my investment funds trends for stocks,investment_get_trend_by_category
+Which category for a contribution?,category_map
+What did I spend utmost workweek?,expense_get_by_date
+What family is childcare?,category_map
+Fire you update my income in my profile?,profile_update_income
+What’s my budget for utilities this month?,budget_get
+What ’ s my cryptocurrency investment departure?,investment_get_loss
+Displace you list my top income?,income_get_max
+What ’ s my monthly income amount?,income_get_total
+Tin you show my income norm?,income_get_average
+Set a fresh income for my profile,profile_update_income
+Appearance my freelance earnings for final month,income_get_by_category_date
+Is Earnings a valid income class?,income_category_check
+What did I pass on food this calendar month?,expense_get_by_category
+Commode you show my ETF profit?,investment_get_profit
+What bills haven ’ t Iodin paid?,bill_get_unpaid
+Update my substance abuser incarnation,profile_update_image
+Modification my profile ’ s deliverance amount,profile_update_savings
+Tell me where I get my money,get_income_sources
+What’s in my investment account?,get_investments
+Create a Business income category,income_category_add
+Tell pine tree state my bonuses income last year,income_get_by_category_date
+Total expenses for this month,get_total_expenses
+Tell pine tree state my net income sum,income_get_total
+Show me my visibility pic,get_profile_pic
+Mathematical function mutual fund to a category,investment_category_map
+Can you update my profile exposure?,profile_update_image
+Appearance my expenses from last workweek,expense_get_by_date
+Stage set my net bill as paid,bill_update_status
+Check my insurance policy bill status,bill_check_status
+Cost Boom Out a valid category?,category_check
+Add ₹ 3500 to rente,investment_add
+Set upwards a category for holiday,category_add
+When is my utilities bill imputable?,bill_get_electricity_due
+Log ₹ 1000 for transportation,expense_add
+Tell me astir my income this month,get_total_income
+Tell me about my food costs,get_food_expense
+Enjoin me my food for thought expenses,get_food_expense
+Change my visibility ’ s income amount of money,profile_update_income
+Appearance my budgets set this workweek,budget_get_by_date
+Produce a Private Equity investment family,investment_category_add
+Register pine tree state the full list of income categories,income_category_get_list
+What ’ s my salary income this calendar month?,income_get_by_category
+Display my dividends income trends,income_get_trend_by_category
+Spent ₹ d on vesture,expense_add
+Show me every budget I have,budget_get_all
+Can you testify my dining out budget?,budget_get
+List my income categories please,income_category_get_list
+Represent Transportation a valid family?,category_check
+How much for food and drinks?,get_food_expense
+Check if ETFs is an investment category?,investment_category_check
+Hold back if Interest be an income category?,income_category_check
+Show my electricity federal reserve note details,bill_get_electricity_due
+Display my commodities investment gains,investment_get_profit
+What ’ s my venture working capital loss?,investment_get_loss
+Which bills are due side by side workweek?,bill_get_upcoming
+Show my paid bills for May,bill_get_paid
+What ’ s my virtually profitable investment?,investment_get_max_profit
+Investment gains and losses,get_profit_loss
+Add a Stocks investing family,investment_category_add
+My investment funds losses delight,get_profit_loss
+Evidence maine about my revenue sources,get_income_sources
+Tell me my earnings union,income_get_total
+Separate pine tree state my largest income amount,income_get_max
+Appearance my investments from last week,investment_get_by_date
+Can you show my exchange traded fund loss?,investment_get_loss
+What ’ s my income and savings position?,get_income_savings
+Can you tell me my income sources?,get_income_sources
+What ’ s my adjacent banknote payment?,bill_get_upcoming
+Did I set a budget for nutrient?,budget_check_exists
+What ’ s my food spending this calendar week?,expense_get_by_category_date
+Can you show my cable length neb ’ s placard hertz?,bill_get_cycle
+Show my total income for Crataegus oxycantha,income_get_total
+Add $ 50 for intellectual nourishment,add_expense
+Sum a category for hobbies,category_add
+List my bills due before long,bill_get_upcoming
+Order me my total budget across all categories,budget_get_total
+Evidence maine my highest profit investment,investment_get_max_profit
+What ’ sulfur my total income this month?,income_get_total
+Which bills are imputable next?,get_upcoming_bills
+What ’ s my rental income lowest week?,income_get_by_category_date
+What ’ s my income list in my profile?,profile_get_income
+Can you tell me my investment classifications?,investment_category_get_list
+Map annuities to an investment family,investment_category_map
+Toilet you update my savings in my profile?,profile_update_savings
+Constitute Food a valid class?,category_check
+What ’ s my account ’ s figure?,profile_get_info
+What are my gunstock investment?,investment_get_by_category
+Last week ’ s disbursal details,get_weekly_expenses
+What investment make out I ready this month?,investment_get_by_date
+Can you show my spending average?,expense_get_average
+Appearance my trade good investment losses,investment_get_loss
+How much money do I pretend and carry through?,get_income_savings
+Tell me all investment class name,investment_category_get_list
+Suss out if I localize an entertainment budget,budget_check_exists
+Appearance my self aggrandizing investment this year,investment_get_max
+How much is my income and economy?,get_income_savings
+What ’ second my total income this month?,income_get_total
+Tell me about my money and savings,get_income_savings
+Lay out a new savings sum of money for my profile,profile_update_savings
+Tell maine my budgets from final calendar month,budget_get_by_date
+What investing category is collectibles?,investment_category_map
+Can you tell maine about my earnings and saving?,get_income_savings
+My electricity bill due date,get_electricity_due
+Appearance my category inclination,category_get_list
+Buns you usher my income norm?,income_get_average
+Map rental income to a family,income_category_map
+What account haven ’ t 1 pay?,bill_get_unpaid
+Can you show my personal caution disbursement last week?,expense_get_by_category_date
+Make a new family for pets,category_add
+Map education to a class,category_map
+Map peer-to-peer lending to an investment category,investment_category_map
+What category is a auto requital?,category_map
+Can 1 apply Prize as an income category?,income_category_check
+Add a Stocks investing class,investment_category_add
+Show my total investments compendious,investment_get_total
+Tell me my monthly expenses,get_total_spent
+Record three hundred mauritian rupee for internet,add_expense
+What ’ sec my total budget across categories?,budget_get_all
+Display my profile ’ s income and savings,profile_get_income_savings
+Privy you show my reciprocal fund investment vogue?,investment_get_trend_by_category
+Can you point my pay and saving?,profile_get_income_savings
+Show my health care expenses,expense_get_by_category
+Tell maine astir my profile ’ s income,profile_get_income
+My money sources?,get_income_sources
+What’s the complete income category list?,income_category_get_list
+Summate a category for home plate repairs,category_add
+Which category for debt payments?,category_map
+Display my self aggrandising expense this year,expense_get_max
+Is Polymonium caeruleum van bruntiae an expense class?,category_check
+Mark my insurance bill as paid,bill_update_status
+Spent ₹ 1500 for slope stir,income_add
+Do I give a utility budget?,budget_check_exists
+Random enquiry,unknown
+Derriere you show my total account payments?,bill_get_total
+Tell me my debt payments budget,budget_get
+Rear end I delete my profile ’ s name?,profile_update_name
+Did Ace make a dining extinct budget?,budget_check_exists
+Tell me my budget from last calendar month,budget_get_by_date
+Buttocks you expose my profile lick?,profile_get_slug
+Tell me my precious metal investing returns,investment_get_performance
+Rear end One use Derivatives as an investment category?,investment_category_check
+Check over if Royalties is an income family?,income_category_check
+Set up a Peer-to-Peer Lending investment category,investment_category_add
+List my investments from terminal month,investment_get_by_date
+Tell me about my monthly spending,get_total_spent
+Tell me my bond investment trends,investment_get_trend_by_category
+Can you tell maine my profile gens?,profile_get_info
+What ’ s my spending total for this month?,get_total_spent
+Show the condition of my h2o bill,bill_check_status
+Curing up a category for vacations,category_add
+What budget do I localise this year?,budget_get_by_date
+Secern me my income amount,get_total_income
+Can you show my good budget for this month?,budget_get_total
+What ’ s the category for electricity?,category_map
+Band upwardly a category for vacations,category_add
+Can you bear witness my expenditure style?,expense_get_trend
+Can you conform my subscription budget to ₹ 600?,budget_update
+Add a Grant income category,income_category_add
+Tell maine my salary pattern,income_get_trend
+What ’ s the capital letter of France?,unknown
+Give notice you show my common fund investment funds trends?,investment_get_trend_by_category
+Exhibit pine tree state all my income source eccentric,income_category_get_list
+Show my user trope,get_profile_pic
+Food expenses for this month,get_food_expense
+My money author?,get_income_sources
+Which family for royalties?,income_category_map
+Can you say me my income sources?,get_income_sources
+Electricity peak payment day of the month?,get_electricity_due
+Throne you display my investment portfolio?,get_investments
+Record ₹ 800 for split defrayal,add_expense
+Tell maine my profile ’ sulphur slug value,profile_get_slug
+Change my visibility ’ s income amount,profile_update_income
+Recite me if my phone billhook is acquit,bill_check_status
+Change my profile ’ s income amount of money,profile_update_income
+Appearance my unpaid utility bills,bill_get_unpaid
+What ’ s my entire income this month?,income_get_total
+Add a Venture Capital investiture class,investment_category_add
+Who ’ s the chairman?,unknown
+Log ₹ 1000 for transportation system,expense_add
+Give the axe you record my weekly expenses?,expense_get_by_date
+Check if Royalties is an income category?,income_category_check
+What did Atomic number 53 pass this calendar month?,get_total_spent
+How much income perform I earn this calendar month?,get_total_income
+What ' s my profile epitome?,get_profile_pic
+Log ₹1000 for travel,add_expense
+How much did I drop overall?,get_total_expenses
+Can you usher my top profit investments?,investment_get_max_profit
+Mbd an expense of 200 for chocolate,add_expense
+Display my expense curve for this class,expense_get_trend
+Tell me my rent budget amount,budget_get
+Update my car loanword bill to pay,bill_update_status
+What ’ s my salary income this workweek?,income_get_by_category_date
+What ’ s my venture washington performance?,investment_get_performance
+Tail you show my dividends income this month?,income_get_by_category_date
+Show my income trends for this yr,income_get_trend
+Spent ₹ cd on film,add_expense
+Give notice you name every income class I can use?,income_category_get_list
+Tell me my budget from final month,budget_get_by_date
+Usher me my user picture,profile_get_image
+Give notice One use Pet as a category?,category_check
+Is Mutual Funds a valid category?,investment_category_check
+Add ₹ 600 for home repair,expense_add
+How much did I spend on food?,get_food_expense
+Show my bond investments,investment_get_by_category
+What ’ s my cryptocurrency investiture lucre?,investment_get_profit
+Throne you sum up a ₹ 400 cable television bank note due weekly?,bill_add
+Show bills non devote yet,get_unpaid_bills
+Fire you list my top expenses?,expense_get_max
+Show my expense family details,get_expense_categories
+What do I drop on transportation?,expense_get_by_category
+Show my food-related expenses,get_food_expense
+Heel my investment source classifications,investment_category_get_list
+Moderate my insurance bill condition,bill_check_status
+Can Unity upload a new profile moving picture?,profile_update_image
+Check if I ready an amusement budget,budget_check_exists
+Can you show my disbursal from lowest month?,expense_get_by_date
+Can you show my exchange traded fund lucre?,investment_get_profit
+Add ₹5000 to stocks,investment_add
+Can you add ₹3500 for royalties?,income_add
+Is REITs a valid investing class?,investment_category_check
+Show my income style for salary,income_get_trend_by_category
+Show my visibility ’ s income detail,profile_get_income
+Hind end you show my full budget for this month?,budget_get_total
+How much was my spending this month?,get_total_spent
+Display my average freelance income,income_get_average_by_category
+Can you show my monthly income?,get_total_income
+What ’ s my mutual fund release?,investment_get_loss
+Can you present my mutual fund investment funds tendency?,investment_get_trend_by_category
+Can you list my bill totals?,bill_get_total
+Tell me my spending from last Friday,expense_get_by_date
+Can you shew my cable bill ’ s billing cycle?,bill_get_cycle
+My outstanding bill?,get_unpaid_bills
+Check my policy banker's bill status,bill_check_status
+Tail end I cut my profile ’ s name?,profile_update_name
+Monthly spending details,get_total_spent
+Rear end you add a ₹ 400 overseas telegram bill referable weekly?,bill_add
+Add a ₹250 gas bill due bi-weekly,bill_add
+Modification my drug user name to something new,profile_update_name
+Tell maine my investment for this month,investment_get_by_date
+Give the sack you read my top profit investments?,investment_get_max_profit
+How much is saved in my account?,profile_get_savings
+What serve I earn from side stir?,income_get_by_category
+Set a budget of ₹ 500 for nutrient,budget_add
+Can you show my full budget for this calendar month?,budget_get_total
+Appearance my income trends for salary,income_get_trend_by_category
+What ’ s my income number in my visibility?,profile_get_income
+Tell maine my budget from last calendar month,budget_get_by_date
+Scratch my electricity bill as paid,bill_update_status
+Bottom I edit out my visibility ’ s name?,profile_update_name
+Show my total investing compendious,investment_get_total
+Secern me my public service corporation spending,expense_get_by_category
+Tell me my utility program spending,expense_get_by_category
+Show the hertz for my cyberspace bill,bill_get_cycle
+Appearance my independent earnings for terminal month,income_get_by_category_date
+Can you tell pine tree state my investment classification?,investment_category_get_list
+What ’ s the round for my phone bill?,bill_get_cycle
+Tell me my largest income quantity,income_get_max
+Set my internet bill as paid,bill_update_status
+Map personal care to a category,category_map
+What did I earn last week?,income_get_by_date
+Map bonuses to an income family,income_category_map
+Tell pine tree state about billhook I owe,get_unpaid_bills
+Which bills equal due side by side week?,bill_get_upcoming
+Lean my income categories delight,income_category_get_list
+Can you demonstrate my total outlay?,expense_get_total
+What investment funds category be stocks?,investment_category_map
+Mapping precious metal to an investment category,investment_category_map
+Tell maine my solid food expenditure this month,get_food_expense
+Stool you demonstrate my common fund investment trends?,investment_get_trend_by_category
+Tell maine my grocery expenditure pattern,expense_get_trend_by_category
+Listing bills I want to pay,get_unpaid_bills
+What ’ s my income and preservation status?,get_income_savings
+Can you register my spending norm?,expense_get_average
+Seth up a Derivatives investiture category,investment_category_add
+What ’ s the billing rhythm for my urine handbill?,bill_get_cycle
+World health organization ’ s the user of this chronicle?,profile_get_info
+Buns you display my profile bullet?,profile_get_slug
+Invest ₹4500 in forex,investment_add
+Tilt my future tense bills,get_upcoming_bills
+Check if Cloth & Accessories be a family,category_check
+Can you create a Hedgerow Funds investiture category?,investment_category_add
+Spent ₹700 on healthcare,add_expense
+What ’ s my revenue this month?,income_get_total
+Prove the figure tied to my profile,get_name
+Show my income and savings details,get_income_savings
+Can you designate my entertainment spending drift?,expense_get_trend_by_category
+What was my outlay final week?,get_weekly_expenses
+Tail end you sum up ₹ 1000 for dividends?,income_add
+Can you demonstrate my average rental income?,income_get_average_by_category
+Attention deficit hyperactivity disorder an Angel Investment investment category,investment_category_add
+What ’ s my profile picture look like?,profile_get_image
+Can you tell me every income class?,income_category_get_list
+Number my bills due this calendar month,get_upcoming_bills
+Add a ₹ 500 budget for home maintenance,budget_add
+Show my income vogue for this yr,income_get_trend
+Is Cryptocurrency a valid category?,investment_category_check
+Tell me my investment summary,get_investments
+What’s my food budget this month?,get_food_expense
+What category is childcare?,category_map
+Can you heel my income source types?,income_category_get_list
+Lean my spending for the last hebdomad,get_weekly_expenses
+Show my profile ’ atomic number 16 singular slug,profile_get_slug
+What class does gas pin nether?,category_map
+What ’ s my favorite color?,unknown
+What ’ s my expense sum for this month?,get_total_expenses
+Display my healthcare budget remain,budget_check_remaining
+Does Passive voice Income count as a class?,income_category_check
+Set up an Awards income family,income_category_add
+My salient posting?,get_unpaid_bills
+Assure me my investment sum,investment_get_total
+Can you expose my visibility slug?,profile_get_slug
+When is my electricity bill due?,get_electricity_due
+Tell me my insurance bill’s billing cycle,bill_get_cycle
+What investment funds category be angel investing?,investment_category_map
+Add ₹ 600 for home repairs,expense_add
+Assure pine tree state about unpaid bills,get_unpaid_bills
+Check if Collectable be an investment class?,investment_category_check
+Can you show my full receipts?,income_get_total
+Record a ₹ 600 water nib due on Crataegus oxycantha 20,bill_add
+Be there a grocery budget put?,budget_check_exists
+Set my subscription billhook as paid,bill_update_status
+Show bills coming up,get_upcoming_bills
+Add ₹ 3000 for pursuit,income_add
+What did I place in cryptocurrency?,investment_get_by_category
+Set a ₹ 1000 budget for childcare,budget_add
+Full disbursement for this month,get_total_expenses
+Show my earnings pattern,income_get_trend
+Display my investment course for stocks,investment_get_trend_by_category
+Can you demo my exchange traded fund investment execution?,investment_get_performance
+Appearance my average mercenary income,income_get_average_by_category
+Can you show my pending poster?,bill_get_unpaid
+What ’ s my savings balance in my profile?,profile_get_savings
+Can you present my mutual store investment trends?,investment_get_trend_by_category
+What ’ s my chronicle holder name?,get_name
+Tell pine tree state the billing cycle for my rip bill,bill_get_cycle
+Seth upward a Derivatives investment category,investment_category_add
+Can you name every income class Iodin can use?,income_category_get_list
+What billhook did Single give this month?,bill_get_paid
+Say me my adhesiveness investment trends,investment_get_trend_by_category
+Display my big investment this year,investment_get_max
+Ass you tell me my figure?,get_name
+Show my visibility ’ s savings amount,profile_get_savings
+Log ₹ 150 for burnt umber,expense_add
+Show my bill due soon,get_upcoming_bills
+How much income did I clear this calendar month?,get_total_income
+Show my investment portfolio,get_investments
+What ’ s my investing vogue this year?,investment_get_trend
+Can you show my next bill due?,bill_get_upcoming
+Say me my remuneration sum,income_get_total
+What ’ s my speculation capital performance?,investment_get_performance
+My expense category leaning?,get_expense_categories
+Adjust my entertainment budget to ₹ d,budget_update
+Can you reveal my profile name?,profile_get_info
+What ’ s my full unpaid billhook amount?,bill_get_total
+Show me my investment category choices,investment_category_get_list
+Can you usher my outgo average?,expense_get_average
+Show me the replete list of investing categories,investment_category_get_list
+What ’ s my monthly outlay amount?,expense_get_total
+Does Commodities count as an investment category?,investment_category_check
+What ’ s my poke in my profile?,profile_get_slug
+Can you show my ordinary rental income?,income_get_average_by_category
+Tell pine tree state my investing for this month,investment_get_by_date
+Can you evince my personal care expenses last week?,expense_get_by_category_date
+Can you show my royalties income?,income_get_by_category
+Comprise Cryptocurrency a valid category?,investment_category_check
+Can you create an ETFs investment category?,investment_category_add
+Can you show my total expenditure?,expense_get_total
+Record ₹3000 for grants,income_add
+Tell pine tree state my public service corporation spending this twelvemonth,expense_get_by_category_date
+What investment category can One expend?,investment_category_get_list
+Tell pine tree state my account ’ s slug,profile_get_slug
+What ’ s my stock investment public presentation?,investment_get_performance
+Lay a new simulacrum for my visibility,profile_update_image
+Tell maine my largest investment funds amount,investment_get_max
+Bring a ₹ five hundred budget for home alimony,budget_add
+Change my profile ’ s savings amount,profile_update_savings
+Severalize me my real estate investing proceeds,investment_get_performance
+What category does internet bill fall under?,category_map
+Keister you prove my ETF losses?,investment_get_loss
+Show my passive income this hebdomad,income_get_by_category_date
+Do Atomic number 53 have got a transportation budget?,budget_check_exists
+Electrical energy bill imputable?,get_electricity_due
+Update my dining out budget to ₹400,budget_update
+What bills haven ’ thyroxine I bear?,get_unpaid_bills
+What types of expenses coif Ane have?,get_expense_categories
+Tot up a shopping family please,category_add
+Tell maine about my expense classifications,get_expense_categories
+Which class for transportation?,category_map
+Show my profile avatar please,profile_get_image
+Tell me my average investment income,income_get_average_by_category
+Present the cycle for my internet bill,bill_get_cycle
+Add ₹ 4000 to commodity,investment_add
+Can you exhibit my investment portfolio?,get_investments
+Inclination my disbursement for this week,expense_get_by_date
+Tell maine my largest investing amount,investment_get_max
+Tell pine tree state my investments sum,investment_get_total
+Readiness upwards a Peer - to - Peer Lending investiture class,investment_category_add
+List my income for this week,income_get_by_date
+List my future bills,get_upcoming_bills
+List my spending for last week please,get_weekly_expenses
+Tell pine tree state my delivery from my report,profile_get_savings
+Add an expense of 200 for coffee bean,add_expense
+Which bill live due next week?,bill_get_upcoming
+Can you establish my amusement spending movement?,expense_get_trend_by_category
+Fundament you show my top lucre investment funds?,investment_get_max_profit
+Add a Refunds income category,income_category_add
+Can you create a Hedge Funds investment category?,investment_category_add
+Tell apart me my electric banknote imputable date,bill_get_electricity_due
+Show my freelance earnings,income_get_by_category
+Tell me about my profile’s savings,profile_get_savings
+Appearance my rip expense trends,expense_get_trend_by_category
+Change my visibility ’ s savings sum of money,profile_update_savings
+Show my salient bills,get_unpaid_bills
+How much am I bring in and saving?,get_income_savings
+Can you show my din stunned expenses?,expense_get_by_category
+Rear you bear witness my weekly income?,income_get_by_date
+Tell pine tree state astir my profile ’ s income,profile_get_income
+Record ₹ 4000 for genuine estate of the realm,investment_add
+Privy you show my total expending?,expense_get_total
+Tooshie you do math?,unknown
+Did Ace set a budget for food?,budget_check_exists
+Appearance my electric bill due date,bill_get_electricity_due
+Full spent this calendar month,get_total_spent
+Attention deficit disorder an Saint Investing investment category,investment_category_add
+Check if Infrastructure is an investment category?,investment_category_check
+Appearance bills come up,get_upcoming_bills
+Toilet I expend Pensions as an income category?,income_category_check

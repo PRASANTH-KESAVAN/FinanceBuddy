@@ -1,0 +1,1236 @@
+text,intent
+What is my name?,get_name
+Who am I?,get_name
+Tell me my name,get_name
+What's my username?,get_name
+My name please,get_name
+Can you tell me my name?,get_name
+What’s my full name?,get_name
+Who’s this account for?,get_name
+Please show my name,get_name
+Tell me who I am,get_name
+What name is on my profile?,get_name
+My account name?,get_name
+Can you say my name?,get_name
+What do you call me?,get_name
+Who’s logged in?,get_name
+My identity please,get_name
+What’s the name on this account?,get_name
+Show me my name,get_name
+Show my profile picture,get_profile_pic
+Display my photo,get_profile_pic
+What's my profile image?,get_profile_pic
+Let me see my picture,get_profile_pic
+Show me my avatar,get_profile_pic
+Profile pic please,get_profile_pic
+Can you show my profile photo?,get_profile_pic
+Display my profile image,get_profile_pic
+What’s my pic?,get_profile_pic
+Show my user image,get_profile_pic
+My profile picture?,get_profile_pic
+Can I see my photo?,get_profile_pic
+Show my pic please,get_profile_pic
+What does my profile picture look like?,get_profile_pic
+My avatar please,get_profile_pic
+Display my user photo,get_profile_pic
+Show me my profile pic,get_profile_pic
+What’s my profile photo?,get_profile_pic
+How much is my income and savings?,get_income_savings
+Tell me about my income and savings,get_income_savings
+What's my monthly income and savings?,get_income_savings
+Show my income and savings details,get_income_savings
+My income and savings?,get_income_savings
+What are my income and savings?,get_income_savings
+How much do I earn and save?,get_income_savings
+Tell me my income and savings balance,get_income_savings
+What’s my income and how much do I save?,get_income_savings
+Show my monthly earnings and savings,get_income_savings
+Income and savings info please,get_income_savings
+Can you tell me about my earnings and savings?,get_income_savings
+My monthly income and savings details,get_income_savings
+What’s my income and savings status?,get_income_savings
+Tell me about my money and savings,get_income_savings
+How much money do I make and save?,get_income_savings
+Show my income and savings summary,get_income_savings
+My earnings and savings?,get_income_savings
+What's my total income this month?,get_total_income
+How much income did I earn this month?,get_total_income
+Tell me my monthly income,get_total_income
+Total income for this month,get_total_income
+My income this month?,get_total_income
+Show my total income,get_total_income
+What’s my income for this month?,get_total_income
+How much money did I make this month?,get_total_income
+Tell me about my income this month,get_total_income
+Total earnings this month,get_total_income
+Can you show my monthly income?,get_total_income
+My total income please,get_total_income
+What did I earn this month?,get_total_income
+Show my income summary for this month,get_total_income
+How much was my income?,get_total_income
+Monthly income details,get_total_income
+What’s my total earnings?,get_total_income
+Tell me my income amount,get_total_income
+What are my income sources?,get_income_sources
+Where does my income come from?,get_income_sources
+Tell me about my income sources,get_income_sources
+List my income sources,get_income_sources
+Show me where my money comes from?,get_income_sources
+My income sources please,get_income_sources
+What are the sources of my income?,get_income_sources
+Tell me where I get my money,get_income_sources
+Show my income streams,get_income_sources
+List where my income is from,get_income_sources
+My money sources?,get_income_sources
+Can you tell me my income sources?,get_income_sources
+What’s funding my account?,get_income_sources
+Show my earnings sources,get_income_sources
+Tell me about my revenue sources,get_income_sources
+Where’s my income coming from?,get_income_sources
+List my income channels,get_income_sources
+My income origins?,get_income_sources
+How much did I spend on food?,get_food_expense
+What's my food spending this month?,get_food_expense
+Tell me my food expenses,get_food_expense
+Food expenses for this month,get_food_expense
+How much on food this month?,get_food_expense
+Show my food spending,get_food_expense
+How much did I spend on groceries?,get_food_expense
+What’s my food budget this month?,get_food_expense
+Tell me about my food costs,get_food_expense
+Food spending details,get_food_expense
+How much was spent on dining?,get_food_expense
+Show my grocery expenses,get_food_expense
+My food expenses please,get_food_expense
+What did I spend on meals?,get_food_expense
+Tell me my food spending this month,get_food_expense
+How much for food and drinks?,get_food_expense
+Show my dining expenses,get_food_expense
+Food costs this month?,get_food_expense
+How much did I spend this month?,get_total_spent
+What's my total spending this month?,get_total_spent
+Tell me my monthly expenses,get_total_spent
+Total spent this month,get_total_spent
+My spending this month?,get_total_spent
+Show my total expenses,get_total_spent
+How much was my spending this month?,get_total_spent
+What’s my total expenditure?,get_total_spent
+Tell me about my monthly spending,get_total_spent
+Total expenses this month,get_total_spent
+Can you show my spending summary?,get_total_spent
+My total spending please,get_total_spent
+What did I spend this month?,get_total_spent
+Show my expenditure for this month,get_total_spent
+How much did I spend in total?,get_total_spent
+Monthly spending details,get_total_spent
+What’s my total spent amount?,get_total_spent
+Tell me my spending total,get_total_spent
+What were my expenses last week?,get_weekly_expenses
+Show my spending from last week,get_weekly_expenses
+Tell me about my expenses last week,get_weekly_expenses
+Last week's expenses,get_weekly_expenses
+My spending last week?,get_weekly_expenses
+List my expenses from last week,get_weekly_expenses
+What did I spend last week?,get_weekly_expenses
+Show my weekly spending,get_weekly_expenses
+Tell me my expenses for last week,get_weekly_expenses
+Last week’s spending details,get_weekly_expenses
+How much did I spend last week?,get_weekly_expenses
+Show my expenses from the past week,get_weekly_expenses
+My weekly expenses please,get_weekly_expenses
+What was my spending last week?,get_weekly_expenses
+Tell me about last week’s expenses,get_weekly_expenses
+List my spending for the last week,get_weekly_expenses
+Weekly expense summary,get_weekly_expenses
+My expenses from last week?,get_weekly_expenses
+What are my unpaid bills?,get_unpaid_bills
+Show my outstanding bills,get_unpaid_bills
+Tell me about unpaid bills,get_unpaid_bills
+List my unpaid bills,get_unpaid_bills
+Which bills are unpaid?,get_unpaid_bills
+My unpaid bills please,get_unpaid_bills
+What bills haven’t I paid?,get_unpaid_bills
+Show my pending bills,get_unpaid_bills
+Tell me about my outstanding bills,get_unpaid_bills
+List bills I need to pay,get_unpaid_bills
+My unpaid bill details,get_unpaid_bills
+Which bills are still due?,get_unpaid_bills
+Show my unpaid bill list,get_unpaid_bills
+Tell me my unpaid bill status,get_unpaid_bills
+What’s pending for payment?,get_unpaid_bills
+List my due bills,get_unpaid_bills
+My outstanding bills?,get_unpaid_bills
+Show bills not paid yet,get_unpaid_bills
+What are my upcoming bills?,get_upcoming_bills
+Show my bills due soon,get_upcoming_bills
+Tell me about my upcoming bills,get_upcoming_bills
+List my future bills,get_upcoming_bills
+Which bills are due?,get_upcoming_bills
+My upcoming bills please,get_upcoming_bills
+What bills are coming up?,get_upcoming_bills
+Show my future bill payments,get_upcoming_bills
+Tell me about bills due soon,get_upcoming_bills
+List my bills for the future,get_upcoming_bills
+My due bills?,get_upcoming_bills
+Which bills are due next?,get_upcoming_bills
+Show my upcoming bill list,get_upcoming_bills
+Tell me my bills due this month,get_upcoming_bills
+What’s due soon?,get_upcoming_bills
+List my upcoming payments,get_upcoming_bills
+My bills due soon?,get_upcoming_bills
+Show bills coming up,get_upcoming_bills
+When is my electricity bill due?,get_electricity_due
+Tell me about my electricity bill,get_electricity_due
+Show my electricity bill due date,get_electricity_due
+Electricity bill due?,get_electricity_due
+My electricity bill due date,get_electricity_due
+What's my electricity bill?,get_electricity_due
+When do I pay my electricity bill?,get_electricity_due
+Show my electric bill due date,get_electricity_due
+Tell me my electricity bill due date,get_electricity_due
+Electricity bill payment date?,get_electricity_due
+My electric bill due?,get_electricity_due
+What’s the due date for electricity?,get_electricity_due
+Show my electricity due date,get_electricity_due
+Tell me when my electric bill is due,get_electricity_due
+Electricity bill details,get_electricity_due
+When’s my electricity payment?,get_electricity_due
+My electricity bill status?,get_electricity_due
+Show my electric bill info,get_electricity_due
+Show me my investments,get_investments
+List my investments,get_investments
+What are my investments?,get_investments
+Tell me about my investments,get_investments
+My investments please,get_investments
+Show my investment details,get_investments
+What investments do I have?,get_investments
+Show my investment portfolio,get_investments
+Tell me my investment summary,get_investments
+List my investment types,get_investments
+My investment list?,get_investments
+Can you show my investments?,get_investments
+What’s in my investment account?,get_investments
+Show my investment holdings,get_investments
+Tell me about my investment assets,get_investments
+My investments summary?,get_investments
+List my investment details,get_investments
+Show my investment overview,get_investments
+How much profit or loss did I make?,get_profit_loss
+Tell me about my investment profits,get_profit_loss
+Show my investment losses,get_profit_loss
+My profit and loss?,get_profit_loss
+Investment gains and losses,get_profit_loss
+What's my profit or loss?,get_profit_loss
+How much did I gain or lose?,get_profit_loss
+Show my investment performance,get_profit_loss
+Tell me my profit and loss details,get_profit_loss
+What’s my investment profit?,get_profit_loss
+My investment losses please,get_profit_loss
+Can you show my gains and losses?,get_profit_loss
+What did I earn or lose?,get_profit_loss
+Show my profit/loss summary,get_profit_loss
+Tell me about my investment returns,get_profit_loss
+My investment profit or loss?,get_profit_loss
+List my gains and losses,get_profit_loss
+Show my investment results,get_profit_loss
+What are my expense categories?,get_expense_categories
+Show my spending categories,get_expense_categories
+Tell me about my expense types,get_expense_categories
+List my expense categories,get_expense_categories
+My spending categories?,get_expense_categories
+Categories for my expenses,get_expense_categories
+What types of expenses do I have?,get_expense_categories
+Show my expense types,get_expense_categories
+Tell me my spending category list,get_expense_categories
+List my spending types,get_expense_categories
+My expense category list?,get_expense_categories
+Can you show my expense categories?,get_expense_categories
+What are my spending groups?,get_expense_categories
+Show my expense category details,get_expense_categories
+Tell me about my expense classifications,get_expense_categories
+My expense types please,get_expense_categories
+List my expense groups,get_expense_categories
+Show my spending classifications,get_expense_categories
+What are my total expenses this month?,get_total_expenses
+How much did I spend in total?,get_total_expenses
+Tell me my total monthly expenses,get_total_expenses
+Total expenses for this month,get_total_expenses
+My total spending this month?,get_total_expenses
+Show my total monthly spending,get_total_expenses
+What’s my total spending this month?,get_total_expenses
+How much was my total expenditure?,get_total_expenses
+Tell me about my total expenses,get_total_expenses
+Total monthly spending details,get_total_expenses
+Can you show my total expenses?,get_total_expenses
+My total expenses please,get_total_expenses
+What did I spend in total this month?,get_total_expenses
+Show my total spending summary,get_total_expenses
+How much did I spend overall?,get_total_expenses
+Monthly expense summary,get_total_expenses
+What’s my total expense amount?,get_total_expenses
+Tell me my total spending details,get_total_expenses
+I spent ₹500 on groceries,add_expense
+Add ₹200 for food,add_expense
+Record ₹1000 on transportation,add_expense
+Spent ₹300 on utilities,add_expense
+Add an expense of ₹150 for dining out,add_expense
+Log ₹400 for entertainment,add_expense
+Record an expense of ₹600 on rent,add_expense
+Add 500 rupees for groceries,add_expense
+Spent 1000 on shopping,add_expense
+Log ₹200 for gas,add_expense
+Add ₹750 for electricity,add_expense
+Record 300 rupees for internet,add_expense
+Spent ₹400 on movies,add_expense
+Add an expense of 200 for coffee,add_expense
+Log ₹1000 for travel,add_expense
+Add 500 for clothing,add_expense
+Spent ₹250 on books,add_expense
+Record ₹800 for rent payment,add_expense
+Hello there,unknown
+How's the weather?,unknown
+What's up?,unknown
+Tell me a joke,unknown
+I need help,unknown
+Random question,unknown
+What’s the time?,unknown
+Can you sing a song?,unknown
+Tell me about AI,unknown
+Who’s the president?,unknown
+What’s today’s news?,unknown
+How’s the stock market?,unknown
+Can you play music?,unknown
+What’s the date?,unknown
+Tell me a story,unknown
+What’s on TV?,unknown
+How’s my horoscope?,unknown
+Can you do math?,unknown
+What’s the capital of France?,unknown
+Who’s the user of this account?,get_name
+What’s my registered name?,get_name
+Tell me the name on my account,get_name
+Can you reveal my username?,get_name
+What’s my account holder name?,get_name
+Show the name tied to my profile,get_name
+My login name please?,get_name
+Pull up my profile photo,get_profile_pic
+Can you display my user pic?,get_profile_pic
+Show me what my avatar looks like,get_profile_pic
+What image is on my profile?,get_profile_pic
+Let me view my profile image,get_profile_pic
+Display my account picture,get_profile_pic
+What’s my savings and income balance?,get_income_savings
+Show me how much I earn and save monthly,get_income_savings
+Tell me my earnings and savings breakdown,get_income_savings
+What’s my income vs savings?,get_income_savings
+Can you summarize my income and savings?,get_income_savings
+How much am I earning and saving?,get_income_savings
+My total earnings this month?,get_total_income
+What’s the income I made this month?,get_total_income
+Show my monthly income breakdown,get_total_income
+How much cash did I earn this month?,get_total_income
+Tell me my income for this month please,get_total_income
+What’s my monthly revenue?,get_total_income
+What sources fund my income?,get_income_sources
+Show the streams of my earnings,get_income_sources
+Tell me how I earn my money,get_income_sources
+List the sources of my revenue,get_income_sources
+Where’s my cash coming from?,get_income_sources
+Can you show my income origins?,get_income_sources
+What’s my grocery spending this month?,get_food_expense
+How much went to food and dining?,get_food_expense
+Show my food-related expenses,get_food_expense
+Tell me how much I spent on meals,get_food_expense
+What’s my dining budget this month?,get_food_expense
+Food and drink expenses please,get_food_expense
+What’s my spending total for this month?,get_total_spent
+Show me all my expenses this month,get_total_spent
+How much have I spent so far?,get_total_spent
+Tell me my spending summary for this month,get_total_spent
+What’s my monthly expenditure total?,get_total_spent
+Can you list my total spending?,get_total_spent
+How much did I spend last week?,get_weekly_expenses
+Show my expenses from the past 7 days,get_weekly_expenses
+What was my spending last week?,get_weekly_expenses
+Tell me my weekly expense breakdown,get_weekly_expenses
+List my spending for last week please,get_weekly_expenses
+What’s my last week’s expenditure?,get_weekly_expenses
+Which bills are still unpaid?,get_unpaid_bills
+Show me bills I haven’t paid,get_unpaid_bills
+List my outstanding payments,get_unpaid_bills
+Tell me about bills I owe,get_unpaid_bills
+What payments are pending?,get_unpaid_bills
+My unpaid bills summary?,get_unpaid_bills
+What bills are due soon?,get_upcoming_bills
+Show my next bill payments,get_upcoming_bills
+Tell me about bills coming up,get_upcoming_bills
+List my bills due this month,get_upcoming_bills
+Which payments are due next?,get_upcoming_bills
+Can you show upcoming bills?,get_upcoming_bills
+When’s my electric bill due?,get_electricity_due
+Show the due date for my electricity bill,get_electricity_due
+Tell me when my power bill is due,get_electricity_due
+What’s my electricity payment date?,get_electricity_due
+Can you check my electric bill due date?,get_electricity_due
+Electricity bill due date please,get_electricity_due
+What stocks or funds do I own?,get_investments
+Show my investment accounts,get_investments
+Tell me about my investment holdings,get_investments
+List my current investments,get_investments
+Can you display my investment portfolio?,get_investments
+What’s in my investment list?,get_investments
+How’s my investment performance?,get_profit_loss
+Show me my gains or losses,get_profit_loss
+Tell me my investment returns,get_profit_loss
+What’s my profit/loss balance?,get_profit_loss
+Can you summarize my investment profits?,get_profit_loss
+List my investment gains and losses,get_profit_loss
+What categories do my expenses fall under?,get_expense_categories
+Show me my expense classifications,get_expense_categories
+Tell me the types of my spending,get_expense_categories
+List my spending category types,get_expense_categories
+Can you show my expense groups?,get_expense_categories
+What are my expense type categories?,get_expense_categories
+What’s my total expenditure this month?,get_total_expenses
+Show my complete spending this month,get_total_expenses
+Tell me my full expense summary,get_total_expenses
+How much have I spent overall this month?,get_total_expenses
+Can you list my total monthly expenses?,get_total_expenses
+What’s my expense total for this month?,get_total_expenses
+Paid ₹300 for gym membership,add_expense
+Track ₹150 on snacks,add_expense
+Add $50 for food,add_expense
+Spent ₹700 on healthcare,add_expense
+Log 400 rupees for subscriptions,add_expense
+Record ₹200 for taxi,add_expense
+What’s my favorite color?,unknown
+Can you code in Python?,unknown
+Tell me about the moon,unknown
+What’s the best movie?,unknown
+How do I cook pasta?,unknown
+What’s my lucky number?,unknown
+What’s the name tied to my profile?,profile_get_info
+Who’s the user of this account?,profile_get_info
+Can you show my account name?,profile_get_info
+What’s my registered username?,profile_get_info
+Tell me the name on my profile,profile_get_info
+What’s my profile’s full name?,profile_get_info
+Who’s this profile for?,profile_get_info
+Show my user name please,profile_get_info
+What name is linked to my account?,profile_get_info
+Can you tell me my profile name?,profile_get_info
+Gimme my account name,profile_get_info
+What’s my login name?,profile_get_info
+Who am I logged in as?,profile_get_info
+Show the name on my user profile,profile_get_info
+What’s my account’s name?,profile_get_info
+Tell me my profile identity,profile_get_info
+What’s the name associated with my user?,profile_get_info
+Can you reveal my profile name?,profile_get_info
+What’s my profile photo?,profile_get_image
+Show me my user picture,profile_get_image
+Can you display my profile pic?,profile_get_image
+What’s my avatar image?,profile_get_image
+Pull up my profile photo,profile_get_image
+Let me see my account image,profile_get_image
+What image is on my profile?,profile_get_image
+Show my profile avatar please,profile_get_image
+Can you show my user photo?,profile_get_image
+Display my profile image,profile_get_image
+What’s my profile picture look like?,profile_get_image
+Show me my account pic,profile_get_image
+Can I see my profile photo?,profile_get_image
+What’s my user image?,profile_get_image
+Display my account picture,profile_get_image
+Show my profile image please,profile_get_image
+What’s my profile’s photo?,profile_get_image
+How much is my income in my profile?,profile_get_income
+What’s my monthly income recorded?,profile_get_income
+Show my profile’s income details,profile_get_income
+Tell me my income from my profile,profile_get_income
+What’s my earnings in my account?,profile_get_income
+Can you show my profile income?,profile_get_income
+How much do I earn per my profile?,profile_get_income
+What’s my income listed in my profile?,profile_get_income
+Show my user income,profile_get_income
+Tell me about my profile’s income,profile_get_income
+What’s my account’s income?,profile_get_income
+Can you tell me my income amount?,profile_get_income
+What’s my savings balance in my profile?,profile_get_savings
+Show my profile’s savings amount,profile_get_savings
+How much have I saved per my profile?,profile_get_savings
+Tell me my savings from my account,profile_get_savings
+What’s my savings in my profile?,profile_get_savings
+Can you show my profile savings?,profile_get_savings
+How much is saved in my account?,profile_get_savings
+What’s my profile’s savings total?,profile_get_savings
+Show my user savings,profile_get_savings
+Tell me about my profile’s savings,profile_get_savings
+What’s my account’s savings balance?,profile_get_savings
+Can you tell me my savings amount?,profile_get_savings
+What’s my income and savings combined?,profile_get_income_savings
+Show my profile’s income and savings,profile_get_income_savings
+Tell me my earnings and savings total,profile_get_income_savings
+How much is my income plus savings?,profile_get_income_savings
+Can you summarize my income and savings?,profile_get_income_savings
+What’s my profile’s financial summary?,profile_get_income_savings
+Show my account’s income and savings,profile_get_income_savings
+Tell me my profile’s money balance,profile_get_income_savings
+What’s my user’s income and savings?,profile_get_income_savings
+Can you show my earnings and savings?,profile_get_income_savings
+What’s my slug in my profile?,profile_get_slug
+Show my profile’s unique slug,profile_get_slug
+Tell me my account’s slug,profile_get_slug
+What’s the slug for my profile?,profile_get_slug
+Can you display my profile slug?,profile_get_slug
+What’s my user’s slug?,profile_get_slug
+Show my account slug please,profile_get_slug
+Tell me my profile’s slug value,profile_get_slug
+Can you change my profile name?,profile_update_name
+Update my account name please,profile_update_name
+Can I edit my profile’s name?,profile_update_name
+Change my user name to something new,profile_update_name
+Set a new name for my profile,profile_update_name
+Can you update my profile picture?,profile_update_image
+Change my account photo please,profile_update_image
+Can I upload a new profile pic?,profile_update_image
+Set a new image for my profile,profile_update_image
+Update my user avatar,profile_update_image
+Can you update my income in my profile?,profile_update_income
+Change my profile’s income amount,profile_update_income
+Update my earnings in my account,profile_update_income
+Set a new income for my profile,profile_update_income
+Can you update my savings in my profile?,profile_update_savings
+Change my profile’s savings amount,profile_update_savings
+Update my savings in my account,profile_update_savings
+Set a new savings amount for my profile,profile_update_savings
+What expense categories do I have?,category_get_list
+Show me all my spending categories,category_get_list
+List my expense types please,category_get_list
+Can you tell me my expense categories?,category_get_list
+What are my spending classifications?,category_get_list
+Show my category list,category_get_list
+Tell me the types of expenses I track,category_get_list
+What categories are in my account?,category_get_list
+List all my expense categories,category_get_list
+Can you show my spending groups?,category_get_list
+What are my expense classifications?,category_get_list
+Show me my expense type list,category_get_list
+Tell me my spending category types,category_get_list
+What’s my list of expense categories?,category_get_list
+Can you display all categories?,category_get_list
+List my tracked expense types,category_get_list
+Show my expense category options,category_get_list
+What categories can I use for expenses?,category_get_list
+Is Food a valid category?,category_check
+Does Groceries count as a category?,category_check
+Can I use Utilities as a category?,category_check
+Is Entertainment an expense category?,category_check
+Check if Rent is a category,category_check
+Is Transportation a valid category?,category_check
+Does Healthcare count as a category?,category_check
+Can I use Education as a category?,category_check
+Is Insurance an expense category?,category_check
+Check if Subscriptions is a category,category_check
+Is Dining Out a valid category?,category_check
+Does Personal Care count as a category?,category_check
+Can I use Childcare as a category?,category_check
+Is Debt Payments a category?,category_check
+Check if Cloths & Accessories is a category,category_check
+What category is food?,category_map
+Which category does groceries fall under?,category_map
+What’s the category for utilities?,category_map
+Map entertainment to a category,category_map
+What category is rent?,category_map
+Which category for transportation?,category_map
+What’s the category for healthcare?,category_map
+Map education to a category,category_map
+What category is insurance?,category_map
+Which category for subscriptions?,category_map
+What’s the category for dining out?,category_map
+Map personal care to a category,category_map
+What category is childcare?,category_map
+Which category for debt payments?,category_map
+What’s the category for clothes?,category_map
+Can you map snacks to a category?,category_map
+What category does gas fall under?,category_map
+Map coffee to a category,category_map
+What’s the category for taxi?,category_map
+Which category for gym membership?,category_map
+What category is netflix?,category_map
+Map doctor visit to a category,category_map
+What’s the category for bus fare?,category_map
+Which category for movie tickets?,category_map
+What category does internet bill fall under?,category_map
+Map haircut to a category,category_map
+What’s the category for school fees?,category_map
+Which category for car loan?,category_map
+What category is clothing?,category_map
+Can you add a new category?,category_add
+Create a category for travel,category_add
+Add a shopping category please,category_add
+Can I make a new expense category?,category_add
+Set up a category for gifts,category_add
+Add a category for home repairs,category_add
+Create a new category for pets,category_add
+Can you add a charity category?,category_add
+Add a category for hobbies,category_add
+Set up a category for vacations,category_add
+What categories are available for expenses?,category_get_list
+Show me the full list of categories,category_get_list
+Tell me all expense category names,category_get_list
+Can you list every category I can use?,category_get_list
+What are all my expense types?,category_get_list
+Show me every spending category,category_get_list
+List all categories for expenses,category_get_list
+Can you tell me every expense category?,category_get_list
+What’s the complete category list?,category_get_list
+Show all my expense classifications,category_get_list
+What category would snacks be?,category_map
+Which category for a restaurant bill?,category_map
+What’s the category for electricity?,category_map
+Map cable bill to a category,category_map
+What category is a gym fee?,category_map
+Which category for a phone bill?,category_map
+What’s the category for a haircut?,category_map
+Map tuition to a category,category_map
+What category is a car payment?,category_map
+Which category for a donation?,category_map
+Can you check if Books is a category?,category_check
+Is Travel a valid expense category?,category_check
+Does Shopping count as a category?,category_check
+Can I use Pets as a category?,category_check
+Is Charity an expense category?,category_check
+Check if Hobbies is a category,category_check
+What’s my budget for food?,budget_get
+Show my grocery budget,budget_get
+Tell me my utilities budget,budget_get
+What’s my entertainment budget?,budget_get
+Can you show my rent budget?,budget_get
+What’s my transportation budget?,budget_get
+Show my healthcare budget,budget_get
+Tell me my education budget,budget_get
+What’s my subscriptions budget?,budget_get
+Can you show my dining out budget?,budget_get
+What’s my budget for personal care?,budget_get
+Show my childcare budget,budget_get
+Tell me my debt payments budget,budget_get
+What’s my clothing budget?,budget_get
+Can you show my budget for groceries?,budget_get
+What’s my budget for utilities this month?,budget_get
+Show my entertainment budget details,budget_get
+Tell me my rent budget amount,budget_get
+What’s my budget for transportation?,budget_get
+Can you show my healthcare budget?,budget_get
+What are all my budgets?,budget_get_all
+Show me every budget I have,budget_get_all
+List my budgets for all categories,budget_get_all
+Can you tell me all my budget amounts?,budget_get_all
+What’s my full budget list?,budget_get_all
+Show my complete budget summary,budget_get_all
+Tell me all my category budgets,budget_get_all
+Can you list every budget I set?,budget_get_all
+What’s my total budget across categories?,budget_get_all
+Show all my budget details,budget_get_all
+Set a budget of ₹500 for food,budget_add
+Add a ₹300 budget for groceries,budget_add
+Create a ₹1000 budget for utilities,budget_add
+Set up a ₹400 budget for entertainment,budget_add
+Add a ₹2000 budget for rent,budget_add
+Can you set a ₹600 budget for transportation?,budget_add
+Create a ₹700 budget for healthcare,budget_add
+Set a ₹500 budget for subscriptions,budget_add
+Add a ₹300 budget for dining out,budget_add
+Can you set a ₹200 budget for personal care?,budget_add
+Set a ₹1000 budget for childcare,budget_add
+Add a ₹800 budget for debt payments,budget_add
+Create a ₹400 budget for clothing,budget_add
+Set up a ₹250 budget for gifts,budget_add
+Add a ₹500 budget for home maintenance,budget_add
+Can you set a budget for travel?,budget_add
+Update my food budget to ₹600,budget_update
+Change my grocery budget to ₹400,budget_update
+Can you update my utilities budget to ₹1200?,budget_update
+Adjust my entertainment budget to ₹500,budget_update
+Set my rent budget to ₹2500,budget_update
+Update my transportation budget to ₹700,budget_update
+Change my healthcare budget to ₹800,budget_update
+Can you adjust my subscriptions budget to ₹600?,budget_update
+Update my dining out budget to ₹400,budget_update
+Set my personal care budget to ₹300,budget_update
+How much of my food budget is left?,budget_check_remaining
+Show my remaining grocery budget,budget_check_remaining
+What’s left in my utilities budget?,budget_check_remaining
+Tell me my remaining entertainment budget,budget_check_remaining
+Can you show my rent budget balance?,budget_check_remaining
+What’s my transportation budget left?,budget_check_remaining
+Show my healthcare budget remaining,budget_check_remaining
+Tell me my subscriptions budget balance,budget_check_remaining
+What’s left in my dining out budget?,budget_check_remaining
+Can you show my personal care budget left?,budget_check_remaining
+What’s my total budget for this month?,budget_get_total
+Show my monthly budget summary,budget_get_total
+Tell me my total budget across all categories,budget_get_total
+Can you show my full budget for this month?,budget_get_total
+What’s my overall budget amount?,budget_get_total
+List my budgets created this month,budget_get_by_date
+Show my budgets set this week,budget_get_by_date
+Tell me my budgets from last month,budget_get_by_date
+Can you list budgets created last week?,budget_get_by_date
+What budgets did I set this year?,budget_get_by_date
+Did I set a budget for food?,budget_check_exists
+Is there a grocery budget set?,budget_check_exists
+Do I have a utilities budget?,budget_check_exists
+Check if I set an entertainment budget,budget_check_exists
+Is a rent budget created?,budget_check_exists
+Do I have a transportation budget?,budget_check_exists
+Check if I set a healthcare budget,budget_check_exists
+Is there a subscriptions budget?,budget_check_exists
+Did I create a dining out budget?,budget_check_exists
+Do I have a personal care budget?,budget_check_exists
+What’s my budget for snacks?,budget_get
+Show my budget for gym fees,budget_get
+Tell me my budget for internet,budget_get
+Can you show my budget for coffee?,budget_get
+What’s my budget for taxi rides?,budget_get
+What bills are due this month?,bill_get_upcoming
+Show my upcoming bill payments,bill_get_upcoming
+List my bills due soon,bill_get_upcoming
+Tell me about bills coming up,bill_get_upcoming
+Which bills are due next week?,bill_get_upcoming
+Can you show my next bill due?,bill_get_upcoming
+What’s my next bill payment?,bill_get_upcoming
+Show bills due this week,bill_get_upcoming
+Tell me my bills due in May,bill_get_upcoming
+List my upcoming electricity bills,bill_get_upcoming
+What bills haven’t I paid?,bill_get_unpaid
+Show my outstanding bill list,bill_get_unpaid
+List my unpaid bills please,bill_get_unpaid
+Tell me about bills I owe,bill_get_unpaid
+Which bills are still due?,bill_get_unpaid
+Can you show my pending bills?,bill_get_unpaid
+What’s my unpaid bill total?,bill_get_unpaid
+Show my unpaid utilities bills,bill_get_unpaid
+Tell me my overdue bills,bill_get_unpaid
+List my unpaid rent bills,bill_get_unpaid
+When’s my electricity bill due?,bill_get_electricity_due
+Show my electric bill due date,bill_get_electricity_due
+Tell me when my power bill is due,bill_get_electricity_due
+What’s my electricity payment date?,bill_get_electricity_due
+Can you check my electric bill due?,bill_get_electricity_due
+When is my utilities bill due?,bill_get_electricity_due
+Show my electricity bill details,bill_get_electricity_due
+Tell me my electric bill due date,bill_get_electricity_due
+What’s the due date for my power bill?,bill_get_electricity_due
+Can you show my electricity due date?,bill_get_electricity_due
+Add a ₹500 electricity bill due next week,bill_add
+Create a ₹300 internet bill due on May 15,bill_add
+Set up a ₹1000 rent bill due monthly,bill_add
+Add a ₹200 phone bill due in 10 days,bill_add
+Can you add a ₹400 cable bill due weekly?,bill_add
+Record a ₹600 water bill due on May 20,bill_add
+Add a ₹250 gas bill due bi-weekly,bill_add
+Create a ₹700 insurance bill due quarterly,bill_add
+Set up a ₹800 car loan bill due monthly,bill_add
+Add a ₹150 subscription bill due annually,bill_add
+What’s the status of my electricity bill?,bill_check_status
+Is my internet bill paid?,bill_check_status
+Check if my rent bill is paid,bill_check_status
+Tell me if my phone bill is cleared,bill_check_status
+Is my cable bill paid yet?,bill_check_status
+Show the status of my water bill,bill_check_status
+Has my gas bill been paid?,bill_check_status
+Check my insurance bill status,bill_check_status
+Is my car loan bill paid?,bill_check_status
+Tell me if my subscription bill is paid,bill_check_status
+What’s my total bill amount this month?,bill_get_total
+Show my total bills due this month,bill_get_total
+Tell me the sum of my bills,bill_get_total
+Can you show my total bill payments?,bill_get_total
+What’s my bill total for May?,bill_get_total
+List my bill amounts for this month,bill_get_total
+Show my bill summary for this month,bill_get_total
+What’s my total unpaid bill amount?,bill_get_total
+Can you list my bill totals?,bill_get_total
+What’s the billing cycle for my electricity bill?,bill_get_cycle
+Show the cycle for my internet bill,bill_get_cycle
+Tell me the billing cycle for my rent bill,bill_get_cycle
+What’s the cycle for my phone bill?,bill_get_cycle
+Can you show my cable bill’s billing cycle?,bill_get_cycle
+What’s the billing cycle for my water bill?,bill_get_cycle
+Show the cycle for my gas bill,bill_get_cycle
+Tell me my insurance bill’s billing cycle,bill_get_cycle
+What’s the cycle for my car loan bill?,bill_get_cycle
+Can you show my subscription bill’s cycle?,bill_get_cycle
+Mark my electricity bill as paid,bill_update_status
+Set my internet bill as paid,bill_update_status
+Update my rent bill to paid,bill_update_status
+Mark my phone bill as paid,bill_update_status
+Can you set my cable bill as paid?,bill_update_status
+Update my water bill to paid,bill_update_status
+Set my gas bill as paid,bill_update_status
+Mark my insurance bill as paid,bill_update_status
+Update my car loan bill to paid,bill_update_status
+Set my subscription bill as paid,bill_update_status
+What bills did I pay this month?,bill_get_paid
+Show my paid bills for May,bill_get_paid
+List my paid bills this week,bill_get_paid
+Tell me about bills I paid recently,bill_get_paid
+Can you show my paid bill history?,bill_get_paid
+What’s my paid bill total?,bill_get_paid
+Show my paid bills summary,bill_get_paid
+List my paid bill amounts,bill_get_paid
+Tell me my paid bills for this month,bill_get_paid
+Can you show my paid utilities bills?,bill_get_paid
+What did I spend on food this month?,expense_get_by_category
+Show my grocery expenses,expense_get_by_category
+Tell me my utilities spending,expense_get_by_category
+What’s my entertainment spending?,expense_get_by_category
+Can you show my rent expenses?,expense_get_by_category
+What did I spend on transportation?,expense_get_by_category
+Show my healthcare expenses,expense_get_by_category
+Tell me my education spending,expense_get_by_category
+What’s my subscriptions spending?,expense_get_by_category
+Can you show my dining out expenses?,expense_get_by_category
+Add ₹500 for groceries,expense_add
+Spent ₹300 on utilities,expense_add
+Log ₹1000 for transportation,expense_add
+Record ₹400 for entertainment,expense_add
+Add ₹2000 for rent,expense_add
+Can you add ₹600 for healthcare?,expense_add
+Spent ₹700 for subscriptions,expense_add
+Log ₹300 for dining out,expense_add
+Add ₹200 for personal care,expense_add
+Record ₹1000 for childcare,expense_add
+What’s my total spending this month?,expense_get_total
+Show my monthly expense summary,expense_get_total
+Tell me my total expenses,expense_get_total
+Can you list my spending total?,expense_get_total
+What’s my expenditure this month?,expense_get_total
+Show my total spending for May,expense_get_total
+List my expense totals,expense_get_total
+What’s my monthly spending amount?,expense_get_total
+Can you show my total expenditure?,expense_get_total
+Tell me my spending sum,expense_get_total
+What did I spend last week?,expense_get_by_date
+Show my expenses from last week,expense_get_by_date
+Tell me my spending last month,expense_get_by_date
+List my expenses for this week,expense_get_by_date
+Can you show my spending this month?,expense_get_by_date
+What’s my expense history for May?,expense_get_by_date
+Show my expenses from last year,expense_get_by_date
+Tell me my spending for this year,expense_get_by_date
+List my expenses from last month,expense_get_by_date
+Can you show my weekly expenses?,expense_get_by_date
+What’s my food spending this week?,expense_get_by_category_date
+Show my grocery expenses for last month,expense_get_by_category_date
+Tell me my utilities spending this year,expense_get_by_category_date
+What’s my entertainment spending last week?,expense_get_by_category_date
+Can you show my rent expenses this month?,expense_get_by_category_date
+What did I spend on transportation last month?,expense_get_by_category_date
+Show my healthcare expenses this week,expense_get_by_category_date
+Tell me my subscriptions spending last year,expense_get_by_category_date
+What’s my dining out spending this month?,expense_get_by_category_date
+Can you show my personal care expenses last week?,expense_get_by_category_date
+Add a ₹250 expense for snacks,expense_add
+Log ₹150 for coffee,expense_add
+Spent ₹400 on gym membership,expense_add
+Record ₹700 for healthcare visit,expense_add
+Add ₹300 for internet,expense_add
+Can you log ₹200 for taxi?,expense_add
+Spent ₹500 on clothing,expense_add
+Add ₹600 for home repairs,expense_add
+Record ₹800 for travel,expense_add
+Log ₹350 for gifts,expense_add
+What’s my spending trend this month?,expense_get_trend
+Show my expense trends for this year,expense_get_trend
+Tell me my spending pattern,expense_get_trend
+Can you show my expenditure trends?,expense_get_trend
+What’s my monthly spending trend?,expense_get_trend
+Show my spending trends for food,expense_get_trend_by_category
+Tell me my grocery spending pattern,expense_get_trend_by_category
+What’s my utilities spending trend?,expense_get_trend_by_category
+Can you show my entertainment spending trends?,expense_get_trend_by_category
+Show my rent expense trends,expense_get_trend_by_category
+What expenses did I have yesterday?,expense_get_by_date
+Show my expenses from two weeks ago,expense_get_by_date
+Tell me my spending from last Friday,expense_get_by_date
+List my expenses for this Monday,expense_get_by_date
+Can you show my spending from last month?,expense_get_by_date
+What’s my highest expense this month?,expense_get_max
+Show my biggest expense this year,expense_get_max
+Tell me my largest spending amount,expense_get_max
+Can you list my top expenses?,expense_get_max
+What’s my most expensive category?,expense_get_max
+What’s my average spending per month?,expense_get_average
+Show my average expenses this year,expense_get_average
+Tell me my average monthly spending,expense_get_average
+Can you show my spending average?,expense_get_average
+What’s my average food spending?,expense_get_average_by_category
+Show my average grocery expenses,expense_get_average_by_category
+Tell me my average utilities spending,expense_get_average_by_category
+Can you show my average entertainment spending?,expense_get_average_by_category
+Show my average rent expenses,expense_get_average_by_category
+What are my income categories?,income_category_get_list
+Show me all my income source types,income_category_get_list
+List my income categories please,income_category_get_list
+Can you tell me my income types?,income_category_get_list
+What are my income classifications?,income_category_get_list
+Show my income category list,income_category_get_list
+Tell me the types of income I track,income_category_get_list
+What income categories are in my account?,income_category_get_list
+List all my income source categories,income_category_get_list
+Can you show my income groups?,income_category_get_list
+Is Salary a valid income category?,income_category_check
+Does Freelance count as an income category?,income_category_check
+Can I use Investments as an income category?,income_category_check
+Is Rental Income a valid category?,income_category_check
+Check if Dividends is an income category,income_category_check
+Is Side Hustle a valid income category?,income_category_check
+Does Passive Income count as a category?,income_category_check
+Can I use Bonuses as an income category?,income_category_check
+Is Grants an income category?,income_category_check
+Check if Royalties is an income category?,income_category_check
+Add a Salary income category,income_category_add
+Create a Freelance income category,income_category_add
+Set up an Investments income category,income_category_add
+Add a Rental Income category,income_category_add
+Can you create a Dividends income category?,income_category_add
+Add a Side Hustle income category,income_category_add
+Create a Passive Income category,income_category_add
+Set up a Bonuses income category,income_category_add
+Add a Grants income category,income_category_add
+Can you create a Royalties income category?,income_category_add
+What income categories can I use?,income_category_get_list
+Show me the full list of income categories,income_category_get_list
+Tell me all income category names,income_category_get_list
+Can you list every income category I can use?,income_category_get_list
+What are all my income types?,income_category_get_list
+Show me every income category,income_category_get_list
+List all categories for income,income_category_get_list
+Can you tell me every income category?,income_category_get_list
+What’s the complete income category list?,income_category_get_list
+Show all my income classifications,income_category_get_list
+Is Consulting a valid income category?,income_category_check
+Does Business count as an income category?,income_category_check
+Can I use Pensions as an income category?,income_category_check
+Is Alimony a valid income category?,income_category_check
+Check if Interest is an income category?,income_category_check
+Is Refunds an income category?,income_category_check
+Does Cashback count as an income category?,income_category_check
+Can I use Awards as an income category?,income_category_check
+Is Stipends an income category?,income_category_check
+Check if Commissions is an income category?,income_category_check
+Add a Consulting income category,income_category_add
+Create a Business income category,income_category_add
+Set up a Pensions income category,income_category_add
+Add an Alimony income category,income_category_add
+Can you create an Interest income category?,income_category_add
+Add a Refunds income category,income_category_add
+Create a Cashback income category,income_category_add
+Set up an Awards income category,income_category_add
+Add a Stipends income category,income_category_add
+Can you create a Commissions income category?,income_category_add
+What income category is salary?,income_category_map
+Which category for freelance work?,income_category_map
+What’s the category for investment income?,income_category_map
+Map rental income to a category,income_category_map
+What income category is dividends?,income_category_map
+Which category for side hustle?,income_category_map
+What’s the category for passive income?,income_category_map
+Map bonuses to an income category,income_category_map
+What income category is grants?,income_category_map
+Which category for royalties?,income_category_map
+What income category is consulting?,income_category_map
+Which category for business income?,income_category_map
+What’s the category for pensions?,income_category_map
+Map alimony to an income category,income_category_map
+What income category is interest?,income_category_map
+Which category for refunds?,income_category_map
+What’s the category for cashback?,income_category_map
+Map awards to an income category,income_category_map
+What income category is stipends?,income_category_map
+Which category for commissions?,income_category_map
+Can you list my income source types?,income_category_get_list
+Show me my income category options,income_category_get_list
+Tell me my income classification list,income_category_get_list
+What are my income category choices?,income_category_get_list
+Can you show my income type options?,income_category_get_list
+List my income source classifications,income_category_get_list
+Show my income category choices,income_category_get_list
+Tell me my income type classifications,income_category_get_list
+What’s my list of income categories?,income_category_get_list
+Can you display all income categories?,income_category_get_list
+What’s my salary income this month?,income_get_by_category
+Show my freelance earnings,income_get_by_category
+Tell me my investment income,income_get_by_category
+What’s my rental income?,income_get_by_category
+Can you show my dividends income?,income_get_by_category
+What did I earn from side hustle?,income_get_by_category
+Show my passive income,income_get_by_category
+Tell me my bonuses income,income_get_by_category
+What’s my grants income?,income_get_by_category
+Can you show my royalties income?,income_get_by_category
+Add ₹5000 for salary,income_add
+Log ₹2000 for freelance work,income_add
+Record ₹3000 for investments,income_add
+Add ₹4000 for rental income,income_add
+Can you add ₹1000 for dividends?,income_add
+Spent ₹1500 for side hustle,income_add
+Log ₹2000 for passive income,income_add
+Add ₹2500 for bonuses,income_add
+Record ₹3000 for grants,income_add
+Can you add ₹3500 for royalties?,income_add
+What’s my total income this month?,income_get_total
+Show my monthly income summary,income_get_total
+Tell me my total earnings,income_get_total
+Can you list my income total?,income_get_total
+What’s my revenue this month?,income_get_total
+Show my total income for May,income_get_total
+List my income totals,income_get_total
+What’s my monthly income amount?,income_get_total
+Can you show my total revenue?,income_get_total
+Tell me my earnings sum,income_get_total
+What did I earn last week?,income_get_by_date
+Show my income from last week,income_get_by_date
+Tell me my earnings last month,income_get_by_date
+List my income for this week,income_get_by_date
+Can you show my income this month?,income_get_by_date
+What’s my income history for May?,income_get_by_date
+Show my income from last year,income_get_by_date
+Tell me my earnings for this year,income_get_by_date
+List my income from last month,income_get_by_date
+Can you show my weekly income?,income_get_by_date
+What’s my salary income this week?,income_get_by_category_date
+Show my freelance earnings for last month,income_get_by_category_date
+Tell me my investment income this year,income_get_by_category_date
+What’s my rental income last week?,income_get_by_category_date
+Can you show my dividends income this month?,income_get_by_category_date
+What did I earn from side hustle last month?,income_get_by_category_date
+Show my passive income this week,income_get_by_category_date
+Tell me my bonuses income last year,income_get_by_category_date
+What’s my grants income this month?,income_get_by_category_date
+Can you show my royalties income last week?,income_get_by_category_date
+Add a ₹1000 income for consulting,income_add
+Log ₹1500 for business income,income_add
+Spent ₹2000 on pensions,income_add
+Record ₹2500 for alimony,income_add
+Add ₹3000 for interest,income_add
+Can you log ₹3500 for refunds?,income_add
+Spent ₹4000 on cashback,income_add
+Add ₹4500 for awards,income_add
+Record ₹5000 for stipends,income_add
+Log ₹5500 for commissions,income_add
+What’s my income trend this month?,income_get_trend
+Show my income trends for this year,income_get_trend
+Tell me my earnings pattern,income_get_trend
+Can you show my revenue trends?,income_get_trend
+What’s my monthly income trend?,income_get_trend
+Show my income trends for salary,income_get_trend_by_category
+Tell me my freelance income pattern,income_get_trend_by_category
+What’s my investment income trend?,income_get_trend_by_category
+Can you show my rental income trends?,income_get_trend_by_category
+Show my dividends income trends,income_get_trend_by_category
+What income did I have yesterday?,income_get_by_date
+Show my income from two weeks ago,income_get_by_date
+Tell me my earnings from last Friday,income_get_by_date
+List my income for this Monday,income_get_by_date
+Can you show my income from last month?,income_get_by_date
+What’s my highest income this month?,income_get_max
+Show my biggest income this year,income_get_max
+Tell me my largest income amount,income_get_max
+Can you list my top incomes?,income_get_max
+What’s my most lucrative income category?,income_get_max
+What’s my average income per month?,income_get_average
+Show my average income this year,income_get_average
+Tell me my average monthly income,income_get_average
+Can you show my income average?,income_get_average
+What’s my average salary income?,income_get_average_by_category
+Show my average freelance income,income_get_average_by_category
+Tell me my average investment income,income_get_average_by_category
+Can you show my average rental income?,income_get_average_by_category
+Show my average dividends income,income_get_average_by_category
+What are my investment categories?,investment_category_get_list
+Show me all my investment types,investment_category_get_list
+List my investment categories please,investment_category_get_list
+Can you tell me my investment classifications?,investment_category_get_list
+What are my investment groups?,investment_category_get_list
+Show my investment category list,investment_category_get_list
+Tell me the types of investments I track,investment_category_get_list
+What investment categories are in my account?,investment_category_get_list
+List all my investment categories,investment_category_get_list
+Can you show my investment type list?,investment_category_get_list
+Is Stocks a valid investment category?,investment_category_check
+Does Bonds count as an investment category?,investment_category_check
+Can I use Real Estate as an investment category?,investment_category_check
+Is Mutual Funds a valid category?,investment_category_check
+Check if ETFs is an investment category?,investment_category_check
+Is Cryptocurrency a valid category?,investment_category_check
+Does Commodities count as an investment category?,investment_category_check
+Can I use Precious Metals as an investment category?,investment_category_check
+Is Venture Capital an investment category?,investment_category_check
+Check if Hedge Funds is an investment category?,investment_category_check
+Add a Stocks investment category,investment_category_add
+Create a Bonds investment category,investment_category_add
+Set up a Real Estate investment category,investment_category_add
+Add a Mutual Funds investment category,investment_category_add
+Can you create an ETFs investment category?,investment_category_add
+Add a Cryptocurrency investment category,investment_category_add
+Create a Commodities investment category,investment_category_add
+Set up a Precious Metals investment category,investment_category_add
+Add a Venture Capital investment category,investment_category_add
+Can you create a Hedge Funds investment category?,investment_category_add
+What investment categories can I use?,investment_category_get_list
+Show me the full list of investment categories,investment_category_get_list
+Tell me all investment category names,investment_category_get_list
+Can you list every investment category I can use?,investment_category_get_list
+What are all my investment types?,investment_category_get_list
+Show me every investment category,investment_category_get_list
+List all categories for investments,investment_category_get_list
+Can you tell me every investment category?,investment_category_get_list
+What’s the complete investment category list?,investment_category_get_list
+Show all my investment classifications,investment_category_get_list
+Is REITs a valid investment category?,investment_category_check
+Does Private Equity count as an investment category?,investment_category_check
+Can I use Derivatives as an investment category?,investment_category_check
+Is Annuities a valid investment category?,investment_category_check
+Check if Collectibles is an investment category?,investment_category_check
+Is Forex an investment category?,investment_category_check
+Does Crowdfunding count as an investment category?,investment_category_check
+Can I use Peer-to-Peer Lending as an investment category?,investment_category_check
+Is Angel Investing an investment category?,investment_category_check
+Check if Infrastructure is an investment category?,investment_category_check
+Add a REITs investment category,investment_category_add
+Create a Private Equity investment category,investment_category_add
+Set up a Derivatives investment category,investment_category_add
+Add an Annuities investment category,investment_category_add
+Can you create a Collectibles investment category?,investment_category_add
+Add a Forex investment category,investment_category_add
+Create a Crowdfunding investment category,investment_category_add
+Set up a Peer-to-Peer Lending investment category,investment_category_add
+Add an Angel Investing investment category,investment_category_add
+Can you create an Infrastructure investment category?,investment_category_add
+What investment category is stocks?,investment_category_map
+Which category for bonds?,investment_category_map
+What’s the category for real estate investments?,investment_category_map
+Map mutual funds to a category,investment_category_map
+What investment category is ETFs?,investment_category_map
+Which category for cryptocurrency?,investment_category_map
+What’s the category for commodities?,investment_category_map
+Map precious metals to an investment category,investment_category_map
+What investment category is venture capital?,investment_category_map
+Which category for hedge funds?,investment_category_map
+What investment category is REITs?,investment_category_map
+Which category for private equity?,investment_category_map
+What’s the category for derivatives?,investment_category_map
+Map annuities to an investment category,investment_category_map
+What investment category is collectibles?,investment_category_map
+Which category for forex?,investment_category_map
+What’s the category for crowdfunding?,investment_category_map
+Map peer-to-peer lending to an investment category,investment_category_map
+What investment category is angel investing?,investment_category_map
+Which category for infrastructure?,investment_category_map
+Can you list my investment type options?,investment_category_get_list
+Show me my investment category choices,investment_category_get_list
+Tell me my investment classification list,investment_category_get_list
+What are my investment category options?,investment_category_get_list
+Can you show my investment type classifications?,investment_category_get_list
+List my investment source classifications,investment_category_get_list
+Show my investment category options,investment_category_get_list
+Tell me my investment type choices,investment_category_get_list
+What’s my list of investment categories?,investment_category_get_list
+Can you display all investment categories?,investment_category_get_list
+What are my stock investments?,investment_get_by_category
+Show my bond investments,investment_get_by_category
+Tell me my real estate investments,investment_get_by_category
+What’s my mutual fund investments?,investment_get_by_category
+Can you show my ETF investments?,investment_get_by_category
+What did I invest in cryptocurrency?,investment_get_by_category
+Show my commodities investments,investment_get_by_category
+Tell me my precious metals investments,investment_get_by_category
+What’s my venture capital investments?,investment_get_by_category
+Can you show my hedge fund investments?,investment_get_by_category
+Add ₹5000 to stocks,investment_add
+Invest ₹3000 in bonds,investment_add
+Record ₹4000 for real estate,investment_add
+Add ₹2000 to mutual funds,investment_add
+Can you add ₹2500 to ETFs?,investment_add
+Invest ₹3500 in cryptocurrency,investment_add
+Add ₹4000 to commodities,investment_add
+Record ₹4500 for precious metals,investment_add
+Add ₹5000 to venture capital,investment_add
+Can you invest ₹6000 in hedge funds?,investment_add
+What’s my total investment amount?,investment_get_total
+Show my total investments summary,investment_get_total
+Tell me my total investment value,investment_get_total
+Can you list my investment total?,investment_get_total
+What’s my investment portfolio worth?,investment_get_total
+Show my total investments for this year,investment_get_total
+List my investment totals,investment_get_total
+What’s my investment amount this month?,investment_get_total
+Can you show my total investment value?,investment_get_total
+Tell me my investments sum,investment_get_total
+What’s my profit from stocks?,investment_get_profit
+Show my bond investment profits,investment_get_profit
+Tell me my real estate investment gains,investment_get_profit
+What’s my mutual fund profit?,investment_get_profit
+Can you show my ETF profits?,investment_get_profit
+What’s my cryptocurrency investment profit?,investment_get_profit
+Show my commodities investment gains,investment_get_profit
+Tell me my precious metals profit,investment_get_profit
+What’s my venture capital profit?,investment_get_profit
+Can you show my hedge fund profits?,investment_get_profit
+What’s my loss from stocks?,investment_get_loss
+Show my bond investment losses,investment_get_loss
+Tell me my real estate investment losses,investment_get_loss
+What’s my mutual fund loss?,investment_get_loss
+Can you show my ETF losses?,investment_get_loss
+What’s my cryptocurrency investment loss?,investment_get_loss
+Show my commodities investment losses,investment_get_loss
+Tell me my precious metals loss,investment_get_loss
+What’s my venture capital loss?,investment_get_loss
+Can you show my hedge fund losses?,investment_get_loss
+What investments did I make this month?,investment_get_by_date
+Show my investments from last week,investment_get_by_date
+Tell me my investments last month,investment_get_by_date
+List my investments for this week,investment_get_by_date
+Can you show my investments this year?,investment_get_by_date
+What’s my investment history for May?,investment_get_by_date
+Show my investments from last year,investment_get_by_date
+Tell me my investments for this month,investment_get_by_date
+List my investments from last month,investment_get_by_date
+Can you show my monthly investments?,investment_get_by_date
+What’s my stock investment performance?,investment_get_performance
+Show my bond investment performance,investment_get_performance
+Tell me my real estate investment returns,investment_get_performance
+What’s my mutual fund performance?,investment_get_performance
+Can you show my ETF investment performance?,investment_get_performance
+What’s my cryptocurrency investment returns?,investment_get_performance
+Show my commodities investment performance,investment_get_performance
+Tell me my precious metals investment returns,investment_get_performance
+What’s my venture capital performance?,investment_get_performance
+Can you show my hedge fund investment performance?,investment_get_performance
+Add ₹2000 to REITs,investment_add
+Invest ₹2500 in private equity,investment_add
+Record ₹3000 for derivatives,investment_add
+Add ₹3500 to annuities,investment_add
+Can you add ₹4000 to collectibles?,investment_add
+Invest ₹4500 in forex,investment_add
+Add ₹5000 to crowdfunding,investment_add
+Record ₹5500 for peer-to-peer lending,investment_add
+Add ₹6000 to angel investing,investment_add
+Can you invest ₹6500 in infrastructure?,investment_add
+What’s my investment trend this year?,investment_get_trend
+Show my investment trends for stocks,investment_get_trend_by_category
+Tell me my bond investment trends,investment_get_trend_by_category
+What’s my real estate investment trend?,investment_get_trend_by_category
+Can you show my mutual fund investment trends?,investment_get_trend_by_category
+Show my ETF investment trends,investment_get_trend_by_category
+What’s my highest investment this month?,investment_get_max
+Show my biggest investment this year,investment_get_max
+Tell me my largest investment amount,investment_get_max
+Can you list my top investments?,investment_get_max
+What’s my most profitable investment?,investment_get_max_profit
+Show my most profitable investment category,investment_get_max_profit
+Tell me my highest profit investment,investment_get_max_profit
+Can you show my top profit investments?,investment_get_max_profit

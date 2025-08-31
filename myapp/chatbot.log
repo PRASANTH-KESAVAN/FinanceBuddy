@@ -1,0 +1,267 @@
+2025-05-11 14:59:52,884 [INFO] Starting intent classifier training pipeline
+2025-05-11 14:59:52,886 [ERROR] Error in merge_datasets: [Errno 2] No such file or directory: 'intents1.csv'
+2025-05-11 14:59:52,887 [ERROR] Pipeline failed: [Errno 2] No such file or directory: 'intents1.csv'
+2025-05-11 15:00:47,186 [INFO] Starting intent classifier training pipeline
+2025-05-11 15:00:47,194 [INFO] Loaded intents1.csv with 1235 records
+2025-05-11 15:00:47,207 [INFO] Saved intents_combined.csv with 1235 records
+2025-05-11 15:00:47,215 [INFO] Intents with <50 examples: 87
+2025-05-11 15:00:47,216 [ERROR] Error in augment_dataset: Missed nltk library. Install nltk by `pip install nltk`
+2025-05-11 15:00:47,216 [ERROR] Pipeline failed: Missed nltk library. Install nltk by `pip install nltk`
+2025-05-11 15:01:58,308 [INFO] Starting intent classifier training pipeline
+2025-05-11 15:01:58,315 [INFO] Loaded intents1.csv with 1235 records
+2025-05-11 15:01:58,323 [INFO] Saved intents_combined.csv with 1235 records
+2025-05-11 15:01:58,326 [INFO] Intents with <50 examples: 87
+2025-05-11 15:02:12,959 [INFO] Augmenting intent category_map with 39 examples
+2025-05-11 15:02:14,313 [ERROR] Error in augment_dataset: 
+**********************************************************************
+  Resource [93maveraged_perceptron_tagger_eng[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('averaged_perceptron_tagger_eng')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mtaggers/averaged_perceptron_tagger_eng/[0m
+
+  Searched in:
+    - 'C:\\Users\\22150/nltk_data'
+    - 'C:\\Prasanth\\PRACTICE\\Django\\djangoenv\\nltk_data'
+    - 'C:\\Prasanth\\PRACTICE\\Django\\djangoenv\\share\\nltk_data'
+    - 'C:\\Prasanth\\PRACTICE\\Django\\djangoenv\\lib\\nltk_data'
+    - 'C:\\Users\\22150\\AppData\\Roaming\\nltk_data'
+    - 'C:\\nltk_data'
+    - 'D:\\nltk_data'
+    - 'E:\\nltk_data'
+**********************************************************************
+
+2025-05-11 15:02:14,314 [ERROR] Pipeline failed: 
+**********************************************************************
+  Resource [93maveraged_perceptron_tagger_eng[0m not found.
+  Please use the NLTK Downloader to obtain the resource:
+
+  [31m>>> import nltk
+  >>> nltk.download('averaged_perceptron_tagger_eng')
+  [0m
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load [93mtaggers/averaged_perceptron_tagger_eng/[0m
+
+  Searched in:
+    - 'C:\\Users\\22150/nltk_data'
+    - 'C:\\Prasanth\\PRACTICE\\Django\\djangoenv\\nltk_data'
+    - 'C:\\Prasanth\\PRACTICE\\Django\\djangoenv\\share\\nltk_data'
+    - 'C:\\Prasanth\\PRACTICE\\Django\\djangoenv\\lib\\nltk_data'
+    - 'C:\\Users\\22150\\AppData\\Roaming\\nltk_data'
+    - 'C:\\nltk_data'
+    - 'D:\\nltk_data'
+    - 'E:\\nltk_data'
+**********************************************************************
+
+2025-05-11 15:05:30,510 [INFO] Starting intent classifier training pipeline
+2025-05-11 15:05:30,517 [INFO] Loaded intents1.csv with 1235 records
+2025-05-11 15:05:30,523 [INFO] Saved intents_combined.csv with 1235 records
+2025-05-11 15:05:30,528 [INFO] Intents with <50 examples: 87
+2025-05-11 15:05:35,437 [INFO] Augmenting intent category_map with 39 examples
+2025-05-11 15:05:35,779 [INFO] Augmenting intent income_category_get_list with 30 examples
+2025-05-11 15:05:35,835 [INFO] Augmenting intent investment_category_get_list with 30 examples
+2025-05-11 15:05:35,883 [INFO] Augmenting intent category_get_list with 28 examples
+2025-05-11 15:05:35,933 [INFO] Augmenting intent get_name with 25 examples
+2025-05-11 15:05:35,978 [INFO] Augmenting intent unknown with 25 examples
+2025-05-11 15:05:36,034 [INFO] Augmenting intent budget_get with 25 examples
+2025-05-11 15:05:36,067 [INFO] Augmenting intent get_total_spent with 24 examples
+2025-05-11 15:05:36,107 [INFO] Augmenting intent get_weekly_expenses with 24 examples
+2025-05-11 15:05:36,141 [INFO] Augmenting intent get_upcoming_bills with 24 examples
+2025-05-11 15:05:36,176 [INFO] Augmenting intent get_unpaid_bills with 24 examples
+2025-05-11 15:05:36,212 [INFO] Augmenting intent get_investments with 24 examples
+2025-05-11 15:05:36,238 [INFO] Augmenting intent get_profit_loss with 24 examples
+2025-05-11 15:05:36,279 [INFO] Augmenting intent get_expense_categories with 24 examples
+2025-05-11 15:05:36,314 [INFO] Augmenting intent get_electricity_due with 24 examples
+2025-05-11 15:05:36,354 [INFO] Augmenting intent get_total_expenses with 24 examples
+2025-05-11 15:05:36,394 [INFO] Augmenting intent add_expense with 24 examples
+2025-05-11 15:05:36,435 [INFO] Augmenting intent get_food_expense with 24 examples
+2025-05-11 15:05:36,472 [INFO] Augmenting intent get_profile_pic with 24 examples
+2025-05-11 15:05:36,511 [INFO] Augmenting intent get_total_income with 24 examples
+2025-05-11 15:05:36,541 [INFO] Augmenting intent get_income_sources with 24 examples
+2025-05-11 15:05:36,572 [INFO] Augmenting intent get_income_savings with 24 examples
+2025-05-11 15:05:36,614 [INFO] Augmenting intent category_check with 21 examples
+2025-05-11 15:05:36,660 [INFO] Augmenting intent income_category_check with 20 examples
+2025-05-11 15:05:36,719 [INFO] Augmenting intent investment_category_check with 20 examples
+2025-05-11 15:05:36,783 [INFO] Augmenting intent investment_category_add with 20 examples
+2025-05-11 15:05:36,832 [INFO] Augmenting intent income_add with 20 examples
+2025-05-11 15:05:36,878 [INFO] Augmenting intent income_category_map with 20 examples
+2025-05-11 15:05:36,914 [INFO] Augmenting intent investment_category_map with 20 examples
+2025-05-11 15:05:36,953 [INFO] Augmenting intent expense_add with 20 examples
+2025-05-11 15:05:36,996 [INFO] Augmenting intent income_category_add with 20 examples
+2025-05-11 15:05:37,040 [INFO] Augmenting intent investment_add with 20 examples
+2025-05-11 15:05:37,087 [INFO] Augmenting intent profile_get_info with 18 examples
+2025-05-11 15:05:37,130 [INFO] Augmenting intent profile_get_image with 17 examples
+2025-05-11 15:05:37,168 [INFO] Augmenting intent budget_add with 16 examples
+2025-05-11 15:05:37,217 [INFO] Augmenting intent expense_get_by_date with 15 examples
+2025-05-11 15:05:37,247 [INFO] Augmenting intent income_get_by_date with 15 examples
+2025-05-11 15:05:37,274 [INFO] Augmenting intent profile_get_savings with 12 examples
+2025-05-11 15:05:37,329 [INFO] Augmenting intent profile_get_income with 12 examples
+2025-05-11 15:05:37,376 [INFO] Augmenting intent investment_get_by_date with 10 examples
+2025-05-11 15:05:37,406 [INFO] Augmenting intent profile_get_income_savings with 10 examples
+2025-05-11 15:05:37,464 [INFO] Augmenting intent expense_get_total with 10 examples
+2025-05-11 15:05:37,512 [INFO] Augmenting intent bill_get_paid with 10 examples
+2025-05-11 15:05:37,556 [INFO] Augmenting intent expense_get_by_category_date with 10 examples
+2025-05-11 15:05:37,601 [INFO] Augmenting intent bill_update_status with 10 examples
+2025-05-11 15:05:37,652 [INFO] Augmenting intent expense_get_by_category with 10 examples
+2025-05-11 15:05:37,693 [INFO] Augmenting intent budget_get_all with 10 examples
+2025-05-11 15:05:37,739 [INFO] Augmenting intent budget_check_remaining with 10 examples
+2025-05-11 15:05:37,787 [INFO] Augmenting intent budget_check_exists with 10 examples
+2025-05-11 15:05:37,834 [INFO] Augmenting intent bill_get_cycle with 10 examples
+2025-05-11 15:05:37,883 [INFO] Augmenting intent bill_check_status with 10 examples
+2025-05-11 15:05:37,925 [INFO] Augmenting intent bill_get_unpaid with 10 examples
+2025-05-11 15:05:37,967 [INFO] Augmenting intent bill_get_upcoming with 10 examples
+2025-05-11 15:05:38,008 [INFO] Augmenting intent budget_update with 10 examples
+2025-05-11 15:05:38,059 [INFO] Augmenting intent category_add with 10 examples
+2025-05-11 15:05:38,113 [INFO] Augmenting intent bill_add with 10 examples
+2025-05-11 15:05:38,179 [INFO] Augmenting intent investment_get_loss with 10 examples
+2025-05-11 15:05:38,219 [INFO] Augmenting intent investment_get_performance with 10 examples
+2025-05-11 15:05:38,261 [INFO] Augmenting intent investment_get_profit with 10 examples
+2025-05-11 15:05:38,305 [INFO] Augmenting intent income_get_by_category_date with 10 examples
+2025-05-11 15:05:38,345 [INFO] Augmenting intent investment_get_total with 10 examples
+2025-05-11 15:05:38,388 [INFO] Augmenting intent income_get_by_category with 10 examples
+2025-05-11 15:05:38,426 [INFO] Augmenting intent income_get_total with 10 examples
+2025-05-11 15:05:38,466 [INFO] Augmenting intent investment_get_by_category with 10 examples
+2025-05-11 15:05:38,503 [INFO] Augmenting intent bill_get_electricity_due with 10 examples
+2025-05-11 15:05:38,549 [INFO] Augmenting intent bill_get_total with 9 examples
+2025-05-11 15:05:38,595 [INFO] Augmenting intent profile_get_slug with 8 examples
+2025-05-11 15:05:38,651 [INFO] Augmenting intent budget_get_total with 5 examples
+2025-05-11 15:05:38,700 [INFO] Augmenting intent budget_get_by_date with 5 examples
+2025-05-11 15:05:38,746 [INFO] Augmenting intent profile_update_name with 5 examples
+2025-05-11 15:05:38,805 [INFO] Augmenting intent profile_update_image with 5 examples
+2025-05-11 15:05:38,856 [INFO] Augmenting intent investment_get_trend_by_category with 5 examples
+2025-05-11 15:05:38,899 [INFO] Augmenting intent income_get_average_by_category with 5 examples
+2025-05-11 15:05:38,946 [INFO] Augmenting intent expense_get_trend_by_category with 5 examples
+2025-05-11 15:05:39,000 [INFO] Augmenting intent expense_get_trend with 5 examples
+2025-05-11 15:05:39,050 [INFO] Augmenting intent expense_get_average_by_category with 5 examples
+2025-05-11 15:05:39,102 [INFO] Augmenting intent expense_get_max with 5 examples
+2025-05-11 15:05:39,156 [INFO] Augmenting intent income_get_trend with 5 examples
+2025-05-11 15:05:39,197 [INFO] Augmenting intent income_get_max with 5 examples
+2025-05-11 15:05:39,240 [INFO] Augmenting intent income_get_trend_by_category with 5 examples
+2025-05-11 15:05:39,283 [INFO] Augmenting intent profile_update_savings with 4 examples
+2025-05-11 15:05:39,343 [INFO] Augmenting intent profile_update_income with 4 examples
+2025-05-11 15:05:39,388 [INFO] Augmenting intent expense_get_average with 4 examples
+2025-05-11 15:05:39,442 [INFO] Augmenting intent income_get_average with 4 examples
+2025-05-11 15:05:39,488 [INFO] Augmenting intent investment_get_max with 4 examples
+2025-05-11 15:05:39,527 [INFO] Augmenting intent investment_get_max_profit with 4 examples
+2025-05-11 15:05:39,573 [INFO] Augmenting intent investment_get_trend with 1 examples
+2025-05-11 15:05:39,609 [INFO] Added 26 manual examples
+2025-05-11 15:05:39,647 [INFO] Saved intents_augmented.csv with 7400 records
+2025-05-11 15:05:39,688 [INFO] Created train.csv (5920 records) and test.csv (1480 records)
+2025-05-11 15:05:45,922 [WARNING] Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2025-05-11 15:07:19,331 [ERROR] Error in train_model: TrainingArguments.__init__() got an unexpected keyword argument 'evaluation_strategy'
+2025-05-11 15:07:19,331 [ERROR] Pipeline failed: TrainingArguments.__init__() got an unexpected keyword argument 'evaluation_strategy'
+2025-05-11 15:12:56,726 [INFO] Starting intent classifier training pipeline
+2025-05-11 15:12:56,740 [INFO] Saved intents_combined.csv with 1235 records
+2025-05-11 15:12:56,744 [INFO] Intents with <50 examples: 87
+2025-05-11 15:13:01,561 [INFO] Augmenting intent category_map with 39 examples
+2025-05-11 15:13:01,852 [INFO] Augmenting intent income_category_get_list with 30 examples
+2025-05-11 15:13:01,912 [INFO] Augmenting intent investment_category_get_list with 30 examples
+2025-05-11 15:13:01,959 [INFO] Augmenting intent category_get_list with 28 examples
+2025-05-11 15:13:02,010 [INFO] Augmenting intent get_name with 25 examples
+2025-05-11 15:13:02,055 [INFO] Augmenting intent unknown with 25 examples
+2025-05-11 15:13:02,113 [INFO] Augmenting intent budget_get with 25 examples
+2025-05-11 15:13:02,150 [INFO] Augmenting intent get_total_spent with 24 examples
+2025-05-11 15:13:02,191 [INFO] Augmenting intent get_weekly_expenses with 24 examples
+2025-05-11 15:13:02,228 [INFO] Augmenting intent get_upcoming_bills with 24 examples
+2025-05-11 15:13:02,266 [INFO] Augmenting intent get_unpaid_bills with 24 examples
+2025-05-11 15:13:02,303 [INFO] Augmenting intent get_investments with 24 examples
+2025-05-11 15:13:02,332 [INFO] Augmenting intent get_profit_loss with 24 examples
+2025-05-11 15:13:02,375 [INFO] Augmenting intent get_expense_categories with 24 examples
+2025-05-11 15:13:02,411 [INFO] Augmenting intent get_electricity_due with 24 examples
+2025-05-11 15:13:02,454 [INFO] Augmenting intent get_total_expenses with 24 examples
+2025-05-11 15:13:02,494 [INFO] Augmenting intent add_expense with 24 examples
+2025-05-11 15:13:02,535 [INFO] Augmenting intent get_food_expense with 24 examples
+2025-05-11 15:13:02,573 [INFO] Augmenting intent get_profile_pic with 24 examples
+2025-05-11 15:13:02,615 [INFO] Augmenting intent get_total_income with 24 examples
+2025-05-11 15:13:02,647 [INFO] Augmenting intent get_income_sources with 24 examples
+2025-05-11 15:13:02,679 [INFO] Augmenting intent get_income_savings with 24 examples
+2025-05-11 15:13:02,722 [INFO] Augmenting intent category_check with 21 examples
+2025-05-11 15:13:02,771 [INFO] Augmenting intent income_category_check with 20 examples
+2025-05-11 15:13:02,834 [INFO] Augmenting intent investment_category_check with 20 examples
+2025-05-11 15:13:02,899 [INFO] Augmenting intent investment_category_add with 20 examples
+2025-05-11 15:13:02,952 [INFO] Augmenting intent income_add with 20 examples
+2025-05-11 15:13:03,001 [INFO] Augmenting intent income_category_map with 20 examples
+2025-05-11 15:13:03,038 [INFO] Augmenting intent investment_category_map with 20 examples
+2025-05-11 15:13:03,078 [INFO] Augmenting intent expense_add with 20 examples
+2025-05-11 15:13:03,123 [INFO] Augmenting intent income_category_add with 20 examples
+2025-05-11 15:13:03,172 [INFO] Augmenting intent investment_add with 20 examples
+2025-05-11 15:13:03,221 [INFO] Augmenting intent profile_get_info with 18 examples
+2025-05-11 15:13:03,266 [INFO] Augmenting intent profile_get_image with 17 examples
+2025-05-11 15:13:03,303 [INFO] Augmenting intent budget_add with 16 examples
+2025-05-11 15:13:03,355 [INFO] Augmenting intent expense_get_by_date with 15 examples
+2025-05-11 15:13:03,385 [INFO] Augmenting intent income_get_by_date with 15 examples
+2025-05-11 15:13:03,411 [INFO] Augmenting intent profile_get_savings with 12 examples
+2025-05-11 15:13:03,471 [INFO] Augmenting intent profile_get_income with 12 examples
+2025-05-11 15:13:03,519 [INFO] Augmenting intent investment_get_by_date with 10 examples
+2025-05-11 15:13:03,550 [INFO] Augmenting intent profile_get_income_savings with 10 examples
+2025-05-11 15:13:03,609 [INFO] Augmenting intent expense_get_total with 10 examples
+2025-05-11 15:13:03,658 [INFO] Augmenting intent bill_get_paid with 10 examples
+2025-05-11 15:13:03,703 [INFO] Augmenting intent expense_get_by_category_date with 10 examples
+2025-05-11 15:13:03,748 [INFO] Augmenting intent bill_update_status with 10 examples
+2025-05-11 15:13:03,799 [INFO] Augmenting intent expense_get_by_category with 10 examples
+2025-05-11 15:13:03,839 [INFO] Augmenting intent budget_get_all with 10 examples
+2025-05-11 15:13:03,885 [INFO] Augmenting intent budget_check_remaining with 10 examples
+2025-05-11 15:13:03,936 [INFO] Augmenting intent budget_check_exists with 10 examples
+2025-05-11 15:13:03,984 [INFO] Augmenting intent bill_get_cycle with 10 examples
+2025-05-11 15:13:04,034 [INFO] Augmenting intent bill_check_status with 10 examples
+2025-05-11 15:13:04,078 [INFO] Augmenting intent bill_get_unpaid with 10 examples
+2025-05-11 15:13:04,124 [INFO] Augmenting intent bill_get_upcoming with 10 examples
+2025-05-11 15:13:04,167 [INFO] Augmenting intent budget_update with 10 examples
+2025-05-11 15:13:04,219 [INFO] Augmenting intent category_add with 10 examples
+2025-05-11 15:13:04,275 [INFO] Augmenting intent bill_add with 10 examples
+2025-05-11 15:13:04,344 [INFO] Augmenting intent investment_get_loss with 10 examples
+2025-05-11 15:13:04,383 [INFO] Augmenting intent investment_get_performance with 10 examples
+2025-05-11 15:13:04,426 [INFO] Augmenting intent investment_get_profit with 10 examples
+2025-05-11 15:13:04,471 [INFO] Augmenting intent income_get_by_category_date with 10 examples
+2025-05-11 15:13:04,510 [INFO] Augmenting intent investment_get_total with 10 examples
+2025-05-11 15:13:04,553 [INFO] Augmenting intent income_get_by_category with 10 examples
+2025-05-11 15:13:04,591 [INFO] Augmenting intent income_get_total with 10 examples
+2025-05-11 15:13:04,630 [INFO] Augmenting intent investment_get_by_category with 10 examples
+2025-05-11 15:13:04,667 [INFO] Augmenting intent bill_get_electricity_due with 10 examples
+2025-05-11 15:13:04,717 [INFO] Augmenting intent bill_get_total with 9 examples
+2025-05-11 15:13:04,766 [INFO] Augmenting intent profile_get_slug with 8 examples
+2025-05-11 15:13:04,825 [INFO] Augmenting intent budget_get_total with 5 examples
+2025-05-11 15:13:04,875 [INFO] Augmenting intent budget_get_by_date with 5 examples
+2025-05-11 15:13:04,922 [INFO] Augmenting intent profile_update_name with 5 examples
+2025-05-11 15:13:04,981 [INFO] Augmenting intent profile_update_image with 5 examples
+2025-05-11 15:13:05,033 [INFO] Augmenting intent investment_get_trend_by_category with 5 examples
+2025-05-11 15:13:05,076 [INFO] Augmenting intent income_get_average_by_category with 5 examples
+2025-05-11 15:13:05,124 [INFO] Augmenting intent expense_get_trend_by_category with 5 examples
+2025-05-11 15:13:05,179 [INFO] Augmenting intent expense_get_trend with 5 examples
+2025-05-11 15:13:05,228 [INFO] Augmenting intent expense_get_average_by_category with 5 examples
+2025-05-11 15:13:05,281 [INFO] Augmenting intent expense_get_max with 5 examples
+2025-05-11 15:13:05,334 [INFO] Augmenting intent income_get_trend with 5 examples
+2025-05-11 15:13:05,374 [INFO] Augmenting intent income_get_max with 5 examples
+2025-05-11 15:13:05,417 [INFO] Augmenting intent income_get_trend_by_category with 5 examples
+2025-05-11 15:13:05,461 [INFO] Augmenting intent profile_update_savings with 4 examples
+2025-05-11 15:13:05,521 [INFO] Augmenting intent profile_update_income with 4 examples
+2025-05-11 15:13:05,567 [INFO] Augmenting intent expense_get_average with 4 examples
+2025-05-11 15:13:05,622 [INFO] Augmenting intent income_get_average with 4 examples
+2025-05-11 15:13:05,668 [INFO] Augmenting intent investment_get_max with 4 examples
+2025-05-11 15:13:05,706 [INFO] Augmenting intent investment_get_max_profit with 4 examples
+2025-05-11 15:13:05,753 [INFO] Augmenting intent investment_get_trend with 1 examples
+2025-05-11 15:13:05,788 [INFO] Added 26 manual examples
+2025-05-11 15:13:05,817 [INFO] Saved intents_augmented.csv with 7408 records
+2025-05-11 15:13:05,854 [INFO] Created train.csv (5926 records) and test.csv (1482 records)
+2025-05-11 15:13:07,939 [INFO] Starting model training
+2025-05-11 19:36:00,439 [INFO] Model and tokenizer saved to ./results
+2025-05-11 19:36:00,446 [INFO] Intent mappings saved to intent_mappings.json
+2025-05-11 19:37:18,801 [INFO] Final evaluation results: {'eval_loss': 0.1982668787240982, 'eval_precision': 0.9504804348959278, 'eval_recall': 0.946693657219973, 'eval_f1': 0.9464027702681189, 'eval_runtime': 78.2988, 'eval_samples_per_second': 18.927, 'eval_steps_per_second': 1.188, 'epoch': 10.0}
+2025-05-11 19:37:19,259 [INFO] Validation - Query: What’s my profile name? | Intent: profile_get_info | Confidence: 0.979
+2025-05-11 19:37:19,286 [INFO] Validation - Query: Add \u20b9500 electricity bill due next week | Intent: bill_add | Confidence: 0.992
+2025-05-11 19:37:19,317 [INFO] Validation - Query: Show my stock investment profit | Intent: investment_get_profit | Confidence: 0.995
+2025-05-11 19:37:19,347 [INFO] Validation - Query: What’s my budget for food? | Intent: budget_get | Confidence: 0.994
+2025-05-11 19:37:19,376 [INFO] Validation - Query: Track \u20b9200 for travel | Intent: expense_add | Confidence: 0.985
+2025-05-11 19:37:19,406 [INFO] Validation - Query: Update my name to Alice | Intent: profile_update_name | Confidence: 0.991
+2025-05-11 19:37:19,438 [INFO] Validation - Query: What’s my most profitable investment? | Intent: investment_get_max_profit | Confidence: 0.993
+2025-05-11 19:37:19,468 [INFO] Validation - Query: Show my unpaid bills | Intent: get_unpaid_bills | Confidence: 0.992
+2025-05-11 19:37:19,499 [INFO] Validation - Query: Add \u20b93000 for salary | Intent: income_add | Confidence: 0.993
+2025-05-11 19:37:19,534 [INFO] Validation - Query: What are my expense categories? | Intent: get_expense_categories | Confidence: 0.991
+2025-05-11 19:37:19,566 [INFO] Validation - Query: What’s my investment trend this year? | Intent: investment_get_trend | Confidence: 0.989
+2025-05-11 19:37:19,594 [INFO] Validation - Query: What’s the weather today? | Intent: unknown | Confidence: 0.994
+2025-05-11 19:37:19,646 [INFO] Training pipeline completed with F1 score: 0.9464027702681189

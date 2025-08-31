@@ -1,0 +1,400 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Personal Finance Assistant - Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Finance AI</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#overview">Overview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'finance:budget' %}"
+                >Budget Status</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'finance:bills' %}"
+                >Upcoming Bills</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'finance:insights' %}"
+                >Insights</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                >More</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="{% url 'finance:profile' %}"
+                    >Profile</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'finance:expense' %}"
+                    >Expense Tracking</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'finance:budget' %}"
+                    >Budget Management</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'finance:investment' %}"
+                    >Savings & Investments</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'finance:bills' %}"
+                    >Bill Payments</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="{% url 'finance:credit_loan' %}"
+                    >Credit & Loans</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'finance:chatbot' %}"
+                    >AI Assistant</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'finance:insights' %}"
+                    >Reports</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'finance:logout' %}"
+                    >Logout</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="">{% include 'includes/error.html' %}</div>
+
+    <!-- Dashboard Overview -->
+    <section id="overview" class="container py-5">
+      <h2 class="text-center">Overview of Your Finances</h2>
+      <div class="row text-center">
+        <div class="col-md-3">
+          <h5>Income</h5>
+          <p>{{ profile.income }}</p>
+        </div>
+        <div class="col-md-3">
+          <h5>Expenses</h5>
+          <p>{{profile.name}}</p>
+        </div>
+        <div class="col-md-3">
+          <h5>Savings</h5>
+          <p>{{ profile.savings }}</p>
+        </div>
+        <div class="col-md-3">
+          <h5>Investments</h5>
+          <p>$8,000</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Monthly Budget Status -->
+    <section id="budget" class="bg-light py-5">
+      <div class="container text-center">
+        <h2>Monthly Budget Status</h2>
+        <p>Visual breakdown of spending vs. budget.</p>
+
+        {% if chart %} {{ chart|safe }} {% else %}
+        <p>No data available.</p>
+        {% endif %}
+        <p class="mt-3">
+          <a href="{% url 'finance:budget' %}" class="btn btn-primary"
+            >Manage Budget</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- Upcoming Bills & Reminders -->
+    <section id="bills" class="container py-5">
+      <h2 class="text-center">Upcoming Bills & Reminders</h2>
+      <ul class="list-group">
+        <li class="list-group-item">Rent - Due: March 25 ($1,200)</li>
+        <li class="list-group-item">Electricity Bill - Due: March 28 ($80)</li>
+        <li class="list-group-item">Internet - Due: April 1 ($50)</li>
+      </ul>
+      <p class="mt-3 text-center">
+        <a href="{% url 'finance:bills' %}" class="btn btn-primary"
+          >Manage Bills</a
+        >
+      </p>
+    </section>
+
+    <!-- Financial Insights & AI Suggestions -->
+    <section id="insights" class="bg-light py-5">
+      <div class="container text-center">
+        <h2>AI Financial Insights & Suggestions</h2>
+        <p>Get AI-driven recommendations to optimize spending and savings.</p>
+        <div class="alert alert-success">
+          You can save $150 this month by reducing dining out expenses.
+        </div>
+        <div class="alert alert-info">
+          Consider investing $200 into a high-yield savings account.
+        </div>
+        <p class="mt-3">
+          <a href="reports_insights.html" class="btn btn-primary"
+            >View Financial Report</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- Customizable Widgets -->
+    <section class="container py-5">
+      <h2 class="text-center">Customize Your Dashboard</h2>
+      <p class="text-center">
+        Add/remove sections like "Investment Overview" or "Expense Breakdown."
+      </p>
+      <div class="text-center">
+        <button class="btn btn-outline-primary">Add Investment Overview</button>
+        <button class="btn btn-outline-secondary">
+          Remove Expense Breakdown
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-3">
+      <p>&copy; 2024 AI Financial Assistant. All rights reserved.</p>
+      <a href="#" class="text-white">Privacy Policy</a> |
+      <a href="#" class="text-white">Terms of Use</a> |
+      <a href="#" class="text-white">Contact</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html> {% endcomment %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Personal Finance Assistant - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200">
+    <!-- Navbar -->
+    <nav class="bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a class="text-2xl font-bold text-blue-300" href="{% url 'finance:dashboard' %}">Finance AI</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a class="hover:text-blue-400" href="{% url 'finance:dashboard' %}">Overview</a>
+                <a class="hover:text-blue-400" href="{% url 'finance:budget' %}">Budget Status</a>
+                <a class="hover:text-blue-400" href="{% url 'finance:bills' %}">Upcoming Bills</a>
+                <a class="hover:text-blue-400" href="{% url 'finance:insights' %}">Insights</a>
+                <!-- Dropdown -->
+                <div class="relative">
+                    <button id="more-button" class="hover:bg-gray-700 px-3 py-2 rounded-md focus:outline-none text-gray-200">More</button>
+                    <div id="dropdown-menu" class="absolute hidden bg-gray-700 text-gray-200 rounded-lg shadow-lg mt-2 w-48 z-50 ring-1 ring-gray-600">
+                        <a href="{% url 'finance:profile' %}" class="block px-4 py-2 hover:bg-gray-600">Profile</a>
+                        <a href="{% url 'finance:expense' %}" class="block px-4 py-2 hover:bg-gray-600">Expense Tracking</a>
+                        <a href="{% url 'finance:budget' %}" class="block px-4 py-2 hover:bg-gray-600">Budget Management</a>
+                        <a href="{% url 'finance:investment' %}" class="block px-4 py-2 hover:bg-gray-600">Savings & Investments</a>
+                        <a href="{% url 'finance:bills' %}" class="block px-4 py-2 hover:bg-gray-600">Bill Payments</a>
+                        <a href="{% url 'finance:credit_loan' %}" class="block px-4 py-2 hover:bg-gray-600">Credit & Loans</a>
+                        <a href="{% url 'finance:chatbot' %}" class="block px-4 py-2 hover:bg-gray-600">AI Assistant</a>
+                        <a href="{% url 'finance:insights' %}" class="block px-4 py-2 hover:bg-gray-600">Reports</a>
+                        <a href="{% url 'finance:logout' %}" class="block px-4 py-2 hover:bg-gray-600">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script>
+        const moreBtn = document.getElementById("more-button");
+        const dropdown = document.getElementById("dropdown-menu");
+        moreBtn.addEventListener("mouseenter", () => {
+            dropdown.classList.remove("hidden");
+        });
+        moreBtn.addEventListener("mouseleave", () => {
+            setTimeout(() => {
+                if (!dropdown.matches(":hover")) {
+                    dropdown.classList.add("hidden");
+                }
+            }, 100);
+        });
+        dropdown.addEventListener("mouseleave", () => {
+            dropdown.classList.add("hidden");
+        });
+        dropdown.addEventListener("mouseenter", () => {
+            dropdown.classList.remove("hidden");
+        });
+    </script>
+
+    <div>{% include 'includes/error.html' %}</div>
+
+    <!-- Overview -->
+    <section id="overview" class="max-w-7xl mx-auto py-12 px-4">
+        <h2 class="text-3xl font-bold text-center text-blue-300 mb-8">Overview of Your Finances</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+                <h5 class="text-lg font-semibold text-blue-200">Income</h5>
+                <p class="mt-2">{{ profile.income }}</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+                <h5 class="text-lg font-semibold text-blue-200">Expenses</h5>
+                <p class="mt-2">{{ profile.name }}</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+                <h5 class="text-lg font-semibold text-blue-200">Savings</h5>
+                <p class="mt-2">{{ profile.savings }}</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+                <h5 class="text-lg font-semibold text-blue-200">Investments</h5>
+                <p class="mt-2">$8,000</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Totals & Month Toggle -->
+    <div class="max-w-4xl mx-auto px-4 mt-10">
+        <div class="flex justify-between items-center mb-6">
+            <a href="?month={{ prev_month }}&year={{ prev_year }}"
+               class="px-4 py-2 bg-gray-700 text-gray-200 rounded-lg hover:bg-gray-600 transition ease-in-out duration-200">← Prev</a>
+            <div class="text-center">
+                <p class="text-lg font-semibold text-blue-200">{{ current_month }}/{{ current_year }}</p>
+                <p class="text-sm text-gray-400">
+                    Income: ₹{{ total_income|floatformat:2 }},
+                    Spent: ₹{{ total_spent|floatformat:2 }},
+                    Balance: ₹{{ balance|floatformat:2 }}
+                </p>
+            </div>
+            <a href="?month={{ next_month }}&year={{ next_year }}"
+               class="px-4 py-2 bg-gray-700 text-gray-200 rounded-lg hover:bg-gray-600 transition ease-in-out duration-200">Next →</a>
+        </div>
+
+        <!-- Bar Chart -->
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 mb-8 transition-all duration-300 hover:shadow-2xl">
+            {{ bar_chart|safe }}
+        </div>
+
+        <!-- Pie Chart -->
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 mb-8 transition-all duration-300 hover:shadow-2xl">
+            {{ pie_chart|safe }}
+        </div>
+
+        <!-- Transactions List -->
+        <section class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+            <h3 class="text-xl font-semibold text-blue-200 mb-4">Transactions — {{ current_month }}/{{ current_year }}</h3>
+            <ul class="divide-y divide-gray-700">
+                {% for expense in transactions %}
+                    <li class="py-3 flex justify-between">
+                        <span>{{ expense.date }} — {{ expense.category.name }}</span>
+                        <span class="font-medium">₹{{ expense.amount }}</span>
+                    </li>
+                {% empty %}
+                    <li class="py-3 text-gray-400">No transactions this month.</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <!-- Bills List -->
+        <section class="mt-8 bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+            <h3 class="text-xl font-semibold text-blue-200 mb-4">Bills Due — {{ current_month }}/{{ current_year }}</h3>
+            <ul class="divide-y divide-gray-700">
+                {% for bill in bills %}
+                    <li class="py-3 flex justify-between items-center">
+                        <span>{{ bill.due_date }} — {{ bill.title }}</span>
+                        {% if not bill.is_paid %}
+                            <a href="{% url 'finance:pay_bill' bill.id %}"
+                               class="bg-gradient-to-r from-green-500 to-green-700 text-white px-3 py-1 rounded-lg hover:from-green-600 hover:to-green-800 transition ease-in-out duration-200">Pay</a>
+                        {% else %}
+                            <span class="text-gray-400">Paid on {{ bill.updated_at }}</span>
+                        {% endif %}
+                    </li>
+                {% empty %}
+                    <li class="py-3 text-gray-400">No bills due this month.</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+
+    <!-- Insights -->
+    <section id="insights" class="bg-gray-900 py-12">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-2xl font-bold text-blue-300 mb-4">AI Financial Insights & Suggestions</h2>
+            <p class="mb-6 text-gray-400">Get AI-driven recommendations to optimize spending and savings.</p>
+            <div class="bg-blue-900 text-blue-200 p-4 rounded-lg mb-4 ring-1 ring-blue-800 shadow-sm">
+                You can save $150 this month by reducing dining out expenses.
+            </div>
+            <div class="bg-blue-900 text-blue-200 p-4 rounded-lg mb-4 ring-1 ring-blue-800 shadow-sm">
+                Consider investing $200 into a high-yield savings account.
+            </div>
+            <p>
+                <a href="reports_insights.html" class="inline-block bg-gradient-to-r from-green-500 to-green-700 text-white px-6 py-2 rounded-lg hover:from-green-600 hover:to-green-800 transition ease-in-out duration-200">
+                    View Financial Report
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Customization -->
+    <section class="max-w-4xl mx-auto py-12 px-4 text-center">
+        <h2 class="text-2xl font-bold text-blue-300 mb-4">Customize Your Dashboard</h2>
+        <p class="mb-6 text-gray-400">Add/remove sections like "Investment Overview" or "Expense Breakdown."</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <button class="px-4 py-2 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-900 transition ease-in-out duration-200">
+                Add Investment Overview
+            </button>
+            <button class="px-4 py-2 border border-gray-500 text-gray-500 rounded-lg hover:bg-gray-700 transition ease-in-out duration-200">
+                Remove Expense Breakdown
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4 text-center">
+        <p class="text-gray-400">© 2025 AI Financial Assistant. All rights reserved.</p>
+        <div class="space-x-2 mt-2">
+            <a href="#" class="text-blue-400 hover:text-blue-300">Privacy Policy</a> |
+            <a href="#" class="text-blue-400 hover:text-blue-300">Terms of Use</a> |
+            <a href="#" class="text-blue-400 hover:text-blue-300">Contact</a>
+        </div>
+    </footer>
+</body>
+</html>

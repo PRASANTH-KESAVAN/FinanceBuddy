@@ -1,0 +1,5 @@
+from .populate_categories import Command as PopulateCategoriesCommand
+from .populate_income_categories import Command as PopulateIncomeCategoriesCommand
+from .populate_investment_categories import Command as PopulateIncomeCategoriesCommand
+
+

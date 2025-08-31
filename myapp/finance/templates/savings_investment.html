@@ -1,0 +1,357 @@
+{% comment %} {%extends 'base.html'%} {% endcomment %}
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings & Investments</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .progress-bar {
+            width: 35%;
+        }
+    </style>
+</head>
+<body>
+    
+    
+{% block content %}
+{% include 'includes/error.html' %}
+
+<!-- Savings Goals Section -->
+<section class="max-w-3xl mx-auto py-10">
+    <h2 class="text-2xl font-bold text-center mb-6">Savings Goals & Monitoring</h2>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <h4 class="text-lg font-semibold text-center">Vacation Savings</h4>
+        <p class="text-center text-gray-500">Target: ₹1,00,000</p>
+        <div class="w-full bg-gray-200 rounded-full h-5 mt-4">
+            <div class="bg-green-500 h-5 rounded-full text-white text-center text-sm" style="width: 35%;">35% Completed</div>
+        </div>
+        <p class="text-center mt-2">Current Savings: ₹35,000</p>
+    </div>
+    <a href="{% url 'finance:view_investment' %}" class="block w-full mt-4 bg-blue-600 text-white py-2 rounded-md text-center hover:bg-blue-700">Add New Goal</a>
+</section>
+
+<!-- Investment Tracking -->
+<section class="max-w-3xl mx-auto py-10">
+    <h2 class="text-2xl font-bold text-center mb-6">Investment Tracking</h2>
+    <p class="text-center text-gray-500 mb-4">Track stock portfolios, mutual funds, and more.</p>
+    <a href="{% url 'finance:view_investment' %}" class="block w-full bg-blue-600 text-white py-2 rounded-md text-center hover:bg-blue-700">View Investment</a>
+</section>
+
+<!-- AI Investment Advice -->
+<section class="max-w-3xl mx-auto py-10">
+    <h2 class="text-2xl font-bold text-center mb-6">AI Investment Advice</h2>
+    <p class="text-center text-gray-500 mb-4">Get personalized financial tips for better savings and investments.</p>
+    <div class="bg-blue-100 text-blue-700 p-4 rounded-md mb-3">Consider investing in index funds for long-term stability.</div>
+    <div class="bg-green-100 text-green-700 p-4 rounded-md">Your savings trend indicates you can increase monthly investment by ₹2,000.</div>
+</section>
+
+<!-- Investment Performance Insights -->
+<section class="max-w-3xl mx-auto py-10">
+    <h2 class="text-2xl font-bold text-center mb-6">Investment Performance Insights</h2>
+    {% if insights.status %}
+        <p class="text-center">{{ insights.status }}</p>
+    {% else %}
+        <p><strong>Last Investment In:</strong> {{ insights.user_investment }}</p>
+        <p><strong>ROI:</strong> {{ insights.user_roi }}%</p>
+        <h5 class="font-semibold mt-4">Average ROIs by Type:</h5>
+        <ul class="list-disc pl-6">
+            {% for type, roi in insights.avg_rois.items %}
+                <li>{{ type }}: {{ roi|floatformat:2 }}</li>
+            {% endfor %}
+        </ul>
+        <div class="bg-blue-100 text-blue-800 p-4 rounded-md mt-4">
+            <strong>Recommendation:</strong> {{ insights.recommendation }}
+        </div>
+    {% endif %}
+</section>
+
+<!-- Insights Filter -->
+<section class="max-w-3xl mx-auto py-6">
+    <form method="get" class="mb-4">
+        <label for="type" class="block mb-2 font-medium">Select Investment Type:</label>
+        <select name="type" class="w-full p-2 border border-gray-300 rounded-md" onchange="this.form.submit()">
+            <option value="">All</option>
+            {% for cat in categories %}
+                <option value="{{ cat.name }}" {% if cat.name == selected_type %}selected{% endif %}>{{ cat.name }}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <h3 class="text-xl font-bold mt-6 mb-2">📊 Insights</h3>
+    <p><strong>Investment Type:</strong> {{ insights.user_investment }}</p>
+    <p><strong>Your ROI:</strong> {{ insights.user_roi }}%</p>
+    <p><strong>Recommendation:</strong> {{ insights.recommendation }}</p>
+</section>
+
+<!-- Forecast Table -->
+<section class="max-w-3xl mx-auto py-6">
+    <h4 class="text-xl font-bold mb-4">📈 Forecast (Next 6 Months)</h4>
+    <div class="overflow-x-auto">
+        <table class="min-w-full table-auto border border-gray-300">
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="border px-4 py-2">Month</th>
+                    <th class="border px-4 py-2">Predicted ROI (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for date, roi in result.forecast %}
+                    <tr class="text-center">
+                        <td class="border px-4 py-2">{{ date }}</td>
+                        <td class="border px-4 py-2">{{ roi }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- Milestone Celebration Fund -->
+<section class="max-w-3xl mx-auto py-10">
+    <h2 class="text-2xl font-bold text-center mb-6">Milestone Celebration Fund</h2>
+    <p class="text-center text-gray-500">Save for major life events like weddings, anniversaries, or education.</p>
+    <button class="w-full bg-green-100 text-green-800 py-2 mt-4 rounded-md hover:bg-green-200">Track Milestones</button>
+</section>
+
+{% endblock %}
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-3">
+        <p>&copy; 2024 AI Financial Assistant. All rights reserved.</p>
+        <a href="#" class="text-white">Privacy Policy</a> |
+        <a href="#" class="text-white">Terms of Use</a> |
+        <a href="#" class="text-white">Contact</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> {% endcomment %}
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings & Investments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% comment %} <link href="{% static 'css/output.css' %}" rel="stylesheet"> {% endcomment %}
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-gray-900 text-gray-200 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="{% url 'finance:dashboard' %}" class="text-2xl font-bold text-blue-300">Finance AI</a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#overview" class="hover:text-blue-400 transition ease-in-out duration-200">Overview</a>
+                <a href="{% url 'finance:budget' %}" class="hover:text-blue-400 transition ease-in-out duration-200">Budget Status</a>
+                <a href="{% url 'finance:bills' %}" class="hover:text-blue-400 transition ease-in-out duration-200">Upcoming Bills</a>
+                <a href="{% url 'finance:insights' %}" class="hover:text-blue-400 transition ease-in-out duration-200">Insights</a>
+                <!-- Dropdown -->
+                <div class="relative">
+                    <button id="more-button" class="hover:bg-gray-700 px-3 py-2 rounded-md focus:outline-none text-gray-200">More</button>
+                    <div id="dropdown-menu" class="absolute hidden bg-gray-700 text-gray-200 rounded-lg shadow-lg mt-2 w-48 z-50 ring-1 ring-gray-600">
+                        <a href="{% url 'finance:profile' %}" class="block px-4 py-2 hover:bg-gray-600">Profile</a>
+                        <a href="{% url 'finance:expense' %}" class="block px-4 py-2 hover:bg-gray-600">Expense Tracking</a>
+                        <a href="{% url 'finance:budget' %}" class="block px-4 py-2 hover:bg-gray-600">Budget Management</a>
+                        <a href="{% url 'finance:investment' %}" class="block px-4 py-2 hover:bg-gray-600">Savings & Investments</a>
+                        <a href="{% url 'finance:bills' %}" class="block px-4 py-2 hover:bg-gray-600">Bill Payments</a>
+                        <a href="{% url 'finance:credit_loan' %}" class="block px-4 py-2 hover:bg-gray-600">Credit & Loans</a>
+                        <a href="{% url 'finance:chatbot' %}" class="block px-4 py-2 hover:bg-gray-600">AI Assistant</a>
+                        <a href="{% url 'finance:insights' %}" class="block px-4 py-2 hover:bg-gray-600">Reports</a>
+                        <a href="{% url 'finance:logout' %}" class="block px-4 py-2 hover:bg-gray-600">Logout</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-200 hover:text-blue-400 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-4 pt-2 pb-4">
+            <a href="#overview" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Overview</a>
+            <a href="{% url 'finance:budget' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Budget Status</a>
+            <a href="{% url 'finance:bills' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Upcoming Bills</a>
+            <a href="{% url 'finance:insights' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Insights</a>
+            <a href="{% url 'finance:profile' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Profile</a>
+            <a href="{% url 'finance:expense' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Expense Tracking</a>
+            <a href="{% url 'finance:budget' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Budget Management</a>
+            <a href="{% url 'finance:investment' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Savings & Investments</a>
+            <a href="{% url 'finance:bills' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Bill Payments</a>
+            <a href="{% url 'finance:credit_loan' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Credit & Loans</a>
+            <a href="{% url 'finance:chatbot' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">AI Assistant</a>
+            <a href="{% url 'finance:insights' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Reports</a>
+            <a href="{% url 'finance:logout' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Logout</a>
+        </div>
+    </nav>
+
+    {% include 'includes/error.html' %}
+
+    <!-- Savings Goals Section -->
+    <section class="max-w-5xl mx-auto py-10 px-4">
+        <h2 class="text-2xl font-bold text-center text-blue-300 mb-6">Savings Goals & Monitoring</h2>
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+            <h4 class="text-lg font-semibold text-center text-blue-200">Vacation Savings</h4>
+            <p class="text-center text-gray-400">Target: ₹1,00,000</p>
+            <div class="w-full bg-gray-700 h-5 rounded mt-4 overflow-hidden">
+                <div class="bg-green-500 h-5 rounded text-white text-sm text-center" style="width: 35%;">
+                    35% Completed
+                </div>
+            </div>
+            <p class="text-center mt-2 text-gray-400">Current Savings: ₹35,000</p>
+        </div>
+        <a href="{% url 'finance:view_investment' %}" class="block w-full mt-4 bg-gradient-to-r from-green-500 to-green-700 text-white py-2 rounded-lg text-center hover:from-green-600 hover:to-green-800 transition ease-in-out duration-200">Add New Goal</a>
+    </section>
+
+    <!-- Investment Tracking -->
+    <section class="max-w-5xl mx-auto py-10 px-4">
+        <h2 class="text-2xl font-bold text-center text-blue-300 mb-6">Investment Tracking</h2>
+        <p class="text-center text-gray-400 mb-4">Track stock portfolios, mutual funds, and more.</p>
+        <a href="{% url 'finance:view_investment' %}" class="block w-full bg-gradient-to-r from-green-500 to-green-700 text-white py-2 rounded-lg text-center hover:from-green-600 hover:to-green-800 transition ease-in-out duration-200">View Investment</a>
+    </section>
+
+    <!-- AI Investment Advice -->
+    <section class="max-w-5xl mx-auto py-10 px-4">
+        <h2 class="text-2xl font-bold text-center text-blue-300 mb-6">AI Investment Advice</h2>
+        <p class="text-center text-gray-400 mb-4">Get personalized financial tips for better savings and investments.</p>
+        <div class="bg-blue-900 text-blue-200 p-4 rounded-lg mb-3 ring-1 ring-blue-800">
+            Consider investing in index funds for long-term stability.
+        </div>
+        <div class="bg-green-900 text-green-200 p-4 rounded-lg ring-1 ring-green-800">
+            Your savings trend indicates you can increase monthly investment by ₹2,000.
+        </div>
+    </section>
+
+    <!-- Investment Performance Insights -->
+    <section class="max-w-5xl mx-auto py-10 px-4">
+        <h2 class="text-2xl font-bold text-center text-blue-300 mb-6">Investment Performance Insights</h2>
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+            {% if insights.status %}
+                <p class="text-center text-gray-400">{{ insights.status }}</p>
+            {% else %}
+                <p><strong>Last Investment In:</strong> {{ insights.user_investment }}</p>
+                <p><strong>ROI:</strong> {{ insights.user_roi }}%</p>
+                <h5 class="font-semibold mt-4 text-blue-200">Average ROIs by Type:</h5>
+                <ul class="list-disc pl-6 text-gray-200">
+                    {% for type, roi in insights.avg_rois.items %}
+                        <li>{{ type }}: {{ roi|floatformat:2 }}</li>
+                    {% endfor %}
+                </ul>
+                <div class="bg-blue-900 text-blue-200 p-4 rounded-lg mt-4 ring-1 ring-blue-800">
+                    <strong>Recommendation:</strong> {{ insights.recommendation }}
+                </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Insights Filter -->
+    <section class="max-w-5xl mx-auto py-10 px-4">
+        <form method="get" class="mb-6">
+            <label for="type" class="block mb-2 font-medium text-gray-200">Select Investment Type:</label>
+            <select name="type" class="w-full p-2 border border-gray-600 bg-gray-700 text-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="this.form.submit()">
+                <option value="">All</option>
+                {% for cat in categories %}
+                    <option value="{{ cat.name }}" {% if cat.name == selected_type %}selected{% endif %}>{{ cat.name }}</option>
+                {% endfor %}
+            </select>
+        </form>
+        <h3 class="text-xl font-bold text-blue-200 mb-4">📊 Insights</h3>
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+            <p><strong>Investment Type:</strong> {{ insights.user_investment }}</p>
+            <p><strong>Your ROI:</strong> {{ insights.user_roi }}%</p>
+            <p><strong>Recommendation:</strong> {{ insights.recommendation }}</p>
+        </div>
+    </section>
+
+    <!-- Forecast Table -->
+    <section class="max-w-5xl mx-auto py-10 px-4">
+        <h4 class="text-xl font-bold text-blue-200 mb-4">📈 Forecast (Next 6 Months)</h4>
+        <div class="overflow-x-auto">
+            <table class="w-full text-gray-200">
+                <thead class="bg-gray-700">
+                    <tr>
+                        <th class="p-2 text-left">Month</th>
+                        <th class="p-2 text-left">Predicted ROI (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for date, roi in result.forecast %}
+                        <tr class="border-b border-gray-700">
+                            <td class="p-2">{{ date }}</td>
+                            <td class="p-2">{{ roi }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Milestone Celebration Fund -->
+    <section class="max-w-5xl mx-auto py-10 px-4">
+        <h2 class="text-2xl font-bold text-center text-blue-300 mb-6">Milestone Celebration Fund</h2>
+        <p class="text-center text-gray-400 mb-4">Save for major life events like weddings, anniversaries, or education.</p>
+        <button class="w-full bg-gradient-to-r from-green-500 to-green-700 text-white py-2 rounded-lg hover:from-green-600 hover:to-green-800 transition ease-in-out duration-200">Track Milestones</button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4 text-center">
+        <p class="text-gray-400">© 2025 AI Financial Assistant. All rights reserved.</p>
+        <div class="space-x-2">
+            <a href="#" class="text-blue-400 hover:text-blue-300">Privacy Policy</a> |
+            <a href="#" class="text-blue-400 hover:text-blue-300">Terms of Use</a> |
+            <a href="#" class="text-blue-400 hover:text-blue-300">Contact</a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Dropdown toggle
+            const moreButton = document.getElementById("more-button");
+            const dropdownMenu = document.getElementById("dropdown-menu");
+
+            moreButton.addEventListener("click", function () {
+                dropdownMenu.classList.toggle("hidden");
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener("click", function (e) {
+                if (!moreButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.classList.add("hidden");
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById("mobile-menu-button");
+            const mobileMenu = document.getElementById("mobile-menu");
+
+            mobileMenuButton.addEventListener("click", function () {
+                mobileMenu.classList.toggle("hidden");
+            });
+        });
+    </script>
+</body>
+</html>

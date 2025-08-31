@@ -1,0 +1,883 @@
+ {% comment %} {%extends 'base.html'%} {% endcomment %}
+{% comment %} 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense & Income Tracking</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <style>
+      body {
+        background-color: #f3f4f6;
+      }
+      .container {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .card {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    {% block content %}
+
+    {% include 'includes/error.html' %}
+
+    <!-- Expense & Income Tracking Section -->
+    <section class="container py-10 mx-auto">
+      <h2 class="text-2xl font-bold text-center mb-4">Expense & Income Tracking</h2>
+      <p class="text-center text-gray-600 mb-6">
+        Manage your financial transactions efficiently with AI-powered insights.
+      </p>
+      {% if anomalies_exist %}
+  <h4 class="text-lg font-semibold text-red-600 mb-4">🚨 Expense Anomalies Detected!</h4>
+  <ul class="list-disc pl-6">
+    {% for anomaly in anomalies %}
+      <li class="mb-2">
+        <strong>Category:</strong> {{ anomaly.category }} <br />
+        <strong>Amount:</strong> ₹{{ anomaly.amount }} <br />
+        <strong>Date:</strong> {{ anomaly.date }} <br />
+        <strong>Reason:</strong> Unusual spending detected!
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="text-gray-600">No anomalies detected.</p>
+{% endif %}
+
+      {% if anomalies_exist %}
+          <h3>Detected Anomalies</h3>
+          {{ scatter_chart|safe }}
+      {% else %}
+          <p>No anomalies detected.</p>
+      {% endif %}
+
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt      <!-- Add Transaction -->
+        <div class="card p-6 bg-white">
+          <h4 class="text-lg font-semibold text-center">Add Expense / Income</h4>
+          <p class="text-center text-gray-600 mb-4">
+            Manually add or import transactions.
+          </p>
+          <button class="bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700">
+            <a
+              href="{% url 'finance:add_expense' %}"
+              class="text-white no-underline block w-full"
+              >Add Transaction</a
+            >
+          </button>
+        </div>
+
+        <!-- Recurring Transactions -->
+        <div class="card p-6 bg-white">
+          <h4 class="text-lg font-semibold text-center">Recurring Transactions</h4>
+          <p class="text-center text-gray-600 mb-4">
+            Track subscriptions, rent, EMIs, and more.
+          </p>
+          <button class="bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700">
+            <a
+              href="{% url 'finance:add_income' %}"
+              class="text-white no-underline block w-full"
+              >Add Income</a
+            >
+          </button>
+        </div>
+      </div>
+      <!-- Voice Input Section -->
+      <div class="mt-10 text-center">
+        <h4 class="text-lg font-semibold">🎙️ Add Expense Using Your Voice</h4>
+        <button id="voiceButton" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 mb-3">
+          Start Listening
+        </button>
+        <p id="voiceStatus" class="text-gray-600">
+          Click the button and speak your expense (e.g., "Spent ₹250 on
+          groceries")
+        </p>
+        <div id="voiceResult" class="bg-blue-100 text-blue-800 p-4 rounded hidden mt-3"></div>
+      </div>
+      <div id="voiceEditSection" class="card mt-6 bg-white hidden">
+        <div class="p-4 bg-gray-100 font-semibold">Review & Edit Your Expense</div>
+        <div class="p-6">
+          <form id="confirmExpenseForm">
+            <div class="mb-4">
+              <label for="editAmount" class="block text-sm font-medium text-gray-700">Amount</label>
+              <input type="number" class="mt-1 block w-full border border-gray-300 rounded py-2 px-3" id="editAmount" name="amount" required>
+            </div>
+            <div class="mb-4">
+              <label for="editCategory" class="block text-sm font-medium text-gray-700">Category</label>
+              <input type="text" class="mt-1 block w-full border border-gray-300 rounded py-2 px-3" id="editCategory" name="category" required>
+            </div>
+            <div class="mb-4">
+              <label for="editDescription" class="block text-sm font-medium text-gray-700">Description</label>
+              <input type="text" class="mt-1 block w-full border border-gray-300 rounded py-2 px-3" id="editDescription" name="description">
+            </div>
+            <button type="submit" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">✅ Add Expense</button>
+          </form>
+        </div>
+      </div>
+      
+      <script>
+        const voiceButton = document.getElementById("voiceButton");
+        const voiceResult = document.getElementById("voiceResult");
+        const voiceStatus = document.getElementById("voiceStatus");
+      
+        voiceButton.addEventListener("click", () => {
+          voiceStatus.textContent = "🎤 Listening...";
+          fetch("{% url 'finance:voice_expense' %}", {
+            method: "POST",
+            headers: {
+              "X-CSRFToken": "{{ csrf_token }}",
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.status === "confirm") {
+                // Show editable section with extracted values
+                document.getElementById("voiceEditSection").classList.remove("hidden");
+      
+                // Fill form fields with the extracted data
+                document.getElementById("editAmount").value = data.data.amount || "";
+                document.getElementById("editCategory").value = data.data.category || "";
+                document.getElementById("editDescription").value = data.data.description || "";
+      
+                // Store the original data for further use
+                window.voiceExpenseData = data.data;
+              } else {
+                voiceResult.classList.remove("hidden");
+                voiceResult.innerHTML = `<strong>❌ Error:</strong> ${data.status}`;
+                voiceStatus.textContent = "Try again.";
+              }
+            })
+            .catch((error) => {
+              voiceResult.classList.remove("hidden");
+              voiceResult.innerHTML = `<strong>❌ Error:</strong> Could not add expense.`;
+              console.error(error);
+            });
+        });
+      
+        // Handle form submission to save the edited expense
+        document.getElementById("confirmExpenseForm").addEventListener("submit", function (e) {
+          e.preventDefault();
+      
+          const editedData = {
+            amount: document.getElementById("editAmount").value,
+            category: document.getElementById("editCategory").value,
+            description: document.getElementById("editDescription").value,
+          };
+      
+          fetch("{% url 'finance:save_confirmed_expense' %}", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRFToken": "{{ csrf_token }}",
+            },
+            body: JSON.stringify(editedData),
+          })
+            .then((res) => res.json())
+            .then((saveResp) => {
+              voiceResult.classList.remove("hidden");
+              voiceResult.innerHTML = `<strong>✔️ Added:</strong> ${saveResp.status}`;
+              voiceStatus.textContent = "Expense added!";
+      
+              // Hide the edit section after successful save
+              document.getElementById("voiceEditSection").classList.add("hidden");
+            })
+            .catch((err) => {
+              console.error(err);
+              voiceResult.innerHTML = `<strong>❌ Error:</strong> Could not save.`;
+            });
+        });
+      </script>
+      
+      <!-- Bill Upload & Edit Section -->
+      <div class="mt-10 text-center">
+        <h4 class="text-lg font-semibold">🧾 Upload & Scan Bill</h4>
+        <p class="text-gray-600 mb-4">Upload your bill image and edit the scanned info before saving.</p>
+        <input type="file" id="billImageInput" accept="image/*" class="border border-gray-300 rounded py-2 px-3 mb-4 max-w-xs mx-auto block" />
+        <button class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700" id="scanBillBtn">Scan Bill</button>
+        <div id="ocrResult" class="bg-blue-100 text-blue-800 p-4 rounded hidden mt-3"></div>
+      </div>
+      
+      <!-- Editable OCR Data Form -->
+      <div id="billEditSection" class="card mt-6 bg-white hidden">
+        <div class="p-4 bg-gray-100 font-semibold">📝 Review & Edit Scanned Bill Info</div>
+        <div class="p-6">
+          <form id="confirmBillForm">
+            <div class="mb-4">
+              <label for="ocrAmount" class="block text-sm font-medium text-gray-700">Amount</label>
+              <input type="number" class="mt-1 block w-full border border-gray-300 rounded py-2 px-3" id="ocrAmount" name="amount" required />
+            </div>
+            <div class="mb-4">
+              <label for="ocrCategory" class="block text-sm font-medium text-gray-700">Category</label>
+              <input type="text" class="mt-1 block w-full border border-gray-300 rounded py-2 px-3" id="ocrCategory" name="category" required />
+            </div>
+            <div class="mb-4">
+              <label for="ocrDescription" class="block text-sm font-medium text-gray-700">Description</label>
+              <input type="text" class="mt-1 block w-full border border-gray-300 rounded py-2 px-3" id="ocrDescription" name="description" />
+            </div>
+            <button type="submit" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">✅ Add Expense</button>
+          </form>
+        </div>
+      </div>
+      
+      <script>
+        document.getElementById("scanBillBtn").addEventListener("click", function () {
+          const fileInput = document.getElementById("billImageInput");
+          const file = fileInput.files[0];
+          const ocrResult = document.getElementById("ocrResult");
+        
+          if (!file) {
+            ocrResult.classList.remove("hidden");
+            ocrResult.innerHTML = "<strong>❌ Please select a bill image.</strong>";
+            return;
+          }
+        
+          const formData = new FormData();
+          formData.append("bill_image", file);
+        
+          fetch("{% url 'finance:scan_bill' %}", {
+            method: "POST",
+            headers: {
+              "X-CSRFToken": "{{ csrf_token }}",
+            },
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.status === "success") {
+                document.getElementById("billEditSection").classList.remove("hidden");
+                document.getElementById("ocrAmount").value = data.data.amount || "";
+                document.getElementById("ocrCategory").value = data.data.category || "";
+                document.getElementById("ocrDescription").value = data.data.description || "";
+        
+                ocrResult.classList.remove("hidden");
+                ocrResult.innerHTML = `<strong>✔️ OCR Success:</strong> Info extracted.`;
+              } else {
+                ocrResult.classList.remove("hidden");
+                ocrResult.innerHTML = `<strong>❌ Error:</strong> ${data.message || "Could not extract data."}`;
+              }
+            })
+            .catch((error) => {
+              console.error(error);
+              ocrResult.classList.remove("hidden");
+              ocrResult.innerHTML = `<strong>❌ Error:</strong> Something went wrong.`;
+            });
+        });
+        
+        document.getElementById("confirmBillForm").addEventListener("submit", function (e) {
+          e.preventDefault();
+          const billData = {
+            amount: document.getElementById("ocrAmount").value,
+            category: document.getElementById("ocrCategory").value,
+            description: document.getElementById("ocrDescription").value,
+          };
+      
+          fetch("{% url 'finance:save_scanned_expense' %}", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRFToken": "{{ csrf_token }}",
+            },
+            body: JSON.stringify(billData),
+          })
+            .then((res) => res.json())
+            .then((resp) => {
+              ocrResult.classList.remove("hidden");
+              ocrResult.innerHTML = `<strong>✔️ Added:</strong> ${resp.status}`;
+              document.getElementById("billEditSection").classList.add("hidden");
+            })
+            .catch((err) => {
+              console.error(err);
+              ocrResult.innerHTML = `<strong>❌ Error:</strong> Could not save.`;
+            });
+        });
+      </script>
+      <h2>{{lst}}</h2>
+      <h2>{{proph}}</h2>
+
+      
+      <!-- Spending Trends Analysis -->
+      <div class="mt-10 text-center">
+        <h4 class="text-lg font-semibold">Spending Trends Analysis</h4>
+        {% if error %}
+        <p class="text-gray-600">{{ error }}</p>
+        {% else %}
+        <h2 class="text-2xl font-bold">30-Day Expense Forecast</h2>
+        <div>{{ chart|safe }}</div>
+        {% endif %}
+      </div>
+    </section>
+    {% endblock %}
+
+    <div class="container">
+    <h2>Expense Analysis</h2>
+    
+    <!-- Month Selection Dropdown -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <form method="get" class="form-inline">
+                <div class="form-group mr-2">
+                    <select name="month" class="form-control" onchange="this.form.submit()">
+                        {% for option in month_options %}
+                            <option value="{{ option.value }}" 
+                                    {% if option.value == selected_month %}selected{% endif %}>
+                                {{ option.label }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Daily Spending Chart -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>Daily Spending</h4>
+        </div>
+        <div class="card-body">
+            {{ daily_chart|safe }}
+        </div>
+    </div>
+
+    <!-- Forecast Chart -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>Expense Forecast</h4>
+        </div>
+        <div class="card-body">
+            {{ forecast_chart|safe }}
+        </div>
+    </div>
+
+    <!-- Anomaly Detection -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>Anomaly Detection</h4>
+        </div>
+        <div class="card-body">
+            {% if anomalies_exist %}
+                {{ scatter_chart|safe }}
+                <div class="mt-4">
+                    <h5>Detected Anomalies</h5>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for anomaly in anomalies %}
+                            <tr>
+                                <td>{{ anomaly.date|date:"Y-m-d" }}</td>
+                                <td>{{ anomaly.amount }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="alert alert-warning">
+                    {{ error|default:"No anomalies detected" }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Clustering Section -->
+    <h2>Spending Patterns</h2>
+    {% if clusters_exist %}
+        <div>{{ cluster_chart | safe }}</div>
+        <h3>Cluster Summary</h3>
+        <p>Identified {{ optimal_clusters }} spending patterns.</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Cluster</th>
+                    <th>Total Spending</th>
+                    <th>Average Transaction</th>
+                    <th>Transaction Count</th>
+                    <th>Spending Frequency</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cluster, summary in cluster_summary.items %}
+                    <tr>
+                        <td>Cluster {{ cluster }}</td>
+                        <td>{{ summary.total_spending | floatformat:2 }}</td>
+                        <td>{{ summary.avg_transaction | floatformat:2 }}</td>
+                        <td>{{ summary.transaction_count | floatformat:0 }}</td>
+                        <td>{{ summary.spending_frequency | floatformat:2 }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No spending patterns identified due to insufficient data.</p>
+    {% endif %}
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white text-center p-4">
+      <p>© 2024 AI Financial Assistant. All rights reserved.</p>
+      <a href="#" class="text-white hover:underline">Privacy Policy</a> |
+      <a href="#" class="text-white hover:underline">Terms of Use</a> |
+      <a href="#" class="text-white hover:underline">Contact</a>
+    </footer>
+  </body>
+</html>  {% endcomment %}
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense & Income Tracking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-gray-900 text-gray-200 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="{% url 'finance:dashboard' %}" class="text-2xl font-bold text-blue-300">Finance AI</a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#overview" class="hover:text-blue-400 transition ease-in-out duration-200">Overview</a>
+                <a href="{% url 'finance:budget' %}" class="hover:text-blue-400 transition ease-in-out duration-200">Budget Status</a>
+                <a href="{% url 'finance:bills' %}" class="hover:text-blue-400 transition ease-in-out duration-200">Upcoming Bills</a>
+                <a href="{% url 'finance:insights' %}" class="hover:text-blue-400 transition ease-in-out duration-200">Insights</a>
+                <!-- Dropdown -->
+                <div class="relative">
+                    <button id="more-button" class="hover:bg-gray-700 px-3 py-2 rounded-md focus:outline-none text-gray-200">More</button>
+                    <div id="dropdown-menu" class="absolute hidden bg-gray-700 text-gray-200 rounded-lg shadow-lg mt-2 w-48 z-50 ring-1 ring-gray-600">
+                        <a href="{% url 'finance:profile' %}" class="block px-4 py-2 hover:bg-gray-600">Profile</a>
+                        <a href="{% url 'finance:expense' %}" class="block px-4 py-2 hover:bg-gray-600">Expense Tracking</a>
+                        <a href="{% url 'finance:budget' %}" class="block px-4 py-2 hover:bg-gray-600">Budget Management</a>
+                        <a href="{% url 'finance:investment' %}" class="block px-4 py-2 hover:bg-gray-600">Savings & Investments</a>
+                        <a href="{% url 'finance:bills' %}" class="block px-4 py-2 hover:bg-gray-600">Bill Payments</a>
+                        <a href="{% url 'finance:credit_loan' %}" class="block px-4 py-2 hover:bg-gray-600">Credit & Loans</a>
+                        <a href="{% url 'finance:chatbot' %}" class="block px-4 py-2 hover:bg-gray-600">AI Assistant</a>
+                        <a href="{% url 'finance:insights' %}" class="block px-4 py-2 hover:bg-gray-600">Reports</a>
+                        <a href="{% url 'finance:logout' %}" class="block px-4 py-2 hover:bg-gray-600">Logout</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-200 hover:text-blue-400 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-4 pt-2 pb-4">
+            <a href="#overview" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Overview</a>
+            <a href="{% url 'finance:budget' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Budget Status</a>
+            <a href="{% url 'finance:bills' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Upcoming Bills</a>
+            <a href="{% url 'finance:insights' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Insights</a>
+            <a href="{% url 'finance:profile' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Profile</a>
+            <a href="{% url 'finance:expense' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Expense Tracking</a>
+            <a href="{% url 'finance:budget' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Budget Management</a>
+            <a href="{% url 'finance:investment' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Savings & Investments</a>
+            <a href="{% url 'finance:bills' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Bill Payments</a>
+            <a href="{% url 'finance:credit_loan' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Credit & Loans</a>
+            <a href="{% url 'finance:chatbot' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">AI Assistant</a>
+            <a href="{% url 'finance:insights' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Reports</a>
+            <a href="{% url 'finance:logout' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Logout</a>
+        </div>
+    </nav>
+
+    {% include 'includes/error.html' %}
+    {% load static %}
+
+    <!-- Expense & Income Tracking Section -->
+    <section class="max-w-5xl mx-auto py-10 px-4">
+        <h2 class="text-2xl font-bold text-center text-blue-300 mb-4">Expense & Income Tracking</h2>
+        <p class="text-center text-gray-400 mb-6">Manage your financial transactions efficiently with AI-powered insights.</p>
+
+        {% if anomalies_exist %}
+        <h4 class="text-lg font-semibold text-red-500 mb-4">🚨 Expense Anomalies Detected!</h4>
+        <ul class="list-disc pl-6">
+            {% for anomaly in anomalies %}
+            <li class="mb-2">
+                <strong>Category:</strong> {{ anomaly.category }} <br />
+                <strong>Amount:</strong> ₹{{ anomaly.amount }} <br />
+                <strong>Date:</strong> {{ anomaly.date }} <br />
+                <strong>Reason:</strong> Unusual spending detected!
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 mt-6 transition-all duration-300 hover:shadow-2xl">
+            {{ scatter_chart|safe }}
+        </div>
+        {% else %}
+        <p class="text-gray-400">No anomalies detected.</p>
+        {% endif %}
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <!-- Add Transaction -->
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+                <h4 class="text-lg font-semibold text-center text-blue-200">Add Expense / Income</h4>
+                <p class="text-center text-gray-400 mb-4">Manually add or import transactions.</p>
+                <a href="{% url 'finance:add_expense' %}" class="block text-center bg-gradient-to-r from-green-500 to-green-700 text-white py-2 rounded-lg hover:from-green-600 hover:to-green-800 transition ease-in-out duration-200">Add Transaction</a>
+            </div>
+
+            <!-- Recurring Transactions -->
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+                <h4 class="text-lg font-semibold text-center text-blue-200">Recurring Transactions</h4>
+                <p class="text-center text-gray-400 mb-4">Track subscriptions, rent, EMIs, and more.</p>
+                <a href="{% url 'finance:add_income' %}" class="block text-center bg-gradient-to-r from-green-500 to-green-700 text-white py-2 rounded-lg hover:from-green-600 hover:to-green-800 transition ease-in-out duration-200">Add Income</a>
+            </div>
+        </div>
+
+        <!-- Voice Input Section -->
+        <div class="mt-10 text-center">
+            <h4 class="text-lg font-semibold text-blue-200">🎙️ Add Expense Using Your Voice</h4>
+            <button id="voiceButton" class="bg-gradient-to-r from-green-500 to-green-700 text-white py-2 px-4 rounded-lg hover:from-green-600 hover:to-green-800 transition ease-in-out duration-200 mb-3">Start Listening</button>
+            <p id="voiceStatus" class="text-gray-400">Click the button and speak your expense (e.g., "Spent ₹250 on groceries")</p>
+            <div id="voiceResult" class="bg-blue-900 text-blue-200 p-4 rounded-lg hidden mt-3 ring-1 ring-blue-800"></div>
+        </div>
+        <div id="voiceEditSection" class="bg-gray-800 mt-6 rounded-2xl shadow-xl ring-1 ring-gray-700 hidden transition-all duration-300 hover:shadow-2xl">
+            <div class="p-4 bg-gray-700 font-semibold text-blue-200">Review & Edit Your Expense</div>
+            <div class="p-6">
+                <form id="confirmExpenseForm">
+                    <div class="mb-4">
+                        <label for="editAmount" class="block text-sm font-medium text-gray-200">Amount</label>
+                        <input type="number" class="mt-1 block w-full border border-gray-600 bg-gray-700 text-gray-200 rounded py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" id="editAmount" name="amount" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="editCategory" class="block text-sm font-medium text-gray-200">Category</label>
+                        <input type="text" class="mt-1 block w-full border border-gray-600 bg-gray-700 text-gray-200 rounded py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" id="editCategory" name="category" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="editDescription" class="block text-sm font-medium text-gray-200">Description</label>
+                        <input type="text" class="mt-1 block w-full border border-gray-600 bg-gray-700 text-gray-200 rounded py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" id="editDescription" name="description">
+                    </div>
+                    <button type="submit" class="bg-gradient-to-r from-green-500 to-green-700 text-white py-2 px-4 rounded-lg hover:from-green-600 hover:to-green-800 transition ease-in-out duration-200">✅ Add Expense</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Bill Upload & Edit Section -->
+        <div class="mt-10 text-center">
+            <h4 class="text-lg font-semibold text-blue-200">🧾 Upload & Scan Bill</h4>
+            <p class="text-gray-400 mb-4">Upload your bill image and edit the scanned info before saving.</p>
+            <input type="file" id="billImageInput" accept="image/*" class="border border-gray-600 bg-gray-700 text-gray-200 rounded py-2 px-3 mb-4 max-w-xs mx-auto block focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <button class="bg-gradient-to-r from-green-500 to-green-700 text-white py-2 px-4 rounded-lg hover:from-green-600 hover:to-green-800 transition ease-in-out duration-200" id="scanBillBtn">Scan Bill</button>
+            <div id="ocrResult" class="bg-blue-900 text-blue-200 p-4 rounded-lg hidden mt-3 ring-1 ring-blue-800"></div>
+        </div>
+
+        <!-- Editable OCR Data Form -->
+        <div id="billEditSection" class="bg-gray-800 mt-6 rounded-2xl shadow-xl ring-1 ring-gray-700 hidden transition-all duration-300 hover:shadow-2xl">
+            <div class="p-4 bg-gray-700 font-semibold text-blue-200">📝 Review & Edit Scanned Bill Info</div>
+            <div class="p-6">
+                <form id="confirmBillForm">
+                    <div class="mb-4">
+                        <label for="ocrAmount" class="block text-sm font-medium text-gray-200">Amount</label>
+                        <input type="number" class="mt-1 block w-full border border-gray-600 bg-gray-700 text-gray-200 rounded py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" id="ocrAmount" name="amount" required />
+                    </div>
+                    <div class="mb-4">
+                        <label for="ocrCategory" class="block text-sm font-medium text-gray-200">Category</label>
+                        <input type="text" class="mt-1 block w-full border border-gray-600 bg-gray-700 text-gray-200 rounded py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" id="ocrCategory" name="category" required />
+                    </div>
+                    <div class="mb-4">
+                        <label for="ocrDescription" class="block text-sm font-medium text-gray-200">Description</label>
+                        <input type="text" class="mt-1 block w-full border border-gray-600 bg-gray-700 text-gray-200 rounded py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" id="ocrDescription" name="description" />
+                    </div>
+                    <button type="submit" class="bg-gradient-to-r from-green-500 to-green-700 text-white py-2 px-4 rounded-lg hover:from-green-600 hover:to-green-800 transition ease-in-out duration-200">✅ Add Expense</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Spending Trends Analysis -->
+        <div class="mt-10 text-center">
+            <h4 class="text-lg font-semibold text-blue-200">Spending Trends Analysis</h4>
+            {% if error %}
+            <p class="text-gray-400">{{ error }}</p>
+            {% else %}
+            <h2 class="text-2xl font-bold text-blue-300">30-Day Expense Forecast</h2>
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+                {{ chart|safe }}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Expense Analysis -->
+        <div class="mt-10">
+            <h2 class="text-2xl font-bold text-center text-blue-300">Expense Analysis</h2>
+
+            <!-- Month Selection Dropdown -->
+            <div class="mb-4 flex justify-center">
+                <form method="get" class="flex items-center gap-4">
+                    <label class="text-gray-200">Select Month:</label>
+                    <select name="month" onchange="this.form.submit()" class="border border-gray-600 bg-gray-700 text-gray-200 rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        {% for option in month_options %}
+                        <option value="{{ option.value }}" {% if option.value == selected_month %}selected{% endif %}>
+                            {{ option.label }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </div>
+
+            <!-- Daily Spending Chart -->
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 mb-6 transition-all duration-300 hover:shadow-2xl">
+                <h4 class="text-lg font-semibold text-blue-200 mb-4">Daily Spending</h4>
+                {{ daily_chart|safe }}
+            </div>
+
+            <!-- Forecast Chart -->
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 mb-6 transition-all duration-300 hover:shadow-2xl">
+                <h4 class="text-lg font-semibold text-blue-200 mb-4">Expense Forecast</h4>
+                {{ forecast_chart|safe }}
+            </div>
+
+            <!-- Anomaly Detection -->
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 mb-6 transition-all duration-300 hover:shadow-2xl">
+                <h4 class="text-lg font-semibold text-blue-200 mb-4">Anomaly Detection</h4>
+                {% if anomalies_exist %}
+                {{ scatter_chart|safe }}
+                <div class="mt-4">
+                    <h5 class="font-bold text-blue-200">Detected Anomalies</h5>
+                    <table class="w-full text-gray-200">
+                        <thead>
+                            <tr class="bg-gray-700">
+                                <th class="p-2 text-left">Date</th>
+                                <th class="p-2 text-left">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for anomaly in anomalies %}
+                            <tr class="border-b border-gray-700">
+                                <td class="p-2">{{ anomaly.date|date:"Y-m-d" }}</td>
+                                <td class="p-2">{{ anomaly.amount }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="bg-yellow-900 text-yellow-200 p-4 rounded-lg ring-1 ring-yellow-800">
+                    {{ error|default:"No anomalies detected" }}
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Clustering Section -->
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+                <h2 class="text-xl font-bold text-blue-200 mb-4">Spending Patterns</h2>
+                {% if clusters_exist %}
+                <div class="mb-4">{{ cluster_chart|safe }}</div>
+                <h3 class="text-lg font-semibold text-blue-200">Cluster Summary</h3>
+                <p class="text-gray-400">Identified {{ optimal_clusters }} spending patterns.</p>
+                <table class="w-full text-gray-200">
+                    <thead>
+                        <tr class="bg-gray-700">
+                            <th class="p-2 text-left">Cluster</th>
+                            <th class="p-2 text-left">Total Spending</th>
+                            <th class="p-2 text-left">Average Transaction</th>
+                            <th class="p-2 text-left">Transaction Count</th>
+                            <th class="p-2 text-left">Spending Frequency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cluster, summary in cluster_summary.items %}
+                        <tr class="border-b border-gray-700">
+                            <td class="p-2">Cluster {{ cluster }}</td>
+                            <td class="p-2">{{ summary.total_spending|floatformat:2 }}</td>
+                            <td class="p-2">{{ summary.avg_transaction|floatformat:2 }}</td>
+                            <td class="p-2">{{ summary.transaction_count|floatformat:0 }}</td>
+                            <td class="p-2">{{ summary.spending_frequency|floatformat:2 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p class="text-gray-400">No spending patterns identified due to insufficient data.</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4 text-center">
+        <p class="text-gray-400">© 2025 AI Financial Assistant. All rights reserved.</p>
+        <div class="space-x-2">
+            <a href="#" class="text-blue-400 hover:text-blue-300">Privacy Policy</a> |
+            <a href="#" class="text-blue-400 hover:text-blue-300">Terms of Use</a> |
+            <a href="#" class="text-blue-400 hover:text-blue-300">Contact</a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Dropdown toggle
+            const moreButton = document.getElementById("more-button");
+            const dropdownMenu = document.getElementById("dropdown-menu");
+            moreButton.addEventListener("click", function () {
+                dropdownMenu.classList.toggle("hidden");
+            });
+            document.addEventListener("click", function (e) {
+                if (!moreButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.classList.add("hidden");
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById("mobile-menu-button");
+            const mobileMenu = document.getElementById("mobile-menu");
+            mobileMenuButton.addEventListener("click", function () {
+                mobileMenu.classList.toggle("hidden");
+            });
+
+            // Voice input
+            const voiceButton = document.getElementById("voiceButton");
+            const voiceResult = document.getElementById("voiceResult");
+            const voiceStatus = document.getElementById("voiceStatus");
+            voiceButton.addEventListener("click", () => {
+                voiceStatus.textContent = "🎤 Listening...";
+                fetch("{% url 'finance:voice_expense' %}", {
+                    method: "POST",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}",
+                    },
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data.status === "confirm") {
+                            document.getElementById("voiceEditSection").classList.remove("hidden");
+                            document.getElementById("editAmount").value = data.data.amount || "";
+                            document.getElementById("editCategory").value = data.data.category || "";
+                            document.getElementById("editDescription").value = data.data.description || "";
+                            window.voiceExpenseData = data.data;
+                        } else {
+                            voiceResult.classList.remove("hidden");
+                            voiceResult.innerHTML = `<strong>❌ Error:</strong> ${data.status}`;
+                            voiceStatus.textContent = "Try again.";
+                        }
+                    })
+                    .catch((error) => {
+                        voiceResult.classList.remove("hidden");
+                        voiceResult.innerHTML = `<strong>❌ Error:</strong> Could not add expense.`;
+                        console.error(error);
+                    });
+            });
+
+            // Confirm expense form
+            document.getElementById("confirmExpenseForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+                const editedData = {
+                    amount: document.getElementById("editAmount").value,
+                    category: document.getElementById("editCategory").value,
+                    description: document.getElementById("editDescription").value,
+                };
+                fetch("{% url 'finance:save_confirmed_expense' %}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": "{{ csrf_token }}",
+                    },
+                    body: JSON.stringify(editedData),
+                })
+                    .then((res) => res.json())
+                    .then((saveResp) => {
+                        voiceResult.classList.remove("hidden");
+                        voiceResult.innerHTML = `<strong>✔️ Added:</strong> ${saveResp.status}`;
+                        voiceStatus.textContent = "Expense added!";
+                        document.getElementById("voiceEditSection").classList.add("hidden");
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        voiceResult.innerHTML = `<strong>❌ Error:</strong> Could not save.`;
+                    });
+            });
+
+            // Bill scanning
+            document.getElementById("scanBillBtn").addEventListener("click", function () {
+                const fileInput = document.getElementById("billImageInput");
+                const file = fileInput.files[0];
+                const ocrResult = document.getElementById("ocrResult");
+                if (!file) {
+                    ocrResult.classList.remove("hidden");
+                    ocrResult.innerHTML = "<strong>❌ Please select a bill image.</strong>";
+                    return;
+                }
+                const formData = new FormData();
+                formData.append("bill_image", file);
+                fetch("{% url 'finance:scan_bill' %}", {
+                    method: "POST",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}",
+                    },
+                    body: formData,
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data.status === "success") {
+                            document.getElementById("billEditSection").classList.remove("hidden");
+                            document.getElementById("ocrAmount").value = data.data.amount || "";
+                            document.getElementById("ocrCategory").value = data.data.category || "";
+                            document.getElementById("ocrDescription").value = data.data.description || "";
+                            ocrResult.classList.remove("hidden");
+                            ocrResult.innerHTML = `<strong>✔️ OCR Success:</strong> Info extracted.`;
+                        } else {
+                            ocrResult.classList.remove("hidden");
+                            ocrResult.innerHTML = `<strong>❌ Error:</strong> ${data.message || "Could not extract data."}`;
+                        }
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                        ocrResult.classList.remove("hidden");
+                        ocrResult.innerHTML = `<strong>❌ Error:</strong> Something went wrong.`;
+                    });
+            });
+
+            // Confirm bill form
+            document.getElementById("confirmBillForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+                const billData = {
+                    amount: document.getElementById("ocrAmount").value,
+                    category: document.getElementById("ocrCategory").value,
+                    description: document.getElementById("ocrDescription").value,
+                };
+                fetch("{% url 'finance:save_scanned_expense' %}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": "{{ csrf_token }}",
+                    },
+                    body: JSON.stringify(billData),
+                })
+                    .then((res) => res.json())
+                    .then((resp) => {
+                        ocrResult.classList.remove("hidden");
+                        ocrResult.innerHTML = `<strong>✔️ Added:</strong> ${resp.status}`;
+                        document.getElementById("billEditSection").classList.add("hidden");
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        ocrResult.innerHTML = `<strong>❌ Error:</strong> Could not save.`;
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

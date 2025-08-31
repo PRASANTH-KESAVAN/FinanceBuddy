@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Finance AI{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="{% static 'css/output.css' %}" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-gray-900 text-gray-200 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="{% url 'finance:dashboard' %}" class="text-2xl font-bold text-blue-300">Finance AI</a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#overview" class="hover:text-blue-400 transition ease-in-out duration-200">Overview</a>
+                <a href="{% url 'finance:budget' %}" class="hover:text-blue-400 transition ease-in-out duration-200">Budget Status</a>
+                <a href="{% url 'finance:bills' %}" class="hover:text-blue-400 transition ease-in-out duration-200">Upcoming Bills</a>
+                <a href="{% url 'finance:insights' %}" class="hover:text-blue-400 transition ease-in-out duration-200">Insights</a>
+                <!-- Dropdown -->
+                <div class="relative">
+                    <button id="more-button" class="hover:bg-gray-700 px-3 py-2 rounded-md focus:outline-none text-gray-200">More</button>
+                    <div id="dropdown-menu" class="absolute hidden bg-gray-700 text-gray-200 rounded-lg shadow-lg mt-2 w-48 z-50 ring-1 ring-gray-600">
+                        <a href="{% url 'finance:profile' %}" class="block px-4 py-2 hover:bg-gray-600">Profile</a>
+                        <a href="{% url 'finance:expense' %}" class="block px-4 py-2 hover:bg-gray-600">Expense Tracking</a>
+                        <a href="{% url 'finance:budget' %}" class="block px-4 py-2 hover:bg-gray-600">Budget Management</a>
+                        <a href="{% url 'finance:investment' %}" class="block px-4 py-2 hover:bg-gray-600">Savings & Investments</a>
+                        <a href="{% url 'finance:bills' %}" class="block px-4 py-2 hover:bg-gray-600">Bill Payments</a>
+                        <a href="{% url 'finance:credit_loan' %}" class="block px-4 py-2 hover:bg-gray-600">Credit & Loans</a>
+                        <a href="{% url 'finance:chatbot' %}" class="block px-4 py-2 hover:bg-gray-600">AI Assistant</a>
+                        <a href="{% url 'finance:insights' %}" class="block px-4 py-2 hover:bg-gray-600">Reports</a>
+                        <a href="{% url 'finance:logout' %}" class="block px-4 py-2 hover:bg-gray-600">Logout</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-200 hover:text-blue-400 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-4 pt-2 pb-4">
+            <a href="#overview" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Overview</a>
+            <a href="{% url 'finance:budget' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Budget Status</a>
+            <a href="{% url 'finance:bills' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Upcoming Bills</a>
+            <a href="{% url 'finance:insights' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Insights</a>
+            <a href="{% url 'finance:profile' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Profile</a>
+            <a href="{% url 'finance:expense' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Expense Tracking</a>
+            <a href="{% url 'finance:budget' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Budget Management</a>
+            <a href="{% url 'finance:investment' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Savings & Investments</a>
+            <a href="{% url 'finance:bills' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Bill Payments</a>
+            <a href="{% url 'finance:credit_loan' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Credit & Loans</a>
+            <a href="{% url 'finance:chatbot' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">AI Assistant</a>
+            <a href="{% url 'finance:insights' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Reports</a>
+            <a href="{% url 'finance:logout' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Logout</a>
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Dropdown toggle
+            const moreButton = document.getElementById("more-button");
+            const dropdownMenu = document.getElementById("dropdown-menu");
+
+            moreButton.addEventListener("click", function () {
+                dropdownMenu.classList.toggle("hidden");
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener("click", function (e) {
+                if (!moreButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.classList.add("hidden");
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById("mobile-menu-button");
+            const mobileMenu = document.getElementById("mobile-menu");
+
+            mobileMenuButton.addEventListener("click", function () {
+                mobileMenu.classList.toggle("hidden");
+            });
+        });
+    </script>
+
+    {% block content %}{% endblock %}
+</body>
+</html>

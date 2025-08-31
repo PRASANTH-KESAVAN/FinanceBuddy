@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Visualization</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 900px;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="dashboard.html">Finance AI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="report_generation.html">Generate Report</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% include 'includes/error.html' %}
+
+    <!-- Visualization Section -->
+    <section class="container py-5">
+        <h2 class="text-center mb-4">Report Visualization</h2>
+        <p class="text-center text-muted">View your expense distribution with interactive charts.</p>
+        
+        <div class="card p-4">
+            <canvas id="reportChart"></canvas>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-3">
+        <p>&copy; 2024 AI Financial Assistant. All rights reserved.</p>
+        <a href="#" class="text-white">Privacy Policy</a> |
+        <a href="#" class="text-white">Terms of Use</a> |
+        <a href="#" class="text-white">Contact</a>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let ctx = document.getElementById("reportChart").getContext("2d");
+            new Chart(ctx, {
+                type: "pie",
+                data: {
+                    labels: ["Food", "Entertainment", "Bills", "Shopping", "Transport"],
+                    datasets: [
+                        {
+                            label: "Expense Distribution",
+                            data: [5000, 2000, 8000, 3000, 1500],
+                            backgroundColor: [
+                                "rgba(255, 99, 132, 0.6)",
+                                "rgba(54, 162, 235, 0.6)",
+                                "rgba(255, 206, 86, 0.6)",
+                                "rgba(75, 192, 192, 0.6)",
+                                "rgba(153, 102, 255, 0.6)"
+                            ]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

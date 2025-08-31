@@ -1,0 +1,261 @@
+{% comment %} {%extends 'base.html'%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Investment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    {% block content %}
+    {% include 'includes/error.html' %}
+
+    <!-- Add Investment Section -->
+    <section class="container py-5">
+        <h2 class="text-center mb-4">Add Investment</h2>
+        <div class="card p-4">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="investment_type" class="form-label">Investment Type</label>
+                    <select class="form-select" id="investment_type" name="investment_type" value={{investment_type}} required>
+                        <option value="">Select Investment Type</option>
+                        {% for type in investment_types %}
+                            <option value="{{ type.id }}">{{ type.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Amount Invested (₹)</label>
+                    <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount" value= {{investment.amount}} required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="date" class="form-label">Investment Date</label>
+                    <input type="date" class="form-control" id="date" name="date" value{{investment.date}} required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="profit" class="form-label" >Profit (₹)</label>
+                    <input type="number" class="form-control" id="profit" name="profit" value={{investment.profit}} required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="loss" class="form-label">Loss (₹)</label>
+                    <input type="number" class="form-control" id="loss" name="loss" value={{investment.loss}} required>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Update Investment</button>
+            </form>
+        </div>
+    </section>
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-3">
+        <p>&copy; 2024 AI Financial Assistant. All rights reserved.</p>
+        <a href="#" class="text-white">Privacy Policy</a> |
+        <a href="#" class="text-white">Terms of Use</a> |
+        <a href="#" class="text-white">Contact</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> {% endcomment %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Investment</title>
+    {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> {% endcomment %}
+     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+       <!-- Navbar -->
+    <nav class="bg-gray-900 text-gray-200 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="{% url 'finance:dashboard' %}" class="text-2xl font-bold text-blue-300">Finance AI</a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#overview" class="hover:text-blue-400 transition ease-in-out duration-200">Overview</a>
+                <a href="{% url 'finance:budget' %}" class="hover:text-blue-400 transition ease-in-out duration-200">Budget Status</a>
+                <a href="{% url 'finance:bills' %}" class="hover:text-blue-400 transition ease-in-out duration-200">Upcoming Bills</a>
+                <a href="{% url 'finance:insights' %}" class="hover:text-blue-400 transition ease-in-out duration-200">Insights</a>
+                <!-- Dropdown -->
+                <div class="relative">
+                    <button id="more-button" class="hover:bg-gray-700 px-3 py-2 rounded-md focus:outline-none text-gray-200">More</button>
+                    <div id="dropdown-menu" class="absolute hidden bg-gray-700 text-gray-200 rounded-lg shadow-lg mt-2 w-48 z-50 ring-1 ring-gray-600">
+                        <a href="{% url 'finance:profile' %}" class="block px-4 py-2 hover:bg-gray-600">Profile</a>
+                        <a href="{% url 'finance:expense' %}" class="block px-4 py-2 hover:bg-gray-600">Expense Tracking</a>
+                        <a href="{% url 'finance:budget' %}" class="block px-4 py-2 hover:bg-gray-600">Budget Management</a>
+                        <a href="{% url 'finance:investment' %}" class="block px-4 py-2 hover:bg-gray-600">Savings & Investments</a>
+                        <a href="{% url 'finance:bills' %}" class="block px-4 py-2 hover:bg-gray-600">Bill Payments</a>
+                        <a href="{% url 'finance:credit_loan' %}" class="block px-4 py-2 hover:bg-gray-600">Credit & Loans</a>
+                        <a href="{% url 'finance:chatbot' %}" class="block px-4 py-2 hover:bg-gray-600">AI Assistant</a>
+                        <a href="{% url 'finance:insights' %}" class="block px-4 py-2 hover:bg-gray-600">Reports</a>
+                        <a href="{% url 'finance:logout' %}" class="block px-4 py-2 hover:bg-gray-600">Logout</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-200 hover:text-blue-400 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-4 pt-2 pb-4">
+            <a href="#overview" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Overview</a>
+            <a href="{% url 'finance:budget' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Budget Status</a>
+            <a href="{% url 'finance:bills' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Upcoming Bills</a>
+            <a href="{% url 'finance:insights' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Insights</a>
+            <a href="{% url 'finance:profile' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Profile</a>
+            <a href="{% url 'finance:expense' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Expense Tracking</a>
+            <a href="{% url 'finance:budget' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Budget Management</a>
+            <a href="{% url 'finance:investment' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Savings & Investments</a>
+            <a href="{% url 'finance:bills' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Bill Payments</a>
+            <a href="{% url 'finance:credit_loan' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Credit & Loans</a>
+            <a href="{% url 'finance:chatbot' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">AI Assistant</a>
+            <a href="{% url 'finance:insights' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Reports</a>
+            <a href="{% url 'finance:logout' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Logout</a>
+        </div>
+    </nav>
+    <!-- Edit Investment Section -->
+    <section class="container py-5">
+        <h2 class="text-center mb-4">Edit Investment</h2>
+        <!-- Display messages (success or error) -->
+        {% if messages %}
+            <div class="container">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="card p-4">
+            <form method="post" novalidate>
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="mb-3">
+                    <label for="id_investment_type" class="form-label">Investment Type</label>
+                    {{ form.investment_type }}
+
+                    {% if form.investment_type.errors %}
+                        <div class="invalid-feedback d-block">
+                            {{ form.investment_type.errors|join:", " }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    <label for="id_amount" class="form-label">Amount Invested (₹)</label>
+                    {{ form.amount }}
+                    {% if form.amount.errors %}
+                        <div class="invalid-feedback d-block">
+                            {{ form.amount.errors|join:", " }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    <label for="id_date" class="form-label">Investment Date</label>
+                    {{ form.date }}
+                    {% if form.date.errors %}
+                        <div class="invalid-feedback d-block">
+                            {{ form.date.errors|join:", " }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    <label for="id_profit" class="form-label">Profit (₹)</label>
+                    {{ form.profit }}
+                    {% if form.profit.errors %}
+                        <div class="invalid-feedback d-block">
+                            {{ form.profit.errors|join:", " }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    <label for="id_loss" class="form-label">Loss (₹)</label>
+                    {{ form.loss }}
+                    {% if form.loss.errors %}
+                        <div class="invalid-feedback d-block">
+                            {{ form.loss.errors|join:", " }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary w-50 me-2">Update Investment</button>
+                    <a href="{% url 'finance:view_investment' %}" class="btn btn-secondary w-50">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-3">
+        <p>© {% now "Y" %} AI Financial Assistant. All rights reserved.</p>
+        <a href="#" class="text-white">Privacy Policy</a> |
+        <a href="#" class="text-white">Terms of Use</a> |
+        <a href="#" class="text-white">Contact</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        (function () {
+            'use strict';
+            const forms = document.querySelectorAll('form');
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+</body>
+</html>

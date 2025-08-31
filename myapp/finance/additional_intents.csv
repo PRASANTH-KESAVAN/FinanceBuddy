@@ -1,0 +1,34 @@
+query,intent
+"add 100 to income",income_add
+"add ₹500 freelance income",income_add
+"record $1200 for freelance",income_add
+"add income ₹2000 bonus",income_add
+"increase transportation budget by $50",budget_update
+"add $100 to entertainment budget",budget_update
+"increase groceries budget by ₹500",budget_update
+"update transportation budget ₹1000",budget_update
+"show dining expenses for past 3 months",get_weekly_expenses
+"dining out expenses last 3 months",get_weekly_expenses
+"past 3 months food expenses",get_weekly_expenses
+"add stock investment $5000",investment_add
+"invest ₹10000 in stocks",investment_add
+"add $2000 to mutual funds",investment_add
+"show investment performance",get_profit_loss
+"which investments are profitable",get_profit_loss
+"investment gains and losses",get_profit_loss
+"what's my total net worth",investment_get_total
+"total investment portfolio value",investment_get_total
+"compare income vs expenses",get_income_savings
+"income and expense comparison",get_income_savings
+"add expense ₹500 food",expense_add
+"spent 500 on food",expense_add
+"record ₹500 for food",expense_add
+"add ₹1000 to dining",expense_add
+"update my income to $5000",profile_update_income
+"set my monthly income to ₹60000",profile_update_income
+"change income to $7000",profile_update_income
+"update income ₹80000",profile_update_income
+"what were my expenses last month",get_weekly_expenses
+"show last month's spending",get_weekly_expenses
+"expenses for previous month",get_weekly_expenses
+"last month expense total",get_weekly_expenses

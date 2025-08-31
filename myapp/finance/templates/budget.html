@@ -1,0 +1,529 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% comment %} {% load static %}
+{% load math_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="{% static 'css/output.css' %}" rel="stylesheet" />
+</head>
+<body class="bg-gray-100 text-gray-900">
+  {% block content %}
+
+  {% include 'includes/error.html' %}
+
+  {% if upcoming_bills %}
+  <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6">
+    <strong>⏰ Upcoming Bills:</strong>
+    <ul class="list-disc list-inside mt-2">
+      {% for bill in upcoming_bills %}
+      <li>{{ bill.name }} - ₹{{ bill.amount }} due on {{ bill.due_date }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <!-- Monthly Budget Chart -->
+  <section class="py-10 text-center">
+    <h2 class="text-2xl text-red-600 font-bold">Monthly Budget Status</h2>
+    <p class="text-gray-600 mt-2">Visual breakdown of spending vs. budget.</p>
+    {% if chart %}
+      {{ chart|safe }}
+    {% else %}
+      <p class="mt-4 text-gray-500">No data available.</p>
+    {% endif %}
+    <a href="{% url 'finance:budget' %}" class="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Manage Budget</a>
+  </section>
+
+  <!-- Budget Cards -->
+  <section class="max-w-5xl mx-auto px-4">
+    <h2 class="text-xl font-bold text-center mb-4">Budget Management</h2>
+    <p class="text-center text-gray-500 mb-8">Set and monitor your monthly budgets efficiently.</p>
+
+    {% for budget in budgets %}
+      {% with percent_spent=budget.spent_amount|floatformat:2|div:budget.amount|floatformat:2|mul:100 %}
+      <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+        <h4 class="text-lg text-red-700 font-semibold text-center">
+          Monthly Budget for {{ budget.category.name }}: ₹{{ budget.amount }}
+        </h4>
+
+        <div class="w-full bg-gray-200 h-5 rounded mt-4 overflow-hidden">
+          {% if percent_spent >= 100 %}
+          <div class="bg-red-600 h-5 text-white text-sm text-center" style="width: 100%">
+            Over Budget!
+          </div>
+          {% else %}
+          <div class="bg-green-500 h-5 text-white text-sm text-center" style="width: {{ percent_spent|floatformat:0 }}%">
+            {{ percent_spent|floatformat:0 }}% Spent
+          </div>
+          {% endif %}
+        </div>
+        <p class="text-center mt-2 text-sm text-gray-700">
+          Spent ₹{{ budget.spent_amount|floatformat:2 }} out of ₹{{ budget.amount }}
+        </p>
+      </div>
+      {% endwith %}
+    {% endfor %}
+
+    <!-- Budget Actions -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h4 class="text-center text-lg font-bold">Set Monthly Budgets</h4>
+        <p class="text-center text-gray-500 mb-4">Allocate budgets for different categories.</p>
+        <a href="{% url 'finance:set_budget' %}" class="block text-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Set Budget</a>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h4 class="text-center text-lg font-bold">Spending Control Lock</h4>
+        <p class="text-center text-gray-500 mb-4">Lock spending in specific categories for a fixed period.</p>
+        <button class="w-full bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded">Enable Lock</button>
+      </div>
+    </div>
+
+    <!-- Smart Dashboard -->
+    <h2 class="text-xl font-semibold mb-4">Smart Budget Dashboard</h2>
+    <form method="get" class="mb-6 flex flex-wrap gap-4 items-center">
+      <label class="text-gray-700">Select Time Range:</label>
+      <select name="range" onchange="this.form.submit()" class="border rounded px-3 py-1">
+        <option value="7" {% if selected_range == 7 %}selected{% endif %}>Last 7 Days</option>
+        <option value="30" {% if selected_range == 30 %}selected{% endif %}>Last 30 Days</option>
+        <option value="90" {% if selected_range == 90 %}selected{% endif %}>Last 90 Days</option>
+      </select>
+
+      <label class="text-gray-700 ml-4">Show:</label>
+      <select name="view" onchange="this.form.submit()" class="border rounded px-3 py-1">
+        <option value="recommended" {% if view_type == 'recommended' %}selected{% endif %}>Recommended Budget</option>
+        <option value="actual" {% if view_type == 'actual' %}selected{% endif %}>Actual Budget</option>
+      </select>
+    </form>
+
+    <h3 class="text-lg font-bold mb-2">{{ view_type|title }} Budget</h3>
+    <canvas id="barChart" class="mb-6"></canvas>
+
+    <div class="w-full flex justify-center mb-6">
+      <canvas id="pieChart" class="w-80 h-80"></canvas>
+    </div>
+
+    <canvas id="lineChart" class="mb-10"></canvas>
+
+
+     <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const labels = {{ labels|safe }};
+    const recommendedData = {{ recommended|safe }};
+    const actualData = {{ actual|safe }};
+    const viewType = "{{ view_type }}";
+
+    new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: viewType === 'recommended' ? 'Recommended Budget' : 'Actual Budget',
+          data: viewType === 'recommended' ? recommendedData : actualData,
+          backgroundColor: 'rgba(59, 130, 246, 0.6)'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: true } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+
+    new Chart(document.getElementById('pieChart'), {
+      type: 'pie',
+      data: {
+        labels: {{ pie_labels|safe }},
+        datasets: [{
+          data: {{ pie_data|safe }},
+          backgroundColor: [
+            '#2196F3', '#4CAF50', '#FF9800', '#F44336', '#9C27B0',
+            '#00BCD4', '#8BC34A', '#FFC107', '#E91E63', '#3F51B5',
+            '#795548', '#607D8B'
+          ]
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('lineChart'), {
+      type: 'line',
+      data: {
+        labels: {{ line_labels|safe }},
+        datasets: [{
+          label: 'Spending Over Time',
+          data: {{ line_data|safe }},
+          borderColor: '#FF5722',
+          tension: 0.3,
+          fill: false
+        }]
+      }
+    });
+  </script>
+
+    <!-- AI Budget Suggestions -->
+    <div class="text-center bg-white rounded-lg p-6 shadow">
+      <h4 class="text-lg font-semibold mb-2">AI Budget Suggestions</h4>
+      <p class="text-gray-500 mb-4">Get smart adjustments based on spending patterns.</p>
+      <div class="bg-blue-100 text-blue-800 p-3 rounded mb-2">You are spending too much on entertainment. Consider reducing it to 15%.</div>
+      <div class="bg-yellow-100 text-yellow-800 p-3 rounded">You can save ₹5,000 this month by cutting unnecessary subscriptions.</div>
+    </div>
+
+    <!-- Budget Insights -->
+    <div class="bg-gray-50 p-6 rounded-lg mt-8 shadow">
+      <h4 class="text-xl font-semibold mb-2">💡 Budget Insights</h4>
+      <p><strong>Total Income:</strong> ₹{{ total_income }}</p>
+      <p><strong>Total Expenses:</strong> ₹{{ total_expense }}</p>
+      <p><strong>Savings:</strong> ₹{{ savings }}</p>
+
+      {% if top_expenses %}
+      <h5 class="mt-4 font-bold">🔝 Top Spending Categories</h5>
+      <ul class="list-disc list-inside">
+        {% for item in top_expenses %}
+        <li>{{ item.category__name }} – ₹{{ item.total }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      {% if budget_insights %}
+      <h5 class="mt-4 font-bold">📋 Suggestions</h5>
+      <ul class="list-disc list-inside">
+        {% for insight in budget_insights %}
+        <li>{{ insight }}</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="mt-2 text-green-600">No suggestions for now. Keep going! 🎯</p>
+      {% endif %}
+    </div>
+  </section>
+
+  {% endblock %}
+
+  <footer class="mt-10 bg-gray-800 text-white py-4 text-center">
+    &copy; {{ year }} Budget Manager. All rights reserved.
+  </footer>
+
+ 
+</body>
+</html> {% endcomment %}
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+   
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-gray-900 text-gray-200 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="{% url 'finance:dashboard' %}" class="text-2xl font-bold text-blue-300">Finance AI</a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#overview" class="hover:text-blue-400 transition ease-in-out duration-200">Overview</a>
+                <a href="{% url 'finance:budget' %}" class="hover:text-blue-400 transition ease-in-out duration-200">Budget Status</a>
+                <a href="{% url 'finance:bills' %}" class="hover:text-blue-400 transition ease-in-out duration-200">Upcoming Bills</a>
+                <a href="{% url 'finance:insights' %}" class="hover:text-blue-400 transition ease-in-out duration-200">Insights</a>
+                <!-- Dropdown -->
+                <div class="relative">
+                    <button id="more-button" class="hover:bg-gray-700 px-3 py-2 rounded-md focus:outline-none text-gray-200">More</button>
+                    <div id="dropdown-menu" class="absolute hidden bg-gray-700 text-gray-200 rounded-lg shadow-lg mt-2 w-48 z-50 ring-1 ring-gray-600">
+                        <a href="{% url 'finance:profile' %}" class="block px-4 py-2 hover:bg-gray-600">Profile</a>
+                        <a href="{% url 'finance:expense' %}" class="block px-4 py-2 hover:bg-gray-600">Expense Tracking</a>
+                        <a href="{% url 'finance:budget' %}" class="block px-4 py-2 hover:bg-gray-600">Budget Management</a>
+                        <a href="{% url 'finance:investment' %}" class="block px-4 py-2 hover:bg-gray-600">Savings & Investments</a>
+                        <a href="{% url 'finance:bills' %}" class="block px-4 py-2 hover:bg-gray-600">Bill Payments</a>
+                        <a href="{% url 'finance:credit_loan' %}" class="block px-4 py-2 hover:bg-gray-600">Credit & Loans</a>
+                        <a href="{% url 'finance:chatbot' %}" class="block px-4 py-2 hover:bg-gray-600">AI Assistant</a>
+                        <a href="{% url 'finance:insights' %}" class="block px-4 py-2 hover:bg-gray-600">Reports</a>
+                        <a href="{% url 'finance:logout' %}" class="block px-4 py-2 hover:bg-gray-600">Logout</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-200 hover:text-blue-400 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-4 pt-2 pb-4">
+            <a href="#overview" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Overview</a>
+            <a href="{% url 'finance:budget' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Budget Status</a>
+            <a href="{% url 'finance:bills' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Upcoming Bills</a>
+            <a href="{% url 'finance:insights' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Insights</a>
+            <a href="{% url 'finance:profile' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Profile</a>
+            <a href="{% url 'finance:expense' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Expense Tracking</a>
+            <a href="{% url 'finance:budget' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Budget Management</a>
+            <a href="{% url 'finance:investment' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Savings & Investments</a>
+            <a href="{% url 'finance:bills' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Bill Payments</a>
+            <a href="{% url 'finance:credit_loan' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Credit & Loans</a>
+            <a href="{% url 'finance:chatbot' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">AI Assistant</a>
+            <a href="{% url 'finance:insights' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Reports</a>
+            <a href="{% url 'finance:logout' %}" class="block px-3 py-2 rounded-md hover:bg-gray-700 text-gray-200">Logout</a>
+        </div>
+    </nav>
+
+    {% include 'includes/error.html' %}
+    {% load static %}
+    {% load math_filters %}
+
+    <section class="max-w-5xl mx-auto py-10 px-4">
+        {% if upcoming_bills %}
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 mb-6 transition-all duration-300 hover:shadow-2xl">
+            <h4 class="text-lg font-semibold text-blue-200 mb-4">⏰ Upcoming Bills</h4>
+            <ul class="list-disc pl-6">
+                {% for bill in upcoming_bills %}
+                <li class="mb-2">{{ bill.name }} - ₹{{ bill.amount }} due on {{ bill.due_date }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <!-- Monthly Budget Status -->
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 mb-6 transition-all duration-300 hover:shadow-2xl">
+            <h2 class="text-2xl font-bold text-center text-blue-300 mb-4">Monthly Budget Status</h2>
+            <p class="text-center text-gray-400 mb-4">Visual breakdown of spending vs. budget.</p>
+            {% if chart %}
+            {{ chart|safe }}
+            {% else %}
+            <p class="text-gray-400 text-center">No data available.</p>
+            {% endif %}
+            <a href="{% url 'finance:budget' %}" class="block text-center bg-gradient-to-r from-green-500 to-green-700 text-white py-2 rounded-lg mt-4 hover:from-green-600 hover:to-green-800 transition ease-in-out duration-200">Manage Budget</a>
+        </div>
+
+        <!-- Budget Management -->
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 mb-6 transition-all duration-300 hover:shadow-2xl">
+            <h2 class="text-2xl font-bold text-center text-blue-300 mb-4">Budget Management</h2>
+            <p class="text-center text-gray-400 mb-4">Set and monitor your monthly budgets efficiently.</p>
+            {% for budget in budgets %}
+            {% with percent_spent=budget.spent_amount|floatformat:2|div:budget.amount|floatformat:2|mul:100 %}
+            <div class="mb-4">
+                <p class="text-blue-200">Monthly Budget for {{ budget.category.name }}: ₹{{ budget.amount }}</p>
+                <div class="w-full bg-gray-700 h-5 rounded mt-2 overflow-hidden">
+                    <div class="h-5 rounded text-white text-sm text-center {% if percent_spent >= 100 %}bg-red-500{% else %}bg-green-500{% endif %}" style="width: {{ percent_spent }}%;">
+                        {% if percent_spent >= 100 %}Over Budget!{% else %}{{ percent_spent|floatformat:0 }}% Spent{% endif %}
+                    </div>
+                </div>
+                <p class="text-gray-400 mt-2">Spent ₹{{ budget.spent_amount|floatformat:2 }} out of ₹{{ budget.amount }}</p>
+            </div>
+            {% endwith %}
+            {% empty %}
+            <p class="text-gray-400 text-center">No budgets set.</p>
+            {% endfor %}
+        </div>
+
+        <!-- Set Budget & Spending Lock -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+                <h4 class="text-lg font-semibold text-center text-blue-200">Set Monthly Budgets</h4>
+                <p class="text-center text-gray-400 mb-4">Allocate budgets for different categories.</p>
+                <a href="{% url 'finance:set_budget' %}" class="block text-center bg-gradient-to-r from-green-500 to-green-700 text-white py-2 rounded-lg hover:from-green-600 hover:to-green-800 transition ease-in-out duration-200">Set Budget</a>
+            </div>
+            
+        </div>
+
+        <!-- Smart Budget Dashboard -->
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 mb-6 transition-all duration-300 hover:shadow-2xl">
+            <!-- Smart Budget Dashboard -->
+        <h2 class="text-xl font-semibold text-blue-300 mb-4">Smart Budget Dashboard</h2>
+        <form method="get" class="mb-6 flex flex-wrap gap-4 items-center">
+            <label class="text-gray-200">Select Time Range:</label>
+            <select name="range" onchange="this.form.submit()" class="border border-gray-600 bg-gray-700 text-gray-200 rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="7" {% if selected_range == 7 %}selected{% endif %}>Last 7 Days</option>
+                <option value="30" {% if selected_range == 30 %}selected{% endif %}>Last 30 Days</option>
+                <option value="90" {% if selected_range == 90 %}selected{% endif %}>Last 90 Days</option>
+            </select>
+            <label class="text-gray-200 ml-4">Show:</label>
+            <select name="view" onchange="this.form.submit()" class="border border-gray-600 bg-gray-700 text-gray-200 rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="recommended" {% if view_type == 'recommended' %}selected{% endif %}>Recommended Budget</option>
+                <option value="actual" {% if view_type == 'actual' %}selected{% endif %}>Actual Budget</option>
+            </select>
+        </form>
+
+        <h3 class="text-lg font-bold text-blue-200 mb-2">{{ view_type|title }} Budget</h3>
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 mb-6 transition-all duration-300 hover:shadow-2xl">
+            <canvas id="barChart"></canvas>
+        </div>
+
+        <div class="w-full flex justify-center mb-6">
+            <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+                <canvas id="pieChart" class="w-80 h-80"></canvas>
+            </div>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 mb-10 transition-all duration-300 hover:shadow-2xl">
+            <canvas id="lineChart"></canvas>
+        </div>
+
+        <!-- Chart.js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            // Fallback data to prevent syntax errors
+            const labels = {{ labels|safe }} || [];
+            const recommendedData = {{ recommended|safe }} || [0];
+            const actualData = {{ actual|safe }} || [0];
+            const pieLabels = {{ pie_labels|safe }} || [];
+            const pieData = {{ pie_data|safe }} || [0];
+            const lineLabels = {{ line_labels|safe }} || [];
+            const lineData = {{ line_data|safe }} || [0];
+            const viewType = "{{ view_type }}" || "recommended";
+
+            // Bar Chart
+            if (labels.length && (recommendedData.length || actualData.length)) {
+                new Chart(document.getElementById('barChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: viewType === 'recommended' ? 'Recommended Budget' : 'Actual Budget',
+                            data: viewType === 'recommended' ? recommendedData : actualData,
+                            backgroundColor: 'rgba(59, 130, 246, 0.6)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: { legend: { display: true } },
+                        scales: { y: { beginAtZero: true } }
+                    }
+                });
+            } else {
+                console.warn("Bar chart data is empty or invalid.");
+            }
+
+            // Pie Chart
+            if (pieLabels.length && pieData.length) {
+                new Chart(document.getElementById('pieChart'), {
+                    type: 'pie',
+                    data: {
+                        labels: pieLabels,
+                        datasets: [{
+                            data: pieData,
+                            backgroundColor: [
+                                '#2196F3', '#4CAF50', '#FF9800', '#F44336', '#9C27B0',
+                                '#00BCD4', '#8BC34A', '#FFC107', '#E91E63', '#3F51B5',
+                                '#795548', '#607D8B'
+                            ]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: { legend: { display: true } }
+                    }
+                });
+            } else {
+                console.warn("Pie chart data is empty or invalid.");
+            }
+
+            // Line Chart
+            if (lineLabels.length && lineData.length) {
+                new Chart(document.getElementById('lineChart'), {
+                    type: 'line',
+                    data: {
+                        labels: lineLabels,
+                        datasets: [{
+                            label: 'Spending Over Time',
+                            data: lineData,
+                            borderColor: '#FF5722',
+                            tension: 0.3,
+                            fill: false
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: { legend: { display: true } }
+                    }
+                });
+            } else {
+                console.warn("Line chart data is empty or invalid.");
+            }
+        </script>
+        </div>
+
+        <!-- AI Budget Suggestions -->
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 mb-6 transition-all duration-300 hover:shadow-2xl">
+            <h2 class="text-2xl font-bold text-center text-blue-300 mb-4">AI Budget Suggestions</h2>
+            <div class="bg-blue-900 text-blue-200 p-4 rounded-lg mb-3 ring-1 ring-blue-800">
+                You are spending too much on entertainment. Consider reducing it to 15%.
+            </div>
+            <div class="bg-blue-900 text-blue-200 p-4 rounded-lg ring-1 ring-blue-800">
+                You can save ₹5,000 this month by cutting unnecessary subscriptions.
+            </div>
+        </div>
+
+        <!-- Budget Insights -->
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-xl ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+            <h2 class="text-2xl font-bold text-center text-blue-300 mb-4">💡 Budget Insights</h2>
+            <p><strong>Total Income:</strong> ₹{{ total_income }}</p>
+            <p><strong>Total Expenses:</strong> ₹{{ total_expense }}</p>
+            <p><strong>Savings:</strong> ₹{{ savings }}</p>
+            {% if top_expenses %}
+            <h4 class="text-lg font-semibold text-blue-200 mt-4">🔝 Top Spending Categories</h4>
+            <ul class="list-disc pl-6">
+                {% for item in top_expenses %}
+                <li>{{ item.category__name }} – ₹{{ item.total }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% if budget_insights %}
+            <h4 class="text-lg font-semibold text-blue-200 mt-4">📋 Suggestions</h4>
+            <ul class="list-disc pl-6">
+                {% for insight in budget_insights %}
+                <li>{{ insight }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="text-gray-400">No suggestions for now. Keep going! 🎯</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4 text-center">
+        <p class="text-gray-400">© 2025 Budget Manager. All rights reserved.</p>
+        <div class="space-x-2">
+            <a href="#" class="text-blue-400 hover:text-blue-300">Privacy Policy</a> |
+            <a href="#" class="text-blue-400 hover:text-blue-300">Terms of Use</a> |
+            <a href="#" class="text-blue-400 hover:text-blue-300">Contact</a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Dropdown toggle
+            const moreButton = document.getElementById("more-button");
+            const dropdownMenu = document.getElementById("dropdown-menu");
+            moreButton.addEventListener("click", function () {
+                dropdownMenu.classList.toggle("hidden");
+            });
+            document.addEventListener("click", function (e) {
+                if (!moreButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.classList.add("hidden");
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById("mobile-menu-button");
+            const mobileMenu = document.getElementById("mobile-menu");
+            mobileMenuButton.addEventListener("click", function () {
+                mobileMenu.classList.toggle("hidden");
+            });
+        });
+    </script>
+</body>
+</html>

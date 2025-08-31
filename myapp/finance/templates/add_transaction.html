@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Transaction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="dashboard.html">Finance AI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="expense_income_tracking.html">Expense & Income Tracking</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% include 'includes/error.html' %}
+
+    <!-- Add Transaction Section -->
+    <section class="container py-5">
+        <h2 class="text-center mb-4">Add Transaction</h2>
+        <div class="">
+            {% include 'includes/error.html' %}
+          </div>
+        <div class="card p-4">
+            <form method='post'>
+                {% csrf_token %}  <!-- This line is added to include the CSRF token in the form. -->
+                <div class="mb-3">
+                    <label for="type" class="form-label">Transaction Type</label>
+                    <select class="form-select" id="type" name="type" onchange="updateCategories()">
+                        <option value="cash">Cash</option>
+                        <option value="online">Online Transacton</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Amount (₹)</label>
+                    <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount" required>
+                </div>
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select class="form-control" id="category" name="category">
+                    <option value="">Select</option>
+                    {%if categories%}
+                        {% for category in categories %}
+                            <option value="{{category.id}}">{{category.name}}</option>
+                        {% endfor %}
+                        {% endif %}
+                </div>
+                <div class="mb-3">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="date" name="date" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="notes" class="form-label">Notes (Optional)</label>
+                    <textarea class="form-control" id="notes" name="notes" rows="2" placeholder="Add any additional details"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Save Transaction</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-3">
+        <p>&copy; 2024 AI Financial Assistant. All rights reserved.</p>
+        <a href="#" class="text-white">Privacy Policy</a> |
+        <a href="#" class="text-white">Terms of Use</a> |
+        <a href="#" class="text-white">Contact</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        {% comment %} function updateCategories() {
+            const type = document.getElementById("type").value;
+            const category = document.getElementById("category");
+            category.innerHTML = ""; // Clear previous options
+
+            const incomeCategories = [
+                "Salary/Wages", "Business Income", "Freelance/Side Hustle", "Investments",
+                "Rental Income", "Interest Income", "Pension", "Bonuses",
+                "Royalties", "Government Assistance"
+            ];
+
+            const expenseCategories = [
+                "Food", "Entertainment", "Rent", "Groceries", "Utilities",
+                "Transportation", "Healthcare", "Education", "Insurance",
+                "Gifts & Donations",  "Dining Out", "Subscriptions",
+                "Home Maintenance", "Personal Care", "Childcare", "Debt Payments","Cloths & Accessories"
+            ]; {% endcomment %}
+
+            const categories = type === "income" ? incomeCategories : expenseCategories;
+            
+            categories.forEach(cat => {
+                let option = document.createElement("option");
+                option.value = cat;
+                option.textContent = cat;
+                category.appendChild(option);
+            });
+        }
+
+        // Initialize default category selection
+        document.addEventListener("DOMContentLoaded", updateCategories);
+    </script>
+</body>
+</html>

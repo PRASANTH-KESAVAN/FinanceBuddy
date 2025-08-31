@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'finance:dashboard' %}">Finance AI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link"href="{% url 'finance:dashboard' %}">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% include 'includes/error.html' %}
+
+    <!-- User Profile Section -->
+    <section class="container py-5">
+        <h2 class="text-center mb-4">User Profile</h2>
+        <div class="card p-4 text-center">
+            <img src="{{profile.img_url}}" alt="User Image" class="profile-img mb-3">
+            <h4>{{profile.name}}</h4>
+            <p class="text-muted">{{user.email}}</p>
+        </div>
+    </section>
+
+    <!-- Financial Details -->
+    <section class="container py-3">
+        <h3 class="mb-3">Financial Details</h3>
+        <div class="card p-4">
+            <p><strong>Monthly Income:</strong> {{profile.income}}</p>
+
+            <p><strong>Monthly revenue:</strong> {{total_net_worth}}</p>
+            <p><strong>Monthly Expenses:</strong>{{total_net_expense}}</p>
+            <p><strong>Monthly Investement:</strong> ₹{{investment}}</p>
+
+            <p><strong>Savings:</strong> ₹{{savings}}</p>
+        </div>
+    </section>
+
+    <!-- Income Details -->
+    <section class="container py-3">
+        <h3 class="mb-3">Income Sources</h3>
+        <div class="card p-4">
+            <ul class="list-group">
+                <li class="list-group-item">Investments(Profit) - ₹{{total_investment_profit}}</li>
+
+                <li class="list-group-item">Salary - ₹{{profile.income}}</li>
+
+                {% for income in incomes%}
+                <li class="list-group-item">{{income.category.name}} - ₹5,000</li>
+                {%endfor%}
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-3">
+        <p>&copy; 2024 AI Financial Assistant. All rights reserved.</p>
+        <a href="#" class="text-white">Privacy Policy</a> |
+        <a href="#" class="text-white">Terms of Use</a> |
+        <a href="#" class="text-white">Contact</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

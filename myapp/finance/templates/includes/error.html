@@ -1,0 +1,36 @@
+<!-- Field Errors -->
+{% for field in form %}
+    {% if field.errors %}
+        <div class="col-12 mb-2">
+            <div class="alert alert-danger p-2 rounded">
+                <label class="fw-bold">{{ field.label }}</label>
+                {% for error in field.errors %}
+                    <div class="form-control border-danger bg-light text-danger mt-1">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+
+<!-- Non-Field Errors -->
+{% if form.non_field_errors %}
+    <div class="alert alert-danger p-2 rounded">
+        {% for error in form.non_field_errors %}
+            <div class="form-control border-danger bg-light text-danger mt-1">
+                {{ error }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<!-- Success Messages -->
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} d-flex justify-content-between align-items-center">
+            <span class="text-{{ message.tags }}"> {{ message }} </span> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}

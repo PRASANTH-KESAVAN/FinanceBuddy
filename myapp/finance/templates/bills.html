@@ -1,0 +1,260 @@
+{%extends 'base.html'%}
+{% comment %} 
+{% load custom_filters %}
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bill Payments & Financial Alerts</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .container {
+        max-width: 800px;
+      }
+      .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'finance:dashboard' %}"
+          >Finance AI</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'finance:dashboard' %}"
+                >Dashboard</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% block content %}
+    {% include 'includes/error.html' %}
+
+    <!-- Upcoming Bills Section -->
+    <section class="max-w-3xl mx-auto py-10">
+      <h2 class="text-2xl font-semibold text-center mb-6">Upcoming Bills</h2>
+
+      <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+        <h4 class="text-lg font-semibold mb-4">Unpaid Bills</h4>
+        <ul>
+          {% for bill in bills %} 
+            {% if not bill.is_paid %}
+            <li class="flex justify-between items-center border-b py-2">
+              <span>{{ bill.title }} - ₹{{ bill.amount }}</span>
+              <span class="bg-yellow-400 text-white text-sm px-2 py-1 rounded">Due: {{ bill.due_date }}</span>
+              <a href="{% url 'finance:pay_bill' bill.id %}" class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm">Pay</a>
+            </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <h4 class="text-lg font-semibold mb-4">Paid Bills</h4>
+        <ul>
+          {% for bill in bills %} 
+            {% if bill.is_paid %}
+            <li class="flex justify-between items-center border-b py-2">
+              <span>{{ bill.title }} - ₹{{ bill.amount }}</span>
+              <span class="bg-yellow-400 text-white text-sm px-2 py-1 rounded">Due: {{ bill.due_date }}</span>
+              <span class="text-green-600 text-sm">Paid on {{ bill.updated_at }}</span>
+            </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Add New Bill Section -->
+    <section class="max-w-3xl mx-auto py-10">
+      <h2 class="text-2xl font-semibold text-center mb-6">Add new bill to the list</h2>
+      <div class="bg-white shadow-md rounded-lg p-6 text-center">
+        <a href="{% url 'finance:add_bills' %}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Add New Bill</a>
+      </div>
+    </section>
+
+    <!-- Auto-Payment Options -->
+    <section class="max-w-3xl mx-auto py-10">
+      <h2 class="text-2xl font-semibold text-center mb-2">Payment Options</h2>
+      <p class="text-center text-gray-500 mb-4">Set up automatic payments for your bills.</p>
+      <button class="bg-blue-600 hover:bg-blue-700 text-white w-full py-2 rounded">Pay Bills</button>
+    </section>
+
+    <!-- Smart Alerts & Notifications -->
+    <section class="max-w-3xl mx-auto py-10">
+      <h2 class="text-2xl font-semibold text-center mb-6">Smart Alerts & Notifications</h2>
+      <div class="bg-yellow-200 text-yellow-800 p-4 rounded mb-3">
+        Electricity bill ₹3,000 due by 25-Mar-25.
+      </div>
+      <div class="bg-red-200 text-red-800 p-4 rounded">
+        Loan repayment of ₹10,000 pending on 30-Mar-25.
+      </div>
+    </section>
+
+    <!-- Subscription Manager -->
+    <section class="max-w-3xl mx-auto py-10">
+      <h2 class="text-2xl font-semibold text-center mb-6">Subscription Manager</h2>
+      <p class="text-center text-gray-500 mb-4">
+        Track all active subscriptions and receive alerts for renewals.
+      </p>
+      <ul>
+        {% for bill in bills %} 
+          {% if bill.is_paid %}
+          <li class="flex justify-between items-center border-b py-2">
+            <span>{{ bill.title }} - ₹{{ bill.amount }}</span>
+            <span class="bg-blue-500 text-white px-2 py-1 text-sm rounded">{{ bill|date_format }}</span>
+          </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </section>
+
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-3">
+      <p>&copy; 2024 AI Financial Assistant. All rights reserved.</p>
+      <a href="#" class="text-white">Privacy Policy</a> |
+      <a href="#" class="text-white">Terms of Use</a> |
+      <a href="#" class="text-white">Contact</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html> {% endcomment %}
+
+
+
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+    {% include 'includes/error.html' %}
+
+    <!-- Upcoming Bills Section -->
+    <section class="max-w-3xl mx-auto py-10 px-4">
+        <h2 class="text-2xl font-bold text-center text-blue-300 mb-6">Upcoming Bills</h2>
+
+        <div class="bg-gray-800 rounded-2xl shadow-xl p-6 mb-6 ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+            <h4 class="text-lg font-semibold text-blue-200 mb-4">Unpaid Bills</h4>
+            <ul>
+                {% for bill in bills %}
+                {% if not bill.is_paid %}
+                <li class="flex justify-between items-center border-b border-gray-700 py-2">
+                    <span>{{ bill.title }} - ₹{{ bill.amount }}</span>
+                    <span class="bg-yellow-600 text-white text-sm px-2 py-1 rounded">Due: {{ bill.due_date }}</span>
+                    <a href="{% url 'finance:pay_bill' bill.id %}" class="bg-gradient-to-r from-green-500 to-green-700 text-white px-3 py-1 rounded text-sm hover:from-green-600 hover:to-green-800 transition ease-in-out duration-200">Pay</a>
+                </li>
+                {% endif %}
+                {% empty %}
+                <li class="text-gray-400">No unpaid bills.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="bg-gray-800 rounded-2xl shadow-xl p-6 ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+            <h4 class="text-lg font-semibold text-blue-200 mb-4">Paid Bills</h4>
+            <ul>
+                {% for bill in bills %}
+                {% if bill.is_paid %}
+                <li class="flex justify-between items-center border-b border-gray-700 py-2">
+                    <span>{{ bill.title }} - ₹{{ bill.amount }}</span>
+                    <span class="bg-yellow-600 text-white text-sm px-2 py-1 rounded">Due: {{ bill.due_date }}</span>
+                    <span class="text-green-500 text-sm">Paid on {{ bill.updated_at }}</span>
+                </li>
+                {% endif %}
+                {% empty %}
+                <li class="text-gray-400">No paid bills.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+    <!-- Add New Bill Section -->
+    <section class="max-w-3xl mx-auto py-10 px-4">
+        <h2 class="text-2xl font-bold text-center text-blue-300 mb-6">Add New Bill to the List</h2>
+        <div class="bg-gray-800 rounded-2xl shadow-xl p-6 text-center ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+            <a href="{% url 'finance:add_bills' %}" class="bg-gradient-to-r from-green-500 to-green-700 text-white px-4 py-2 rounded-lg hover:from-green-600 hover:to-green-800 transition ease-in-out duration-200">Add New Bill</a>
+        </div>
+    </section>
+
+    <!-- Auto-Payment Options -->
+    <section class="max-w-3xl mx-auto py-10 px-4">
+        <h2 class="text-2xl font-bold text-center text-blue-300 mb-2">Payment Options</h2>
+        <p class="text-center text-gray-400 mb-4">Set up automatic payments for your bills.</p>
+        <button class="bg-gradient-to-r from-green-500 to-green-700 text-white w-full py-2 rounded-lg hover:from-green-600 hover:to-green-800 transition ease-in-out duration-200">Pay Bills</button>
+    </section>
+
+    <!-- Smart Alerts & Notifications -->
+    <section class="max-w-3xl mx-auto py-10 px-4">
+        <h2 class="text-2xl font-bold text-center text-blue-300 mb-6">Smart Alerts & Notifications</h2>
+        {% if alerts %}
+        {% for alert in alerts %}
+        <div class="bg-blue-900 text-blue-200 p-4 rounded-lg mb-3 ring-1 ring-blue-800">
+            {{ alert.message }}
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="bg-yellow-900 text-yellow-200 p-4 rounded-lg mb-3 ring-1 ring-yellow-800">
+            Electricity bill ₹3,000 due by 25-Mar-25.
+        </div>
+        <div class="bg-red-900 text-red-200 p-4 rounded-lg ring-1 ring-red-800">
+            Loan repayment of ₹10,000 pending on 30-Mar-25.
+        </div>
+        {% endif %}
+    </section>
+
+    <!-- Subscription Manager -->
+    <section class="max-w-3xl mx-auto py-10 px-4">
+        <h2 class="text-2xl font-bold text-center text-blue-300 mb-6">Subscription Manager</h2>
+        <p class="text-center text-gray-400 mb-4">Track all active subscriptions and receive alerts for renewals.</p>
+        <div class="bg-gray-800 rounded-2xl shadow-xl p-6 ring-1 ring-gray-700 transition-all duration-300 hover:shadow-2xl">
+            <ul>
+                {% for bill in bills %}
+                {% if bill.is_paid %}
+                <li class="flex justify-between items-center border-b border-gray-700 py-2">
+                    <span>{{ bill.title }} - ₹{{ bill.amount }}</span>
+                    <span class="bg-blue-600 text-white px-2 py-1 text-sm rounded">{{ bill|date_format }}</span>
+                </li>
+                {% endif %}
+                {% empty %}
+                <li class="text-gray-400">No active subscriptions.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 py-4 text-center">
+        <p class="text-gray-400">© 2025 AI Financial Assistant. All rights reserved.</p>
+        <div class="space-x-2">
+            <a href="#" class="text-blue-400 hover:text-blue-300">Privacy Policy</a> |
+            <a href="#" class="text-blue-400 hover:text-blue-300">Terms of Use</a> |
+            <a href="#" class="text-blue-400 hover:text-blue-300">Contact</a>
+        </div>
+    </footer>
+{% endblock %}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports & Insights</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'finance:dashboard' %}">Finance AI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'finance:dashboard' %}">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% include 'includes/error.html' %}
+
+    <!-- Expense Reports -->
+    <section class="container py-5">
+        <h2 class="text-center mb-4">Detailed Expense Reports</h2>
+        <p class="text-center text-muted">View weekly, monthly, and yearly analysis of your spending.</p>
+        <button class="btn btn-primary w-100">Generate Report</button>
+    </section>
+
+    <!-- AI Financial Health Check -->
+    <section class="container py-5">
+        <h2 class="text-center mb-4">AI Financial Health Check</h2>
+        <p class="text-center text-muted">Get insights on your spending behavior and financial habits.</p>
+        <div class="alert alert-info">Your savings rate has improved by 15% compared to last month!</div>
+        <div class="alert alert-warning">You are overspending on dining out. Consider reducing expenses.</div>
+    </section>
+
+    <!-- Comparison Over Time -->
+    <section class="container py-5">
+        <h2 class="text-center mb-4">Comparison Over Time</h2>
+        <p class="text-center text-muted">Compare your expenses with previous months.</p>
+        <button class="btn btn-outline-primary w-100">Compare Expenses</button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-3">
+        <p>&copy; 2024 AI Financial Assistant. All rights reserved.</p>
+        <a href="#" class="text-white">Privacy Policy</a> |
+        <a href="#" class="text-white">Terms of Use</a> |
+        <a href="#" class="text-white">Contact</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
