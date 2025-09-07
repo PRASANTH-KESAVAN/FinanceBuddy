@@ -117,35 +117,7 @@ from PIL import Image
 reader = easyocr.Reader(['en'], gpu=False)
 
 def extract_receipt_data(image_path):
-    # """Smart OCR: Extract important receipt fields."""
-    # img = Image.open(image_path)
-    # text = pytesseract.image_to_string(img)
-
-    # # Extract amounts using regex
-    # amounts = re.findall(r"\d+\.\d{2}", text)
-    # if amounts:
-    #     amounts = [float(a) for a in amounts]
-    #     total_amount = max(amounts)  # Take highest value (usually total)
-    # else:
-    #     total_amount = 0.0
-
-    # # Take first few lines as description
-    # lines = text.strip().split('\n')
-    # description_lines = []
-    # for line in lines:
-    #     line = line.strip()
-    #     if len(line) > 3:
-    #         description_lines.append(line)
-    #     if len(description_lines) >= 5:
-    #         break
-
-    # description = ', '.join(description_lines)
-
-    # return {
-    #     'amount': total_amount,
-    #     'description': description,
-    #     'full_text': text
-    # }
+   
     # Read image
     img = cv2.imread(image_path)
     if img is None:
@@ -180,48 +152,6 @@ def extract_receipt_data(image_path):
 from .models import Expense, Income, Category, IncomeCategory
 from datetime import date
 
-# def update_investment_effect(user, investment, action="add"):
-#     # Create/Get Investment-related Categories
-#     investment_category, _ = Category.objects.get_or_create(name="Investment")
-#     investment_income_category, _ = IncomeCategory.objects.get_or_create(name="Investment Returns")
-
-#     if action == "add":
-#         # Log the investment as an expense
-#         Expense.objects.create(
-#             user=user,
-#             type="Investment",
-#             category=investment_category,
-#             amount=int(investment.amount),
-#             date=investment.date,
-#             notes=f"Invested in {investment.investment_type.name}"
-#         )
-
-#         # Handle profit or loss
-#         net_result = investment.profit - investment.loss
-#         if net_result != 0:
-#             Income.objects.create(
-#                 user=user,
-#                 category=investment_income_category,
-#                 amount=int(net_result),
-#                 date=investment.date,
-#                 notes=f"Result of investment in {investment.investment_type.name}"
-#             )
-
-#     elif action == "delete":
-#         # Delete related expense and income by notes (simplified logic)
-#         Expense.objects.filter(
-#             user=user, type="Investment",
-#             amount=int(investment.amount),
-#             date=investment.date,
-#             notes__icontains=investment.investment_type.name
-#         ).delete()
-
-#         Income.objects.filter(
-#             user=user,
-#             category=investment_income_category,
-#             date=investment.date,
-#             notes__icontains=investment.investment_type.name
-#         ).delete()
 
 from .models import Expense, Category, Profile
 from datetime import date
@@ -268,147 +198,12 @@ def update_investment_effect(user, investment, action="add"):
 
 
 
-
-# import cv2
-# import numpy as np
-# from paddleocr import PaddleOCR
-# import paddle
-
-# paddle.set_device('cpu')
-
-
-# # Initialize PaddleOCR model once
-# # ocr_model = PaddleOCR(use_angle_cls=True, lang='en')
-# ocr_model = PaddleOCR(use_angle_cls=True, lang='en', device='cpu')  # For CPU usage
-
-
-# def preprocess_image(image_path):
-#     """Enhance image quality before OCR"""
-#     img = cv2.imread(image_path, cv2.IMREAD_COLOR)
-#     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-#     denoised = cv2.fastNlMeansDenoising(gray, None, 30, 7, 21)
-#     _, thresh = cv2.threshold(denoised, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-
-#     coords = np.column_stack(np.where(thresh > 0))
-#     angle = cv2.minAreaRect(coords)[-1]
-#     if angle < -45:
-#         angle = -(90 + angle)
-#     else:
-#         angle = -angle
-
-#     (h, w) = thresh.shape[:2]
-#     center = (w // 2, h // 2)
-#     M = cv2.getRotationMatrix2D(center, angle, 1.0)
-#     deskewed = cv2.warpAffine(thresh, M, (w, h),
-#                               flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
-#     return deskewed
-
-# import cv2
-
-# def extract_text_deep(image_path):
-#     """Use PaddleOCR properly on normal images"""
-#     img = cv2.imread(image_path)  # Read original color image
-
-#     if img is None:
-#         return ""
-
-#     # Give raw color image to PaddleOCR (very important)
-#     result = ocr_model.ocr(img, cls=True)
-
-#     if not result or not result[0]:
-#         return ""
-
-#     extracted_text = ""
-#     for line in result[0]:
-#         extracted_text += line[1][0] + "\n"
-
-#     return extracted_text
-
-
-
-
-# # def extract_entities(text):
-# #     """Extract total and items from text"""
-# #     import re
-# #     total_pattern = r"Total\s*[:\-]?\s*\$?(\d+\.\d{2})"
-# #     total_match = re.search(total_pattern, text, re.IGNORECASE)
-# #     total_amount = float(total_match.group(1)) if total_match else 0.0
-
-# #     item_pattern = r"(.+?)\s+\d+\s+\d+\.\d{2}"
-# #     items = re.findall(item_pattern, text)
-
-# #     return total_amount, items
-
-# def extract_entities(raw_text):
-#     # Find total amount
-#     total_pattern = r"Total\s*[:\-]?\s*\$?(\d+\.\d{2})"
-#     total_match = re.search(total_pattern, raw_text, re.IGNORECASE)
-#     total_amount = float(total_match.group(1)) if total_match else None
-
-#     # Extract item lines (basic rule: lines with "x qty price")
-#     item_pattern = r"(.+?)\s+\d+\s+\d+\.\d{2}"
-#     items = re.findall(item_pattern, raw_text)
-
-#     # return {
-#     #     "total_amount": total_amount,
-#     #     "items": items
-#     # }
-    
-#     return total_amount, items
-
-
-# def extract_receipt_data_advanced(image_path):
-#     """Receipt extraction pipeline without overprocessing"""
-#     # No preprocessing - work on original uploaded image
-
-#     # Step 1: OCR
-#     text = extract_text_deep(image_path)
-
-#     # Step 2: NLP Entity Extraction
-#     total_amount, items = extract_entities(text)
-
-#     # Step 3: Fallback if needed
-#     if total_amount is None:
-#         amounts = re.findall(r"\d+\.\d{2}", text)
-#         if amounts:
-#             amounts = [float(a) for a in amounts]
-#             total_amount = max(amounts)
-
-#     # Step 4: Description
-#     description_lines = text.strip().split('\n')[:5]
-#     description = ', '.join(description_lines)
-
-#     return {
-#         'amount': total_amount,
-#         'items': items,
-#         'description': description,
-#         'full_text': text
-#     }
-
-
-
-
-# def predict_category(text):
-#     """Predict category from receipt text using pipeline."""
-#     clean_text = re.sub(r'[^a-zA-Z\s]', '', text)  # simple cleaning
-#     clean_text = clean_text.lower().strip()
-#     prediction = model.predict([clean_text])  # Pass as list of one document
-#     return prediction[0]
-
-
-
-
-
 '''
 it worked for the before
 '''
 
 
-# def predict_category(text):
-#     """Predict category from receipt text using pipeline."""
-#     text = re.sub(r'[^a-zA-Z\s]', '', text)  # basic clean-up
-#     prediction = model.predict([text])  # <-- notice passing [text] (as list)
-#     return prediction[0]
+
 
 # ml_utils.py
 import re
@@ -510,180 +305,13 @@ def predict_category(text, device='cpu'):
 
 
 
-###################    Phase 2         ########################################
-# import pandas as pd
-# import numpy as np
-# from sklearn.preprocessing import MinMaxScaler
-# from tensorflow.keras.models import Sequential
-# from tensorflow.keras.layers import LSTM, Dense
+
 import logging
 
 # Set up logging
 logger = logging.getLogger(__name__)
 
-# def prepare_lstm_data(expense_queryset, sequence_length=10):
-#     df = pd.DataFrame.from_records(expense_queryset.values('date', 'amount'))
-#     if df.empty:
-#         logger.warning("Expense data is empty in prepare_lstm_data")
-#         return None, None, None, None
-
-#     # Rename columns
-#     df.columns = ['ds', 'y']
-#     df['ds'] = pd.to_datetime(df['ds'])
-
-#     # Group by date and sum amounts
-#     df = df.groupby('ds')['y'].sum().reset_index()
-#     df = df.sort_values('ds')
-
-#     # Create a complete date range to handle missing dates
-#     start_date = df['ds'].min()
-#     end_date = df['ds'].max()
-#     all_dates = pd.date_range(start=start_date, end=end_date, freq='D')
-#     df_full = pd.DataFrame(all_dates, columns=['ds'])
-#     df_full = df_full.merge(df, on='ds', how='left').fillna({'y': 0})
-
-#     # Scale the amounts
-#     scaler = MinMaxScaler()
-#     df_full['y_scaled'] = scaler.fit_transform(df_full[['y']])
-
-#     # Adjust sequence length dynamically
-#     sequence_length = min(sequence_length, len(df_full) - 1)
-#     if sequence_length < 2:
-#         logger.warning(f"Sequence length too small: {sequence_length}, data points: {len(df_full)}")
-#         return None, None, None, None
-
-#     # Prepare sequences
-#     sequence_data, target_data = [], []
-#     for i in range(len(df_full) - sequence_length):
-#         sequence_data.append(df_full['y_scaled'].values[i:i + sequence_length])
-#         target_data.append(df_full['y_scaled'].values[i + sequence_length])
-
-#     if not sequence_data:
-#         logger.warning(f"No sequences generated: {len(df_full)} records, sequence_length={sequence_length}")
-#         return None, None, None, None
-
-#     X = np.array(sequence_data).reshape(-1, sequence_length, 1)
-#     y = np.array(target_data)
-
-#     logger.info(f"Prepared LSTM data: X_shape={X.shape}, y_shape={y.shape}, sequence_length={sequence_length}")
-#     return X, y, scaler, df_full
-
-# def build_lstm_model(input_shape):
-#     model = Sequential()
-#     model.add(LSTM(50, activation='relu', input_shape=input_shape, return_sequences=False))
-#     model.add(Dense(1))
-#     model.compile(optimizer='adam', loss='mse')
-#     return model
-
-# import pandas as pd
-# import numpy as np
-# from sklearn.preprocessing import MinMaxScaler
-# from tensorflow.keras.models import Sequential
-# from tensorflow.keras.layers import LSTM, Dense, Dropout, Input
-# from tensorflow.keras.optimizers import Adam
-# import logging
-# from datetime import timedelta
-
-# # Set up logging
-# logger = logging.getLogger(__name__)
-
-# def prepare_lstm_data(expense_queryset, sequence_length=30):
-#     df = pd.DataFrame.from_records(expense_queryset.values('date', 'amount'))
-#     if df.empty:
-#         logger.warning("Expense data is empty in prepare_lstm_data")
-#         return None, None, None, None
-
-#     df.columns = ['ds', 'y']
-#     df['ds'] = pd.to_datetime(df['ds'])
-#     df = df.groupby('ds')['y'].sum().reset_index().sort_values('ds')
-
-#     # Handle outliers
-#     q1, q3 = df['y'].quantile([0.25, 0.75])
-#     iqr = q3 - q1
-#     df = df[(df['y'] >= q1 - 1.5 * iqr) & (df['y'] <= q3 + 1.5 * iqr)]
-
-#     # Create complete date range
-#     start_date = df['ds'].min()
-#     end_date = df['ds'].max()
-#     all_dates = pd.date_range(start=start_date, end=end_date, freq='D')
-#     df_full = pd.DataFrame(all_dates, columns=['ds'])
-#     df_full = df_full.merge(df, on='ds', how='left')
-#     df_full['y'] = df_full['y'].ffill().bfill()  # Updated to use ffill() and bfill()
-
-#     # Add features
-#     df_full['day_of_week'] = df_full['ds'].dt.dayofweek
-#     df_full['month'] = df_full['ds'].dt.month
-
-#     # Scale data
-#     scaler = MinMaxScaler()
-#     df_full['y_scaled'] = scaler.fit_transform(df_full[['y']])
-#     scaler_features = MinMaxScaler()
-#     df_full[['day_of_week', 'month']] = scaler_features.fit_transform(df_full[['day_of_week', 'month']])
-
-#     sequence_length = min(sequence_length, len(df_full) - 1)
-#     if sequence_length < 2:
-#         logger.warning(f"Sequence length too small: {sequence_length}, data points: {len(df_full)}")
-#         return None, None, None, None
-
-#     sequence_data, target_data = [], []
-#     for i in range(len(df_full) - sequence_length):
-#         sequence_data.append(df_full[['y_scaled', 'day_of_week', 'month']].values[i:i + sequence_length])
-#         target_data.append(df_full['y_scaled'].values[i + sequence_length])
-
-#     if not sequence_data:
-#         logger.warning(f"No sequences generated: {len(df_full)} records, sequence_length={sequence_length}")
-#         return None, None, None, None
-
-#     X = np.array(sequence_data)
-#     y = np.array(target_data)
-#     logger.info(f"Prepared LSTM data: X_shape={X.shape}, y_shape={y.shape}, sequence_length={sequence_length}")
-#     return X, y, scaler, df_full, scaler_features  # Return scaler_features for use in forecasting
-
-# def build_lstm_model(input_shape):
-#     model = Sequential([
-#         Input(shape=input_shape),
-#         LSTM(100, activation='tanh', return_sequences=True),
-#         Dropout(0.2),
-#         LSTM(50, activation='tanh', return_sequences=False),
-#         Dropout(0.2),
-#         Dense(25, activation='relu'),
-#         Dense(1)
-#     ])
-#     model.compile(optimizer=Adam(learning_rate=0.001), loss='mse')
-#     return model
-
-# def forecast_expense_lstm(model, last_sequence, future_steps, scaler, df_full, scaler_features, sequence_length):
-#     predictions = []
-#     input_seq = last_sequence.reshape(1, sequence_length, -1)  # Shape: (1, sequence_length, 3)
-
-#     # Get the last date from df_full
-#     last_date = df_full['ds'].max()
-
-#     # Create future dates
-#     future_dates = pd.date_range(start=last_date + timedelta(days=1), periods=future_steps, freq='D')
-#     future_df = pd.DataFrame(future_dates, columns=['ds'])
-#     future_df['day_of_week'] = future_df['ds'].dt.dayofweek
-#     future_df['month'] = future_df['ds'].dt.month
-#     future_df[['day_of_week', 'month']] = scaler_features.transform(future_df[['day_of_week', 'month']])
-
-#     for i in range(future_steps):
-#         # Predict the next value
-#         next_pred = model.predict(input_seq, verbose=0)[0][0]
-#         predictions.append(next_pred)
-
-#         # Prepare the next input sequence
-#         next_day_features = future_df.iloc[i][['day_of_week', 'month']].values
-#         next_input = np.array([next_pred, *next_day_features]).reshape(1, 1, 3)  # Shape: (1, 1, 3)
-#         input_seq = np.append(input_seq[:, 1:, :], next_input, axis=1)  # Shape: (1, sequence_length, 3)
-
-#     # Inverse transform predictions
-#     predictions = scaler.inverse_transform(np.array(predictions).reshape(-1, 1)).flatten()
-#     return predictions
-
-
-
-
-
+#
 ########################    ANOMALY DETECTION           ##################################
 
 import pandas as pd
@@ -940,29 +568,6 @@ def cluster_spending_patterns(data, max_clusters=10, random_state=42):
 
 from sklearn.cluster import DBSCAN
 
-# def cluster_spending_patterns(data, eps=0.5, min_samples=5, random_state=42):
-#     dbscan = DBSCAN(eps=eps, min_samples=min_samples)
-#     clusters = dbscan.fit_predict(data)
-#     n_clusters = len(set(clusters)) - (1 if -1 in clusters else 0)
-#     logger.info(f"Clustered data into {n_clusters} clusters with DBSCAN")
-#     return clusters, n_clusters, dbscan
-
-
-# from sklearn.mixture import GaussianMixture
-
-# def cluster_spending_patterns(data, max_clusters=10, random_state=42):
-#     bic = []
-#     cluster_range = range(2, min(max_clusters + 1, len(data)))
-#     for n_clusters in cluster_range:
-#         gmm = GaussianMixture(n_components=n_clusters, random_state=random_state)
-#         gmm.fit(data)
-#         bic.append(gmm.bic(data))
-#     optimal_clusters = cluster_range[np.argmin(bic)]
-#     gmm = GaussianMixture(n_components=optimal_clusters, random_state=random_state)
-#     clusters = gmm.fit_predict(data)
-#     logger.info(f"Clustered data into {optimal_clusters} clusters with GMM")
-#     return clusters, optimal_clusters, gmm
-
 
 
 from sklearn.manifold import TSNE
@@ -1179,36 +784,3 @@ def extract_receipt_data_easyocr(image_path):
     except Exception as e:
         return {"status": "error", "message": str(e)}
 
-# Test inference on a new receipt
-# if __name__ == "__main__":
-#     new_receipt_path = '/content/toys.jpg'  # Replace with your image path
-#     if not os.path.exists(new_receipt_path):
-#         print(f"Image not found at {new_receipt_path}")
-#     else:
-#         result = extract_receipt_data_easyocr(new_receipt_path)
-#         print("Extraction Result:")
-#         print(f"Status: {result['status']}")
-#         if result["status"] == "success":
-#             print(f"Total Amount: ${result['amount']:.2f}")
-#             print(f"Items: {result['items']}")
-#             print(f"Totals: {result['totals']}")
-#             print(f"Description: {result['description']}")
-#             print(f"Full Text:\n{result['full_text']}")
-#         else:
-#             print(f"Error: {result['message']}")
-#         if result.get("error"):
-#             print(f"LayoutLM Error: {result['error']}")
-
-
-
-
-
-
-
-
-
-#     # return {
-#     #     'amount': total_amount,
-#     #     'description': description,
-#     #     'full_text': text
-    # }
